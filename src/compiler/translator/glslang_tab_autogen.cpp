@@ -471,7 +471,7 @@ extern void yyerror(YYLTYPE *yylloc, TParseContext *context, void *scanner, cons
     {                                                                \
         if (context->getShaderVersion() != 100)                      \
         {                                                            \
-            context->error(L, " supported in GLSL ES 1.00 only", S); \
+            context->warning(L, " supported in GLSL ES 1.00 only", S); \
         }                                                            \
     } while (0)
 
