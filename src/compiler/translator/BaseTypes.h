@@ -86,6 +86,14 @@ enum TBasicType
     EbtSampler2DShadow,
     EbtSamplerCubeShadow,
     EbtSampler2DArrayShadow,
+    EbtSampler1D,  // Desktop GLSL sampler types
+    EbtSampler1DArray,
+    EbtSampler1DArrayShadow,
+    EbtSampler1DShadow,
+    EbtISampler1D,
+    EbtISampler1DArray,
+    EbtUSampler1D,
+    EbtUSampler1DArray,
     EbtSamplerBuffer,
     EbtSamplerCubeArray,
     EbtSamplerCubeArrayShadow,
@@ -233,6 +241,14 @@ inline bool IsIntegerSampler(TBasicType type)
         case EbtISampler2DArray:
         case EbtISampler2DMS:
         case EbtISampler2DMSArray:
+        case EbtISampler1D:
+        case EbtISampler1DArray:
+        case EbtUSampler1D:
+        case EbtUSampler1DArray:
+        case EbtSampler1D:
+        case EbtSampler1DArray:
+        case EbtSampler1DArrayShadow:
+        case EbtSampler1DShadow:
         case EbtUSampler2D:
         case EbtUSampler3D:
         case EbtUSamplerCube:
@@ -280,6 +296,8 @@ inline bool IsIntegerSamplerUnsigned(TBasicType type)
         case EbtISampler2DArray:
         case EbtISampler2DMS:
         case EbtISampler2DMSArray:
+        case EbtISampler1D:
+        case EbtISampler1DArray:
         case EbtISampler2DRect:
         case EbtISamplerBuffer:
         case EbtISamplerCubeArray:
@@ -290,6 +308,8 @@ inline bool IsIntegerSamplerUnsigned(TBasicType type)
         case EbtUSampler2DArray:
         case EbtUSampler2DMS:
         case EbtUSampler2DMSArray:
+        case EbtUSampler1D:
+        case EbtUSampler1DArray:
         case EbtUSampler2DRect:
         case EbtUSamplerBuffer:
         case EbtUSamplerCubeArray:
@@ -422,6 +442,14 @@ inline bool IsSampler2D(TBasicType type)
         case EbtUSamplerCube:
         case EbtSamplerCube:
         case EbtSamplerCubeShadow:
+        case EbtISampler1D:
+        case EbtISampler1DArray:
+        case EbtUSampler1D:
+        case EbtUSampler1DArray:
+        case EbtSampler1D:
+        case EbtSampler1DArray:
+        case EbtSampler1DArrayShadow:
+        case EbtSampler1DShadow:
         case EbtSamplerBuffer:
         case EbtSamplerCubeArray:
         case EbtSamplerCubeArrayShadow:
@@ -457,6 +485,14 @@ inline bool IsSamplerCube(TBasicType type)
         case EbtISampler2D:
         case EbtISampler3D:
         case EbtISampler2DArray:
+        case EbtISampler1D:
+        case EbtISampler1DArray:
+        case EbtUSampler1D:
+        case EbtUSampler1DArray:
+        case EbtSampler1D:
+        case EbtSampler1DArray:
+        case EbtSampler1DArrayShadow:
+        case EbtSampler1DShadow:
         case EbtISampler2DMS:
         case EbtISampler2DMSArray:
         case EbtUSampler2D:
@@ -503,6 +539,14 @@ inline bool IsSampler3D(TBasicType type)
         case EbtISampler2D:
         case EbtISamplerCube:
         case EbtISampler2DArray:
+        case EbtISampler1D:
+        case EbtISampler1DArray:
+        case EbtUSampler1D:
+        case EbtUSampler1DArray:
+        case EbtSampler1D:
+        case EbtSampler1DArray:
+        case EbtSampler1DArrayShadow:
+        case EbtSampler1DShadow:
         case EbtISampler2DMS:
         case EbtISampler2DMSArray:
         case EbtUSampler2D:
@@ -535,6 +579,10 @@ inline bool IsSamplerArray(TBasicType type)
 {
     switch (type)
     {
+        case EbtISampler1DArray:
+        case EbtUSampler1DArray:
+        case EbtSampler1DArray:
+        case EbtSampler1DArrayShadow:
         case EbtSampler2DArray:
         case EbtISampler2DArray:
         case EbtUSampler2DArray:
@@ -547,6 +595,10 @@ inline bool IsSamplerArray(TBasicType type)
         case EbtUSamplerCubeArray:
         case EbtSamplerCubeArrayShadow:
             return true;
+        case EbtISampler1D:
+        case EbtUSampler1D:
+        case EbtSampler1D:
+        case EbtSampler1DShadow:
         case EbtSampler2D:
         case EbtISampler2D:
         case EbtUSampler2D:
@@ -569,6 +621,62 @@ inline bool IsSamplerArray(TBasicType type)
         case EbtISamplerBuffer:
         case EbtUSampler2DRect:
         case EbtUSamplerBuffer:
+        case EbtSamplerVideoWEBGL:
+            return false;
+        default:
+            ASSERT(!IsSampler(type));
+    }
+
+    return false;
+}
+
+inline bool IsSampler1D(TBasicType type)
+{
+    switch (type)
+    {
+        case EbtSampler1D:
+        case EbtISampler1D:
+        case EbtUSampler1D:
+        case EbtSampler1DShadow:
+            return true;
+        case EbtSampler2D:
+        case EbtSamplerCube:
+        case EbtSampler3D:
+        case EbtISampler3D:
+        case EbtUSampler3D:
+        case EbtSamplerExternalOES:
+        case EbtSamplerExternal2DY2YEXT:
+        case EbtSampler2DRect:
+        case EbtSampler2DArray:
+        case EbtSampler2DMS:
+        case EbtSampler2DMSArray:
+        case EbtISampler2D:
+        case EbtISamplerCube:
+        case EbtISampler2DArray:
+        case EbtISampler2DMS:
+        case EbtISampler2DMSArray:
+        case EbtUSampler2D:
+        case EbtUSamplerCube:
+        case EbtUSampler2DArray:
+        case EbtUSampler2DMS:
+        case EbtUSampler2DMSArray:
+        case EbtSampler2DShadow:
+        case EbtSamplerCubeShadow:
+        case EbtSampler2DArrayShadow:
+        case EbtSampler1DArray:
+        case EbtSampler1DArrayShadow:
+        case EbtSamplerBuffer:
+        case EbtSamplerCubeArray:
+        case EbtSamplerCubeArrayShadow:
+        case EbtSampler2DRectShadow:
+        case EbtISampler1DArray:
+        case EbtISampler2DRect:
+        case EbtISamplerBuffer:
+        case EbtISamplerCubeArray:
+        case EbtUSampler1DArray:
+        case EbtUSampler2DRect:
+        case EbtUSamplerBuffer:
+        case EbtUSamplerCubeArray:
         case EbtSamplerVideoWEBGL:
             return false;
         default:
@@ -642,11 +750,19 @@ inline bool IsShadowSampler(TBasicType type)
 {
     switch (type)
     {
+        case EbtSampler1DArrayShadow:
+        case EbtSampler1DShadow:
         case EbtSampler2DShadow:
         case EbtSamplerCubeShadow:
         case EbtSampler2DArrayShadow:
         case EbtSamplerCubeArrayShadow:
             return true;
+        case EbtISampler1D:
+        case EbtISampler1DArray:
+        case EbtUSampler1D:
+        case EbtUSampler1DArray:
+        case EbtSampler1D:
+        case EbtSampler1DArray:
         case EbtISampler2D:
         case EbtISampler3D:
         case EbtISamplerCube:
@@ -892,6 +1008,7 @@ enum TQualifier
     EvqSecondaryFragDataEXT,   // EXT_blend_func_extended
 
     EvqViewIDOVR,          // OVR_multiview
+    EvqViewportIndex,  // gl_ViewportIndex
     EvqEmulatedViewIDOVR,  // Emulated gl_ViewID_OVR
 
     EvqClipDistance,  // APPLE_clip_distance / EXT_clip_cull_distance / ANGLE_clip_cull_distance
@@ -1471,6 +1588,7 @@ inline const char *getQualifierString(TQualifier q)
     case EvqSecondaryFragColorEXT:     return "SecondaryFragColorEXT";
     case EvqSecondaryFragDataEXT:      return "SecondaryFragDataEXT";
     case EvqViewIDOVR:                 return "ViewIDOVR";
+    case EvqViewportIndex:             return "ViewportIndex";
     case EvqEmulatedViewIDOVR:         return "EmulatedViewIDOVR";
     case EvqLayerOut:                  return "LayerOut";
     case EvqLayerIn:                   return "LayerIn";
