@@ -2955,6 +2955,11 @@ spirv::IdRef OutputSPIRVTraverser::visitOperator(TIntermOperator *node, spirv::I
             extendScalarToVector = false;
             break;
 
+        case EOpFtransform:
+            // TODO: support desktop GLSL.  http://anglebug.com/42264721
+            UNIMPLEMENTED();
+            break;
+
         case EOpOuterProduct:
             writeBinaryOp = spirv::WriteOuterProduct;
             break;
@@ -3530,6 +3535,12 @@ spirv::IdRef OutputSPIRVTraverser::createImageTextureBuiltIn(TIntermOperator *no
     // Organize the parameters and decide the SPIR-V Op to use.
     switch (op)
     {
+
+        case EOpTexture1D:
+        case EOpShadow1D:
+        case EOpTexture1DBias:
+        case EOpShadow1DBias:
+
         case EOpTexture2D:
         case EOpTextureCube:
         case EOpTexture3D:
@@ -3564,6 +3575,10 @@ spirv::IdRef OutputSPIRVTraverser::createImageTextureBuiltIn(TIntermOperator *no
             }
             break;
 
+        case EOpShadow1DProj:
+        case EOpTexture1DProj:
+        case EOpTexture1DProjBias:
+        case EOpShadow1DProjBias:
         case EOpTexture2DProj:
         case EOpTexture3DProj:
         case EOpShadow2DProjEXT:
@@ -3581,6 +3596,8 @@ spirv::IdRef OutputSPIRVTraverser::createImageTextureBuiltIn(TIntermOperator *no
             }
             break;
 
+        case EOpTexture1DLod:
+        case EOpShadow1DLod:
         case EOpTexture3DLod:
 
         case EOpTexture2DLodVS:
