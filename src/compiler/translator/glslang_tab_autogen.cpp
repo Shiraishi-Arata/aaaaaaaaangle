@@ -466,12 +466,13 @@ extern void yyerror(YYLTYPE *yylloc, TParseContext *context, void *scanner, cons
         }                                                               \
     } while (0)
 
+// TODO
 #define ES2_ONLY(S, L)                                               \
     do                                                               \
     {                                                                \
         if (context->getShaderVersion() != 100)                      \
         {                                                            \
-            context->warning(L, " supported in GLSL ES 1.00 only", S); \
+            context->error(L, " supported in GLSL ES 1.00 only", S); \
         }                                                            \
     } while (0)
 
