@@ -1662,7 +1662,39 @@ spv::ImageFormat SPIRVBuilder::getImageFormat(TLayoutImageInternalFormat imageIn
     switch (imageInternalFormat)
     {
         case EiifUnspecified:
-            //return spv::ImageFormatUnknown;
+            return spv::ImageFormatUnknown;
+        case EiifRGBA32F:
+            return spv::ImageFormatRgba32f;
+        case EiifRGBA16F:
+            return spv::ImageFormatRgba16f;
+        case EiifR32F:
+            return spv::ImageFormatR32f;
+        case EiifRGBA32UI:
+            return spv::ImageFormatRgba32ui;
+        case EiifRGBA16UI:
+            return spv::ImageFormatRgba16ui;
+        case EiifRGBA8UI:
+            return spv::ImageFormatRgba8ui;
+        case EiifR32UI:
+            return spv::ImageFormatR32ui;
+        case EiifRGBA32I:
+            return spv::ImageFormatRgba32i;
+        case EiifRGBA16I:
+            return spv::ImageFormatRgba16i;
+        case EiifRGBA8I:
+            return spv::ImageFormatRgba8i;
+        case EiifR32I:
+            return spv::ImageFormatR32i;
+        case EiifRG16F:
+            return spv::ImageFormatRg16f;
+        case EiifRG32UI:
+            return spv::ImageFormatRg32ui;
+        case EiifRGBA8:
+            return spv::ImageFormatRgba8;
+        case EiifRGBA8_SNORM:
+            return spv::ImageFormatRgba8Snorm;
+        default:
+            //UNREACHABLE();
             switch (spirvType.type)
             {
                case EbtFloat:
@@ -1696,39 +1728,7 @@ spv::ImageFormat SPIRVBuilder::getImageFormat(TLayoutImageInternalFormat imageIn
                default:
                    return spv::ImageFormatUnknown;
             }
-        case EiifRGBA32F:
-            return spv::ImageFormatRgba32f;
-        case EiifRGBA16F:
-            return spv::ImageFormatRgba16f;
-        case EiifR32F:
-            return spv::ImageFormatR32f;
-        case EiifRGBA32UI:
-            return spv::ImageFormatRgba32ui;
-        case EiifRGBA16UI:
-            return spv::ImageFormatRgba16ui;
-        case EiifRGBA8UI:
-            return spv::ImageFormatRgba8ui;
-        case EiifR32UI:
-            return spv::ImageFormatR32ui;
-        case EiifRGBA32I:
-            return spv::ImageFormatRgba32i;
-        case EiifRGBA16I:
-            return spv::ImageFormatRgba16i;
-        case EiifRGBA8I:
-            return spv::ImageFormatRgba8i;
-        case EiifR32I:
-            return spv::ImageFormatR32i;
-        case EiifRG16F:
-            return spv::ImageFormatRg16f;
-        case EiifRG32UI:
-            return spv::ImageFormatRg32ui;
-        case EiifRGBA8:
-            return spv::ImageFormatRgba8;
-        case EiifRGBA8_SNORM:
-            return spv::ImageFormatRgba8Snorm;
-        default:
-            UNREACHABLE();
-            return spv::ImageFormatUnknown;
+
     }
 }
 
