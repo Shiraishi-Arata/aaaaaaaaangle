@@ -452,6 +452,8 @@ TConstantUnion TConstantUnion::sub(const TConstantUnion &lhs,
 {
     TConstantUnion returnValue;
 
+    ImplicitTypeConversion conversion = GetConversion(lhs.type, rhs.type);
+    if (conversion == ImplicitTypeConversion::Same) {
     switch (lhs.type)
     {
         case EbtInt:
@@ -466,6 +468,10 @@ TConstantUnion TConstantUnion::sub(const TConstantUnion &lhs,
         default:
             UNREACHABLE();
     }
+    } else {
+        ASSERT(conversion != ImplicitTypeConversion::Invalid);
+        returnValue.setFConst(CheckedDiff(lhs.getFConst(), rhs.getFConst(), diag, line));
+    }
 
     return returnValue;
 }
@@ -478,6 +484,8 @@ TConstantUnion TConstantUnion::mul(const TConstantUnion &lhs,
 {
     TConstantUnion returnValue;
 
+    ImplicitTypeConversion conversion = GetConversion(lhs.type, rhs.type);
+    if (conversion == ImplicitTypeConversion::Same) {
     switch (lhs.type)
     {
         case EbtInt:
@@ -493,6 +501,10 @@ TConstantUnion TConstantUnion::mul(const TConstantUnion &lhs,
             break;
         default:
             UNREACHABLE();
+    }
+    } else {
+        ASSERT(conversion != ImplicitTypeConversion::Invalid);
+        returnValue.setFConst(CheckedMul(lhs.getFConst(), rhs.getFConst(), diag, line));
     }
 
     return returnValue;
