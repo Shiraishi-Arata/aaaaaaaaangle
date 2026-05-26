@@ -4038,6 +4038,9 @@ spirv::IdRef OutputSPIRVTraverser::createImageTextureBuiltIn(TIntermOperator *no
         if (IsSampler2D(samplerBasicType))
         {
             requiredChannelCount = 3;
+        } else if (IsSampler1D(samplerBasicType))
+        {
+            requiredChannelCount = 2;
         }
         if (requiredChannelCount != coordinatesChannelCount)
         {
