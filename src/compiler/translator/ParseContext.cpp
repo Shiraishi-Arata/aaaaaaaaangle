@@ -2587,9 +2587,16 @@ void TParseContext::nonEmptyDeclarationErrorCheck(const TPublicType &publicType,
                 }
                 break;
             case EiifRG32UI:
-                break;
             case EiifRG16F:
+            case EiifR11FG11FB10F:
+            case EiifR16F:
+            case EiifRGBA16:
+            case EiifRG8UI:
+            case EiifRG16UI:
+            case EiifRG32UI:
+            case EiifRGBA16_SNORM:
                 break;
+              
             case EiifUnspecified:
                 warning(identifierLocation, "layout qualifier", "No image internal format specified");
                 break;
@@ -2627,6 +2634,13 @@ void TParseContext::nonEmptyDeclarationErrorCheck(const TPublicType &publicType,
         }
         switch (layoutQualifier.imageInternalFormat)
         {
+            case EiifR11FG11FB10F:
+            case EiifR16F:
+            case EiifRGBA16:
+            case EiifRG8UI:
+            case EiifRG16UI:
+            case EiifRG32UI:
+            case EiifRGBA16_SNORM:
             case EiifRG16F:
             case EiifRG32UI:
             case EiifR32F:
