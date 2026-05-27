@@ -1072,6 +1072,15 @@
                     "comment": "Used internally for SPIR-V generation, not exposed to application"
                 }
             },
+            "gl_ViewportIndex":{
+                "comment":"For internal use by ANGLE - not exposed to the parser.",
+                "essl_level":"ESSL_INTERNAL_BACKEND_BUILTINS",
+                "type":{
+                    "basic":"Int",
+                    "precision":"High",
+                    "qualifier":"ViewportIndex"
+                }
+            },
             "gl_Layer":{
                 "suffix":"VS",
                 "comment":"gl_Layer exists in other shader stages in ESSL, but not in vertex shader so far. Used internally for mulitview emulation",
@@ -1172,7 +1181,7 @@
                 "essl_level":"ESSL3_1_BUILTINS",
                 "type":{
                     "basic":"UInt",
-                    "precision":"High",
+                    "precision":"Undefined",
                     "qualifier":"NumWorkGroups",
                     "primarySize":3
                 }
@@ -1181,7 +1190,7 @@
                 "essl_level":"ESSL3_1_BUILTINS",
                 "type":{
                     "basic":"UInt",
-                    "precision":"High",
+                    "precision":"Undefined",
                     "qualifier":"WorkGroupSize",
                     "primarySize":3
                 }
@@ -1190,7 +1199,7 @@
                 "essl_level":"ESSL3_1_BUILTINS",
                 "type":{
                     "basic":"UInt",
-                    "precision":"High",
+                    "precision":"Undefined",
                     "qualifier":"WorkGroupID",
                     "primarySize":3
                 }
@@ -1199,7 +1208,7 @@
                 "essl_level":"ESSL3_1_BUILTINS",
                 "type":{
                     "basic":"UInt",
-                    "precision":"High",
+                    "precision":"Undefined",
                     "qualifier":"LocalInvocationID",
                     "primarySize":3
                 }
@@ -1208,7 +1217,7 @@
                 "essl_level":"ESSL3_1_BUILTINS",
                 "type":{
                     "basic":"UInt",
-                    "precision":"High",
+                    "precision":"Undefined",
                     "qualifier":"GlobalInvocationID",
                     "primarySize":3
                 }
@@ -1217,7 +1226,7 @@
                 "essl_level":"ESSL3_1_BUILTINS",
                 "type":{
                     "basic":"UInt",
-                    "precision":"High",
+                    "precision":"Undefined",
                     "qualifier":"LocalInvocationIndex"
                 }
             }
@@ -1545,5 +1554,14 @@
                 }
             }
         }
+    },
+    "gl_MultiTexCoord0": {
+      "essl_level": "COMMON_BUILTINS",
+      "type": {
+          "basic": "Float",
+          "precision": "High",
+          "qualifier": "MultiTexCoord0",
+          "primarySize": 4
+      }
     }
 }

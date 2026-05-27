@@ -597,18 +597,21 @@ basic_types_enumeration = [
     'USamplerBuffer',
     'USamplerCubeArray',
     'SamplerVideoWEBGL',
+    'Image1D',
     'Image2D',
     'Image3D',
     'Image2DArray',
     'ImageCube',
     'ImageCubeArray',
     'ImageBuffer',
+    'IImage1D',
     'IImage2D',
     'IImage3D',
     'IImage2DArray',
     'IImageCube',
     'IImageCubeArray',
     'IImageBuffer',
+    'UImage1D',
     'UImage2D',
     'UImage3D',
     'UImage2DArray',
@@ -621,6 +624,14 @@ basic_types_enumeration = [
     'SubpassInput',
     'ISubpassInput',
     'USubpassInput',
+    'Sampler1D',
+    'Sampler1DShadow',
+    'Sampler1DArray',
+    'Sampler1DArrayShadow',
+    'ISampler1D',
+    'ISampler1DArray',
+    'USampler1D',
+    'USampler1DArray',
 ]
 
 id_counter = 0
@@ -1427,7 +1438,7 @@ def gen_function_variants(function_props):
     # If we have image_params then we're generating variants for multiple separate functions,
     # each for a different type of image variable
     if 'image_params' in gen_type:
-        variants = [['gimage2D', 'ivec2'], ['gimage3D', 'ivec3'], ['gimageCube', 'ivec3'],
+        variants = [['gimage1D', 'ivec2'], ['gimage2D', 'ivec2'], ['gimage3D', 'ivec3'], ['gimageCube', 'ivec3'],
                     ['gimageBuffer', 'int'], ['gimage2DArray', 'ivec3'],
                     ['gimageCubeArray', 'ivec3']]
         for variant in variants:
@@ -2062,7 +2073,7 @@ def main():
     parser.add_argument('auto_script_command', nargs='?', default='')
     args = parser.parse_args()
 
-    test_filename = '../../tests/compiler_tests/ImmutableString_test_autogen.cpp'
+    test_filename = 'ImmutableString_test_autogen.cpp'
     variables_json_filename = 'builtin_variables.json'
     functions_txt_filename = 'builtin_function_declarations.txt'
 
@@ -2078,7 +2089,7 @@ def main():
             test_filename,
             'ImmutableString_autogen.cpp',
             'SymbolTable_autogen.cpp',
-            'tree_util/BuiltIn_autogen.h',
+            'BuiltIn_autogen.h',
         ]
 
         if args.auto_script_command == 'inputs':
@@ -2092,7 +2103,7 @@ def main():
 
     # Generate files based on ESSL symbols
     generate_files(args, functions_txt_filename, variables_json_filename,
-                   'ImmutableString_autogen.cpp', test_filename, 'tree_util/BuiltIn_autogen.h',
+                   'ImmutableString_autogen.cpp', test_filename, 'BuiltIn_autogen.h',
                    'SymbolTable_autogen.cpp', 'Operator_autogen.h', 'SymbolTable_autogen.h')
 
     return 0

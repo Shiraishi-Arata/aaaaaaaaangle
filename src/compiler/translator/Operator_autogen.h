@@ -200,6 +200,7 @@ enum TOperator : uint16_t
     EOpPackSnorm4x8,  // Unary
     EOpUnpackUnorm4x8,  // Unary
     EOpUnpackSnorm4x8,  // Unary
+    EOpFtransform,
 
     // Group MathGeometric
     EOpLength,  // Unary
@@ -247,8 +248,26 @@ enum TOperator : uint16_t
     EOpTexture2D,
     EOpTexture2DProj,
     EOpTextureCube,
+    EOpTexture1D,
+    EOpTexture1DProj,
     EOpTexture3D,
     EOpTexture3DProj,
+    EOpShadow1D,
+    EOpShadow1DProj,
+    EOpShadow2D,
+    EOpShadow2DProj,
+    EOpTexture2DLod,
+    EOpTexture2DProjLod,
+    EOpTextureCubeLod,
+    EOpTexture1DLod,
+    EOpTexture1DProjLod,
+    EOpShadow1DLod,
+    EOpShadow1DProjLod,
+    EOpShadow2DLod,
+    EOpShadow2DProjLod,
+    EOpTextureQueryLevels,
+    EOpTextureSamples,
+    EOpTextureQueryLod,
     EOpShadow2DEXT,
     EOpShadow2DProjEXT,
     EOpTexture2DRect,
@@ -360,6 +379,15 @@ enum TOperator : uint16_t
     EOpAtomicCounter,
     EOpAtomicCounterIncrement,
     EOpAtomicCounterDecrement,
+    EOpAtomicCounterAdd,
+    EOpAtomicCounterSubtract,
+    EOpAtomicCounterMin,
+    EOpAtomicCounterMax,
+    EOpAtomicCounterAnd,
+    EOpAtomicCounterOr,
+    EOpAtomicCounterXor,
+    EOpAtomicCounterExchange,
+    EOpAtomicCounterCompSwap,
 
     // Group AtomicMemory
     EOpAtomicAdd,
@@ -523,7 +551,7 @@ static inline bool IsInterpolationFS(TOperator op)
 }
 static inline bool IsAtomicCounter(TOperator op)
 {
-    return op >= EOpAtomicCounter && op <= EOpAtomicCounterDecrement;
+    return op >= EOpAtomicCounter && op <= EOpAtomicCounterCompSwap;
 }
 static inline bool IsAtomicMemory(TOperator op)
 {
