@@ -2955,7 +2955,8 @@ class ImageHelper final : public Resource, public angle::Subject
                                           uint32_t layerCount);
     angle::Result reformatStagedBufferUpdates(ContextVk *contextVk,
                                               angle::FormatID srcFormatID,
-                                              angle::FormatID dstFormatID);
+                                              angle::FormatID dstFormatID,
+                                              gl::TextureType dstTextureType);
     bool hasStagedImageUpdatesWithMismatchedFormat(gl::LevelIndex levelStart,
                                                    gl::LevelIndex levelEnd,
                                                    angle::FormatID formatID) const;
