@@ -1,5 +1,3 @@
-//TODO
-
 // Copyright 2024 The ANGLE Project Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -3008,6 +3006,13 @@ pub mod ffi {
         R32F,
         RG32UI,
         RG16F,
+        R11FG11FB10F,
+        R16F,
+        RGBA16,
+        RG8UI,
+        RG16UI,
+        RG32UI,
+        RGBA16SNORM,
         RGBA32UI,
         RGBA16UI,
         RGBA8UI,
@@ -4256,6 +4261,27 @@ impl BuilderWrapper {
             ffi::ASTLayoutImageInternalFormat::RG16F => decorations
                 .decorations
                 .push(Decoration::ImageInternalFormat(ImageInternalFormat::RG16F)),
+            ffi::ASTLayoutImageInternalFormat::R11FG11FB10F => decorations
+                .decorations
+                .push(Decoration::ImageInternalFormat(ImageInternalFormat::R11FG11FB10F)),
+            ffi::ASTLayoutImageInternalFormat::R16F => decorations
+                .decorations
+                .push(Decoration::ImageInternalFormat(ImageInternalFormat::R16F)),
+            ffi::ASTLayoutImageInternalFormat::RGBA16 => decorations
+                .decorations
+                .push(Decoration::ImageInternalFormat(ImageInternalFormat::RGBA16)),
+            ffi::ASTLayoutImageInternalFormat::RG8UI => decorations
+                .decorations
+                .push(Decoration::ImageInternalFormat(ImageInternalFormat::RG8UI)),
+            ffi::ASTLayoutImageInternalFormat::RG16UI => decorations
+                .decorations
+                .push(Decoration::ImageInternalFormat(ImageInternalFormat::RG16UI)),
+            ffi::ASTLayoutImageInternalFormat::RG32UI => decorations
+                .decorations
+                .push(Decoration::ImageInternalFormat(ImageInternalFormat::RG32UI)),
+            ffi::ASTLayoutImageInternalFormat::RGBA16SNORM => decorations
+                .decorations
+                .push(Decoration::ImageInternalFormat(ImageInternalFormat::RGBA16SNORM)),
             ffi::ASTLayoutImageInternalFormat::RGBA32I => decorations
                 .decorations
                 .push(Decoration::ImageInternalFormat(ImageInternalFormat::RGBA32I)),
