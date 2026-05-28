@@ -247,8 +247,15 @@ bool UsesDerivatives(TIntermAggregate *functionCall)
     switch (op)
     {
         // TextureFirstVersions with implicit LOD
+        case EOpTexture1D:
+        case EOpTexture1DProj:
         case EOpTexture2D:
         case EOpTexture2DProj:
+        case EOpShadow1D:
+        case EOpShadow1DProj:
+        case EOpShadow2D:
+        case EOpShadow2DProj:
+        case EOpTextureQueryLod:
         case EOpTextureCube:
         case EOpTexture3D:
         case EOpTexture3DProj:
