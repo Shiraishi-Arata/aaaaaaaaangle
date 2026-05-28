@@ -464,13 +464,15 @@ void TSymbolTable::initializeBuiltIns(sh::GLenum type,
     // We need just one precision stack level for predefined precisions.
     mPrecisionStack.emplace_back(new PrecisionStackLevel);
 
-    setDefaultPrecision(EbtInt, EbpUndefined);
-    setDefaultPrecision(EbtFloat, EbpUndefined);
+    /*setDefaultPrecision(EbtInt, EbpUndefined);
+    setDefaultPrecision(EbtFloat, EbpUndefined);*/
 
     switch (type)
     {
         case GL_FRAGMENT_SHADER:
             setDefaultPrecision(EbtInt, EbpMedium);
+            if (std::getenv("ANGLE_ALWAYS_EbpHIGH")) setDefaultPrecision(EbtInt, EbpHigh);
+            if (std::getenv("ANGLE_ALWAYS_EbpHIGH")) setDefaultPrecision(EbtFloat, EbpHigh);
             break;
         case GL_VERTEX_SHADER:
         case GL_COMPUTE_SHADER:
@@ -523,11 +525,11 @@ const TSymbol *SymbolRule::get(ShShaderSpec shaderSpec,
                                const ShBuiltInResources &resources,
                                const TSymbolTableBase &symbolTable) const
 {
-    if (mVersion == kESSL1Only && shaderVersion != static_cast<int>(kESSL1Only))
-        return nullptr;
+    /*if (mVersion == kESSL1Only && shaderVersion != static_cast<int>(kESSL1Only))
+        return nullptr;*/
 
-    if (mVersion > shaderVersion)
-        return nullptr;
+    /*if (mVersion > shaderVersion)
+        return nullptr;*/
 
     if (!CheckShaderType(static_cast<Shader>(mShaders), shaderType))
         return nullptr;
