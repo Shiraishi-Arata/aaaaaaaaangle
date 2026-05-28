@@ -2593,7 +2593,6 @@ void TParseContext::nonEmptyDeclarationErrorCheck(const TPublicType &publicType,
             case EiifRGBA16:
             case EiifRG8UI:
             case EiifRG16UI:
-            case EiifRG32UI:
             case EiifRGBA16_SNORM:
                 break;
               
@@ -2642,7 +2641,6 @@ void TParseContext::nonEmptyDeclarationErrorCheck(const TPublicType &publicType,
             case EiifRG32UI:
             case EiifRGBA16_SNORM:
             case EiifRG16F:
-            case EiifRG32UI:
             case EiifR32F:
             case EiifRGBA8:
                 if (publicType.getBasicType() != EbtPixelLocalANGLE)
@@ -7575,10 +7573,6 @@ TLayoutQualifier TParseContext::parseLayoutQualifier(const ImmutableString &qual
     else if (qualifierType == "rg16ui")
     {
         qualifier.imageInternalFormat = EiifRG16UI;
-    }
-    else if (qualifierType == "rg32ui")
-    {
-        qualifier.imageInternalFormat = EiifRG32UI;
     }
     else if (qualifierType == "rgba16_snorm")
     {
