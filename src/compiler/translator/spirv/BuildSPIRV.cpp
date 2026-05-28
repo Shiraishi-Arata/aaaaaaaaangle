@@ -1713,8 +1713,6 @@ spv::ImageFormat SPIRVBuilder::getImageFormat(TLayoutImageInternalFormat imageIn
             return spv::ImageFormatRg8ui;
         case EiifRG16UI:
             return spv::ImageFormatRg16ui;
-        case EiifRG32UI:
-            return spv::ImageFormatRg32ui;
         case EiifRGBA16_SNORM:
             return spv::ImageFormatRgba16Snorm;
         case EiifRGBA8:
