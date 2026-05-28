@@ -660,7 +660,6 @@ inline bool IsSampler1D(TBasicType type)
         case EbtUSampler2DArray:
         case EbtUSampler2DMS:
         case EbtUSampler2DMSArray:
-        case EbtSampler2DShadow:
         case EbtSamplerCubeShadow:
         case EbtSampler2DArrayShadow:
         case EbtSampler1DArray:
@@ -668,7 +667,6 @@ inline bool IsSampler1D(TBasicType type)
         case EbtSamplerBuffer:
         case EbtSamplerCubeArray:
         case EbtSamplerCubeArrayShadow:
-        case EbtSampler2DRectShadow:
         case EbtISampler1DArray:
         case EbtISampler2DRect:
         case EbtISamplerBuffer:
@@ -1738,17 +1736,17 @@ inline const char *getImageInternalFormatString(TLayoutImageInternalFormat iifq)
         case EiifRG32UI:
             return "rg32ui";
         case EiifR11FG11FB10F:
-            return "r11fg11fb10f"
+            return "r11fg11fb10f";
         case EiifR16F:
-            return "r16f"
+            return "r16f";
         case EiifRGBA16:
-            return "rgba16"
+            return "rgba16";
         case EiifRG8UI:
-            return "rg8ui"
+            return "rg8ui";
         case EiifRG16UI:
-            return "rg16ui"
+            return "rg16ui";
         case EiifRGBA16_SNORM:
-            return "rgba16_snorm"
+            return "rgba16_snorm";
         case EiifRGBA8:
             return "rgba8";
         case EiifRGBA8_SNORM:
