@@ -3538,8 +3538,6 @@ spirv::IdRef OutputSPIRVTraverser::createImageTextureBuiltIn(TIntermOperator *no
 
         case EOpTexture1D:
         case EOpShadow1D:
-        case EOpTexture1DBias:
-        case EOpShadow1DBias:
 
         case EOpTexture2D:
         case EOpTextureCube:
@@ -3577,8 +3575,6 @@ spirv::IdRef OutputSPIRVTraverser::createImageTextureBuiltIn(TIntermOperator *no
 
         case EOpShadow1DProj:
         case EOpTexture1DProj:
-        case EOpTexture1DProjBias:
-        case EOpShadow1DProjBias:
         case EOpTexture2DProj:
         case EOpTexture3DProj:
         case EOpShadow2DProjEXT:
