@@ -1641,6 +1641,9 @@ void SPIRVBuilder::getImageTypeParameters(TBasicType type,
     //
     switch (*dimOut)
     {
+        case spv::Dim1D:
+            addCapability(isSampledImage ? spv::CapabilitySampled1D : spv::CapabilityImage1D);
+            break;
         case spv::Dim2D:
             if (!isSampledImage && isArrayed && isMultisampled)
             {
