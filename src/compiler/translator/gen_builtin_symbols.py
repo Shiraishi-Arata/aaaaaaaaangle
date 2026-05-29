@@ -598,6 +598,9 @@ basic_types_enumeration = [
     'USamplerCubeArray',
     'SamplerVideoWEBGL',
     'Image1D',
+    'Image1DArray',
+    'IImage1DArray',
+    'UImage1DArray',
     'Image2D',
     'Image3D',
     'Image2DArray',
@@ -1438,7 +1441,7 @@ def gen_function_variants(function_props):
     # If we have image_params then we're generating variants for multiple separate functions,
     # each for a different type of image variable
     if 'image_params' in gen_type:
-        variants = [['gimage1D', 'ivec2'], ['gimage2D', 'ivec2'], ['gimage3D', 'ivec3'], ['gimageCube', 'ivec3'],
+        variants = [['gimage1D', 'int'], ['gimage1DArray', 'ivec2'], ['gimage2D', 'ivec2'], ['gimage3D', 'ivec3'], ['gimageCube', 'ivec3'],
                     ['gimageBuffer', 'int'], ['gimage2DArray', 'ivec3'],
                     ['gimageCubeArray', 'ivec3']]
         for variant in variants:
