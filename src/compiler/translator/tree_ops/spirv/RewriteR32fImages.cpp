@@ -288,6 +288,12 @@ class RewriteR32fImagesTraverser : public TIntermTraverser
 
         switch (type.getBasicType())
         {
+            case EbtImage1D:
+                newType->setBasicType(EbtUImage1D);
+                break;
+            case EbtImage1DArray:
+                newType->setBasicType(EbtUImage1DArray);
+                break;
             case EbtImage2D:
                 newType->setBasicType(EbtUImage2D);
                 break;
