@@ -25,7 +25,7 @@ using TableBase = TSymbolTableBase;
 
 struct SymbolIdChecker
 {
-    static_assert(TSymbolTable::kFirstUserDefinedSymbolId > 2436);
+    static_assert(TSymbolTable::kFirstUserDefinedSymbolId > 2433);
 };
 
 namespace BuiltInName
@@ -413,7 +413,7 @@ constexpr const TVariable kgl_FragCoord300(BuiltInId::gl_FragCoord300, BuiltInNa
 constexpr const TVariable kgl_FragDepth(BuiltInId::gl_FragDepth, BuiltInName::gl_FragDepth, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtFloat, EbpHigh, EvqFragDepth, 1, 1>());
 constexpr const TVariable kgl_FragDepthEXT(BuiltInId::gl_FragDepthEXT, BuiltInName::gl_FragDepthEXT, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::EXT_frag_depth}}, StaticType::Get<EbtFloat, EbpHigh, EvqFragDepth, 1, 1>());
 constexpr const TVariable kgl_FrontFacing(BuiltInId::gl_FrontFacing, BuiltInName::gl_FrontFacing, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtBool, EbpUndefined, EvqFrontFacing, 1, 1>());
-constexpr const TVariable kgl_GlobalInvocationID(BuiltInId::gl_GlobalInvocationID, BuiltInName::gl_GlobalInvocationID, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobalInvocationID, 3, 1>());
+constexpr const TVariable kgl_GlobalInvocationID(BuiltInId::gl_GlobalInvocationID, BuiltInName::gl_GlobalInvocationID, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpHigh, EvqGlobalInvocationID, 3, 1>());
 constexpr const TVariable kgl_HelperInvocation(BuiltInId::gl_HelperInvocation, BuiltInName::gl_HelperInvocation, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtBool, EbpUndefined, EvqHelperInvocation, 1, 1>());
 constexpr const TVariable kgl_InstanceID(BuiltInId::gl_InstanceID, BuiltInName::gl_InstanceID, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpHigh, EvqInstanceID, 1, 1>());
 constexpr const TVariable kgl_InstanceIndex(BuiltInId::gl_InstanceIndex, BuiltInName::gl_InstanceIndex, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpHigh, EvqInstanceID, 1, 1>());
@@ -429,11 +429,11 @@ constexpr const TVariable kgl_LayerES3_2(BuiltInId::gl_LayerES3_2, BuiltInName::
 constexpr const TVariable kgl_LayerGS(BuiltInId::gl_LayerGS, BuiltInName::gl_Layer, SymbolType::BuiltIn, std::array<TExtension, 2u>{{TExtension::EXT_geometry_shader, TExtension::OES_geometry_shader}}, StaticType::Get<EbtInt, EbpHigh, EvqLayerOut, 1, 1>());
 constexpr const TVariable kgl_LayerGSES3_2(BuiltInId::gl_LayerGSES3_2, BuiltInName::gl_Layer, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpHigh, EvqLayerOut, 1, 1>());
 constexpr const TVariable kgl_LayerVS(BuiltInId::gl_LayerVS, BuiltInName::gl_Layer, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpHigh, EvqLayerOut, 1, 1>());
-constexpr const TVariable kgl_LocalInvocationID(BuiltInId::gl_LocalInvocationID, BuiltInName::gl_LocalInvocationID, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpUndefined, EvqLocalInvocationID, 3, 1>());
-constexpr const TVariable kgl_LocalInvocationIndex(BuiltInId::gl_LocalInvocationIndex, BuiltInName::gl_LocalInvocationIndex, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpUndefined, EvqLocalInvocationIndex, 1, 1>());
+constexpr const TVariable kgl_LocalInvocationID(BuiltInId::gl_LocalInvocationID, BuiltInName::gl_LocalInvocationID, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpHigh, EvqLocalInvocationID, 3, 1>());
+constexpr const TVariable kgl_LocalInvocationIndex(BuiltInId::gl_LocalInvocationIndex, BuiltInName::gl_LocalInvocationIndex, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpHigh, EvqLocalInvocationIndex, 1, 1>());
 constexpr const TVariable kgl_NumSamples(BuiltInId::gl_NumSamples, BuiltInName::gl_NumSamples, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::OES_sample_variables}}, StaticType::Get<EbtInt, EbpLow, EvqNumSamples, 1, 1>());
 constexpr const TVariable kgl_NumSamplesES3_2(BuiltInId::gl_NumSamplesES3_2, BuiltInName::gl_NumSamples, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpLow, EvqNumSamples, 1, 1>());
-constexpr const TVariable kgl_NumWorkGroups(BuiltInId::gl_NumWorkGroups, BuiltInName::gl_NumWorkGroups, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpUndefined, EvqNumWorkGroups, 3, 1>());
+constexpr const TVariable kgl_NumWorkGroups(BuiltInId::gl_NumWorkGroups, BuiltInName::gl_NumWorkGroups, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpHigh, EvqNumWorkGroups, 3, 1>());
 constexpr const TVariable kgl_PatchVerticesInTCS(BuiltInId::gl_PatchVerticesInTCS, BuiltInName::gl_PatchVerticesIn, SymbolType::BuiltIn, std::array<TExtension, 2u>{{TExtension::EXT_tessellation_shader, TExtension::OES_tessellation_shader}}, StaticType::Get<EbtInt, EbpHigh, EvqPatchVerticesIn, 1, 1>());
 constexpr const TVariable kgl_PatchVerticesInTCSES3_2(BuiltInId::gl_PatchVerticesInTCSES3_2, BuiltInName::gl_PatchVerticesIn, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpHigh, EvqPatchVerticesIn, 1, 1>());
 constexpr const TVariable kgl_PatchVerticesInTES(BuiltInId::gl_PatchVerticesInTES, BuiltInName::gl_PatchVerticesIn, SymbolType::BuiltIn, std::array<TExtension, 2u>{{TExtension::EXT_tessellation_shader, TExtension::OES_tessellation_shader}}, StaticType::Get<EbtInt, EbpHigh, EvqPatchVerticesIn, 1, 1>());
@@ -469,8 +469,8 @@ constexpr const TVariable kgl_VertexID(BuiltInId::gl_VertexID, BuiltInName::gl_V
 constexpr const TVariable kgl_VertexIndex(BuiltInId::gl_VertexIndex, BuiltInName::gl_VertexIndex, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpHigh, EvqVertexID, 1, 1>());
 constexpr const TVariable kgl_ViewID_OVR(BuiltInId::gl_ViewID_OVR, BuiltInName::gl_ViewID_OVR, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::OVR_multiview}}, StaticType::Get<EbtUInt, EbpHigh, EvqViewIDOVR, 1, 1>());
 constexpr const TVariable kgl_ViewportIndex(BuiltInId::gl_ViewportIndex, BuiltInName::gl_ViewportIndex, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpHigh, EvqViewportIndex, 1, 1>());
-constexpr const TVariable kgl_WorkGroupID(BuiltInId::gl_WorkGroupID, BuiltInName::gl_WorkGroupID, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpUndefined, EvqWorkGroupID, 3, 1>());
-constexpr const TVariable kgl_WorkGroupSize(BuiltInId::gl_WorkGroupSize, BuiltInName::gl_WorkGroupSize, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpUndefined, EvqWorkGroupSize, 3, 1>());
+constexpr const TVariable kgl_WorkGroupID(BuiltInId::gl_WorkGroupID, BuiltInName::gl_WorkGroupID, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpHigh, EvqWorkGroupID, 3, 1>());
+constexpr const TVariable kgl_WorkGroupSize(BuiltInId::gl_WorkGroupSize, BuiltInName::gl_WorkGroupSize, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpHigh, EvqWorkGroupSize, 3, 1>());
 constexpr const TVariable kpt00B(BuiltInId::pt00B, BuiltInName::_empty, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 1, 1>());
 constexpr const TVariable kpt00C(BuiltInId::pt00C, BuiltInName::_empty, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 1, 1>());
 constexpr const TVariable kpt00D(BuiltInId::pt00D, BuiltInName::_empty, SymbolType::BuiltIn, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 1, 1>());
@@ -1126,7 +1126,7 @@ constexpr const TVariable *p00p00C00B[3] = { &BuiltInVariable::kpt00p, &BuiltInV
 constexpr const TVariable *p00p00C00C00C[4] = { &BuiltInVariable::kpt00p, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C };
 constexpr const TVariable *p00p00C00D00D[4] = { &BuiltInVariable::kpt00p, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00D, &BuiltInVariable::kpt00D };
 constexpr const TVariable *p00p00C30B[3] = { &BuiltInVariable::kpt00p, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt30B };
-constexpr const TVariable *p00p10C30B[3] = { &BuiltInVariable::kpt00p, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt30B };
+constexpr const TVariable *p00p10C[2] = { &BuiltInVariable::kpt00p, &BuiltInVariable::kpt10C };
 constexpr const TVariable *p00q10C00B[3] = { &BuiltInVariable::kpt00q, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00B };
 constexpr const TVariable *p00q10C00C00C[4] = { &BuiltInVariable::kpt00q, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C };
 constexpr const TVariable *p00q10C00D00D[4] = { &BuiltInVariable::kpt00q, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00D, &BuiltInVariable::kpt00D };
@@ -1167,7 +1167,7 @@ constexpr const TVariable *p00z00C00B[3] = { &BuiltInVariable::kpt00z, &BuiltInV
 constexpr const TVariable *p00z00C00C00C[4] = { &BuiltInVariable::kpt00z, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C };
 constexpr const TVariable *p00z00C00D00D[4] = { &BuiltInVariable::kpt00z, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00D, &BuiltInVariable::kpt00D };
 constexpr const TVariable *p00z00C30C[3] = { &BuiltInVariable::kpt00z, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt30C };
-constexpr const TVariable *p00z10C30C[3] = { &BuiltInVariable::kpt00z, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt30C };
+constexpr const TVariable *p00z10C[2] = { &BuiltInVariable::kpt00z, &BuiltInVariable::kpt10C };
 constexpr const TVariable *p01A10C00B[3] = { &BuiltInVariable::kpt01A, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00B };
 constexpr const TVariable *p01A10C00C00C[4] = { &BuiltInVariable::kpt01A, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C };
 constexpr const TVariable *p01A10C00D00D[4] = { &BuiltInVariable::kpt01A, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00D, &BuiltInVariable::kpt00D };
@@ -1196,7 +1196,7 @@ constexpr const TVariable *p01G00C00B[3] = { &BuiltInVariable::kpt01G, &BuiltInV
 constexpr const TVariable *p01G00C00C00C[4] = { &BuiltInVariable::kpt01G, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C };
 constexpr const TVariable *p01G00C00D00D[4] = { &BuiltInVariable::kpt01G, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00D, &BuiltInVariable::kpt00D };
 constexpr const TVariable *p01G00C30D[3] = { &BuiltInVariable::kpt01G, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt30D };
-constexpr const TVariable *p01G10C30D[3] = { &BuiltInVariable::kpt01G, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt30D };
+constexpr const TVariable *p01G10C[2] = { &BuiltInVariable::kpt01G, &BuiltInVariable::kpt10C };
 constexpr const TVariable *p01H10C00B[3] = { &BuiltInVariable::kpt01H, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00B };
 constexpr const TVariable *p01H10C00C00C[4] = { &BuiltInVariable::kpt01H, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00C, &BuiltInVariable::kpt00C };
 constexpr const TVariable *p01H10C00D00D[4] = { &BuiltInVariable::kpt01H, &BuiltInVariable::kpt10C, &BuiltInVariable::kpt00D, &BuiltInVariable::kpt00D };
@@ -2139,15 +2139,15 @@ constexpr const TFunction texelFetch_00X20C00C(BuiltInId::texelFetch_USampler3D1
 constexpr const TFunction texelFetch_00K20C00C(BuiltInId::texelFetch_Sampler2DArray1_Int3_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00K20C00C10C, 3, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetch_00T20C00C(BuiltInId::texelFetch_ISampler2DArray1_Int3_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00T20C00C10C, 3, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetch_00Z20C00C(BuiltInId::texelFetch_USampler2DArray1_Int3_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00Z20C00C10C, 3, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
+constexpr const TFunction texelFetch_00O10C00C(BuiltInId::texelFetch_Sampler2DMS1_Int2_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00O10C00C, 3, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
+constexpr const TFunction texelFetch_00U10C00C(BuiltInId::texelFetch_ISampler2DMS1_Int2_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00U10C00C, 3, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
+constexpr const TFunction texelFetch_00a10C00C(BuiltInId::texelFetch_USampler2DMS1_Int2_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00a10C00C, 3, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetch_00f00C(BuiltInId::texelFetch_SamplerBuffer1_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00f00C, 2, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetch_00j00C(BuiltInId::texelFetch_ISamplerBuffer1_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00j00C, 2, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetch_00m00C(BuiltInId::texelFetch_USamplerBuffer1_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00m00C, 2, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetchExt_00f00C(BuiltInId::texelFetchExt_SamplerBuffer1_Int1, BuiltInName::texelFetchExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p00f00C, 2, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetchExt_00j00C(BuiltInId::texelFetchExt_ISamplerBuffer1_Int1, BuiltInName::texelFetchExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p00j00C, 2, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetchExt_00m00C(BuiltInId::texelFetchExt_USamplerBuffer1_Int1, BuiltInName::texelFetchExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p00m00C, 2, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
-constexpr const TFunction texelFetch_00O10C00C(BuiltInId::texelFetch_Sampler2DMS1_Int2_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00O10C00C, 3, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
-constexpr const TFunction texelFetch_00U10C00C(BuiltInId::texelFetch_ISampler2DMS1_Int2_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00U10C00C, 3, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
-constexpr const TFunction texelFetch_00a10C00C(BuiltInId::texelFetch_USampler2DMS1_Int2_Int1, BuiltInName::texelFetch, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00a10C00C, 3, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetchExt_00O10C00C(BuiltInId::texelFetchExt_Sampler2DMS1_Int2_Int1, BuiltInName::texelFetchExt, std::array<TExtension, 1u>{{TExtension::ANGLE_texture_multisample}}, BuiltInParameters::p00O10C00C, 3, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetchExt_00U10C00C(BuiltInId::texelFetchExt_ISampler2DMS1_Int2_Int1, BuiltInName::texelFetchExt, std::array<TExtension, 1u>{{TExtension::ANGLE_texture_multisample}}, BuiltInParameters::p00U10C00C, 3, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
 constexpr const TFunction texelFetchExt_00a10C00C(BuiltInId::texelFetchExt_USampler2DMS1_Int2_Int1, BuiltInName::texelFetchExt, std::array<TExtension, 1u>{{TExtension::ANGLE_texture_multisample}}, BuiltInParameters::p00a10C00C, 3, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpTexelFetch, true);
@@ -2556,9 +2556,6 @@ constexpr const TFunction imageSize_01M(BuiltInId::imageSize_UImageBuffer1, Buil
 constexpr const TFunction imageSizeExt_00y(BuiltInId::imageSizeExt_ImageBuffer1, BuiltInName::imageSizeExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p00y00C00B, 1, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageSize, true);
 constexpr const TFunction imageSizeExt_01F(BuiltInId::imageSizeExt_IImageBuffer1, BuiltInName::imageSizeExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p01F00C00B, 1, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageSize, true);
 constexpr const TFunction imageSizeExt_01M(BuiltInId::imageSizeExt_UImageBuffer1, BuiltInName::imageSizeExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p01M00C00B, 1, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageSize, true);
-constexpr const TFunction imageStore_00p10C30B(BuiltInId::imageStore_Image1D1_Int2_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00p10C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStore_00z10C30C(BuiltInId::imageStore_IImage1D1_Int2_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00z10C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStore_01G10C30D(BuiltInId::imageStore_UImage1D1_Int2_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01G10C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_00t10C30B(BuiltInId::imageStore_Image2D1_Int2_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00t10C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_01A10C30C(BuiltInId::imageStore_IImage2D1_Int2_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01A10C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_01H10C30D(BuiltInId::imageStore_UImage2D1_Int2_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01H10C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
@@ -2571,27 +2568,27 @@ constexpr const TFunction imageStore_01J20C30D(BuiltInId::imageStore_UImage2DArr
 constexpr const TFunction imageStore_00w20C30B(BuiltInId::imageStore_ImageCube1_Int3_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00w20C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_01D20C30C(BuiltInId::imageStore_IImageCube1_Int3_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01D20C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_01K20C30D(BuiltInId::imageStore_UImageCube1_Int3_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01K20C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStore_00x20C30B(BuiltInId::imageStore_ImageCubeArray1_Int3_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00x20C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStore_01E20C30C(BuiltInId::imageStore_IImageCubeArray1_Int3_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01E20C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStore_01L20C30D(BuiltInId::imageStore_UImageCubeArray1_Int3_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01L20C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStoreExt_00x20C30B(BuiltInId::imageStoreExt_ImageCubeArray1_Int3_Float4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_cube_map_array, TExtension::EXT_texture_cube_map_array}}, BuiltInParameters::p00x20C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStoreExt_01E20C30C(BuiltInId::imageStoreExt_IImageCubeArray1_Int3_Int4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_cube_map_array, TExtension::EXT_texture_cube_map_array}}, BuiltInParameters::p01E20C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStoreExt_01L20C30D(BuiltInId::imageStoreExt_UImageCubeArray1_Int3_UInt4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_cube_map_array, TExtension::EXT_texture_cube_map_array}}, BuiltInParameters::p01L20C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStore_00y00C30B(BuiltInId::imageStore_ImageBuffer1_Int1_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00y00C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStore_01F00C30C(BuiltInId::imageStore_IImageBuffer1_Int1_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01F00C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStore_01M00C30D(BuiltInId::imageStore_UImageBuffer1_Int1_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01M00C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStoreExt_00y00C30B(BuiltInId::imageStoreExt_ImageBuffer1_Int1_Float4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p00y00C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStoreExt_01F00C30C(BuiltInId::imageStoreExt_IImageBuffer1_Int1_Int4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p01F00C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageStoreExt_01M00C30D(BuiltInId::imageStoreExt_UImageBuffer1_Int1_UInt4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p01M00C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_00p00C30B(BuiltInId::imageStore_Image1D1_Int1_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00p00C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_00z00C30C(BuiltInId::imageStore_IImage1D1_Int1_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00z00C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_01G00C30D(BuiltInId::imageStore_UImage1D1_Int1_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01G00C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_00q10C30B(BuiltInId::imageStore_Image1DArray1_Int2_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00q10C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_00r10C30C(BuiltInId::imageStore_IImage1DArray1_Int2_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00r10C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
 constexpr const TFunction imageStore_00s10C30D(BuiltInId::imageStore_UImage1DArray1_Int2_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00s10C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
-constexpr const TFunction imageLoad_00p10C(BuiltInId::imageLoad_Image1D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00p10C30B, 2, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
-constexpr const TFunction imageLoad_00z10C(BuiltInId::imageLoad_IImage1D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00z10C30C, 2, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
-constexpr const TFunction imageLoad_01G10C(BuiltInId::imageLoad_UImage1D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01G10C30D, 2, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
+constexpr const TFunction imageStore_00y00C30B(BuiltInId::imageStore_ImageBuffer1_Int1_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00y00C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStore_01F00C30C(BuiltInId::imageStore_IImageBuffer1_Int1_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01F00C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStore_01M00C30D(BuiltInId::imageStore_UImageBuffer1_Int1_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01M00C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStore_00x20C30B(BuiltInId::imageStore_ImageCubeArray1_Int3_Float4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00x20C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStore_01E20C30C(BuiltInId::imageStore_IImageCubeArray1_Int3_Int4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01E20C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStore_01L20C30D(BuiltInId::imageStore_UImageCubeArray1_Int3_UInt4, BuiltInName::imageStore, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01L20C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStoreExt_00x20C30B(BuiltInId::imageStoreExt_ImageCubeArray1_Int3_Float4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_cube_map_array, TExtension::EXT_texture_cube_map_array}}, BuiltInParameters::p00x20C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStoreExt_01E20C30C(BuiltInId::imageStoreExt_IImageCubeArray1_Int3_Int4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_cube_map_array, TExtension::EXT_texture_cube_map_array}}, BuiltInParameters::p01E20C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStoreExt_01L20C30D(BuiltInId::imageStoreExt_UImageCubeArray1_Int3_UInt4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_cube_map_array, TExtension::EXT_texture_cube_map_array}}, BuiltInParameters::p01L20C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStoreExt_00y00C30B(BuiltInId::imageStoreExt_ImageBuffer1_Int1_Float4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p00y00C30B, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStoreExt_01F00C30C(BuiltInId::imageStoreExt_IImageBuffer1_Int1_Int4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p01F00C30C, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageStoreExt_01M00C30D(BuiltInId::imageStoreExt_UImageBuffer1_Int1_UInt4, BuiltInName::imageStoreExt, std::array<TExtension, 2u>{{TExtension::OES_texture_buffer, TExtension::EXT_texture_buffer}}, BuiltInParameters::p01M00C30D, 3, StaticType::Get<EbtVoid, EbpUndefined, EvqGlobal, 1, 1>(), EOpImageStore, false);
+constexpr const TFunction imageLoad_00p10C(BuiltInId::imageLoad_Image1D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00p10C, 2, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
+constexpr const TFunction imageLoad_00z10C(BuiltInId::imageLoad_IImage1D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00z10C, 2, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
+constexpr const TFunction imageLoad_01G10C(BuiltInId::imageLoad_UImage1D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01G10C, 2, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
 constexpr const TFunction imageLoad_00t10C(BuiltInId::imageLoad_Image2D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p00t10C00B, 2, StaticType::Get<EbtFloat, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
 constexpr const TFunction imageLoad_01A10C(BuiltInId::imageLoad_IImage2D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01A10C00B, 2, StaticType::Get<EbtInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
 constexpr const TFunction imageLoad_01H10C(BuiltInId::imageLoad_UImage2D1_Int2, BuiltInName::imageLoad, std::array<TExtension, 1u>{{TExtension::UNDEFINED}}, BuiltInParameters::p01H10C00B, 2, StaticType::Get<EbtUInt, EbpUndefined, EvqGlobal, 4, 1>(), EOpImageLoad, true);
@@ -4244,12 +4241,12 @@ Rule::Get<300, Shader::ALL, 0>(&texelFetch_00X20C00C),
 Rule::Get<300, Shader::ALL, 0>(&texelFetch_00K20C00C),
 Rule::Get<300, Shader::ALL, 0>(&texelFetch_00T20C00C),
 Rule::Get<300, Shader::ALL, 0>(&texelFetch_00Z20C00C),
-Rule::Get<320, Shader::ALL, 0>(&texelFetch_00f00C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&texelFetchExt_00f00C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&texelFetchExt_00f00C),
-Rule::Get<320, Shader::ALL, 0>(&texelFetch_00j00C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&texelFetchExt_00j00C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&texelFetchExt_00j00C),
-Rule::Get<320, Shader::ALL, 0>(&texelFetch_00m00C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&texelFetchExt_00m00C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&texelFetchExt_00m00C),
 Rule::Get<310, Shader::ALL, 0>(&texelFetch_00O10C00C), Rule::Get<300, Shader::ALL, EXT_INDEX(ANGLE_texture_multisample)>(&texelFetchExt_00O10C00C),
 Rule::Get<310, Shader::ALL, 0>(&texelFetch_00U10C00C), Rule::Get<300, Shader::ALL, EXT_INDEX(ANGLE_texture_multisample)>(&texelFetchExt_00U10C00C),
 Rule::Get<310, Shader::ALL, 0>(&texelFetch_00a10C00C), Rule::Get<300, Shader::ALL, EXT_INDEX(ANGLE_texture_multisample)>(&texelFetchExt_00a10C00C),
+Rule::Get<320, Shader::ALL, 0>(&texelFetch_00f00C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&texelFetchExt_00f00C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&texelFetchExt_00f00C),
+Rule::Get<320, Shader::ALL, 0>(&texelFetch_00j00C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&texelFetchExt_00j00C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&texelFetchExt_00j00C),
+Rule::Get<320, Shader::ALL, 0>(&texelFetch_00m00C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&texelFetchExt_00m00C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&texelFetchExt_00m00C),
 Rule::Get<320, Shader::ALL, 0>(&texelFetch_00P20C00C), Rule::Get<300, Shader::ALL, EXT_INDEX(OES_texture_storage_multisample_2d_array)>(&texelFetchExt_00P20C00C),
 Rule::Get<320, Shader::ALL, 0>(&texelFetch_00V20C00C), Rule::Get<300, Shader::ALL, EXT_INDEX(OES_texture_storage_multisample_2d_array)>(&texelFetchExt_00V20C00C),
 Rule::Get<320, Shader::ALL, 0>(&texelFetch_00b20C00C), Rule::Get<300, Shader::ALL, EXT_INDEX(OES_texture_storage_multisample_2d_array)>(&texelFetchExt_00b20C00C),
@@ -4595,9 +4592,6 @@ Rule::Get<320, Shader::ALL, 0>(&imageSize_01L), Rule::Get<310, Shader::ALL, EXT_
 Rule::Get<320, Shader::ALL, 0>(&imageSize_00y), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageSizeExt_00y), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageSizeExt_00y),
 Rule::Get<320, Shader::ALL, 0>(&imageSize_01F), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageSizeExt_01F), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageSizeExt_01F),
 Rule::Get<320, Shader::ALL, 0>(&imageSize_01M), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageSizeExt_01M), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageSizeExt_01M),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_00p10C30B),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_00z10C30C),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_01G10C30D),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_00t10C30B),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_01A10C30C),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_01H10C30D),
@@ -4610,18 +4604,18 @@ Rule::Get<310, Shader::ALL, 0>(&imageStore_01J20C30D),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_00w20C30B),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_01D20C30C),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_01K20C30D),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_00x20C30B), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_cube_map_array)>(&imageStoreExt_00x20C30B), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_cube_map_array)>(&imageStoreExt_00x20C30B),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_01E20C30C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_cube_map_array)>(&imageStoreExt_01E20C30C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_cube_map_array)>(&imageStoreExt_01E20C30C),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_01L20C30D), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_cube_map_array)>(&imageStoreExt_01L20C30D), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_cube_map_array)>(&imageStoreExt_01L20C30D),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_00y00C30B), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageStoreExt_00y00C30B), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageStoreExt_00y00C30B),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_01F00C30C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageStoreExt_01F00C30C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageStoreExt_01F00C30C),
-Rule::Get<310, Shader::ALL, 0>(&imageStore_01M00C30D), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageStoreExt_01M00C30D), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageStoreExt_01M00C30D),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_00p00C30B),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_00z00C30C),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_01G00C30D),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_00q10C30B),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_00r10C30C),
 Rule::Get<310, Shader::ALL, 0>(&imageStore_00s10C30D),
+Rule::Get<320, Shader::ALL, 0>(&imageStore_00y00C30B), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageStoreExt_00y00C30B), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageStoreExt_00y00C30B),
+Rule::Get<320, Shader::ALL, 0>(&imageStore_01F00C30C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageStoreExt_01F00C30C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageStoreExt_01F00C30C),
+Rule::Get<320, Shader::ALL, 0>(&imageStore_01M00C30D), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_buffer)>(&imageStoreExt_01M00C30D), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_buffer)>(&imageStoreExt_01M00C30D),
+Rule::Get<320, Shader::ALL, 0>(&imageStore_00x20C30B), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_cube_map_array)>(&imageStoreExt_00x20C30B), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_cube_map_array)>(&imageStoreExt_00x20C30B),
+Rule::Get<320, Shader::ALL, 0>(&imageStore_01E20C30C), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_cube_map_array)>(&imageStoreExt_01E20C30C), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_cube_map_array)>(&imageStoreExt_01E20C30C),
+Rule::Get<320, Shader::ALL, 0>(&imageStore_01L20C30D), Rule::Get<310, Shader::ALL, EXT_INDEX(OES_texture_cube_map_array)>(&imageStoreExt_01L20C30D), Rule::Get<310, Shader::ALL, EXT_INDEX(EXT_texture_cube_map_array)>(&imageStoreExt_01L20C30D),
 Rule::Get<310, Shader::ALL, 0>(&imageLoad_00p10C),
 Rule::Get<310, Shader::ALL, 0>(&imageLoad_00z10C),
 Rule::Get<310, Shader::ALL, 0>(&imageLoad_01G10C),
@@ -5977,12 +5971,12 @@ constexpr const char *kMangledNames[] = {
 "texelFetch(00K20C00C",
 "texelFetch(00T20C00C",
 "texelFetch(00Z20C00C",
-"texelFetch(00f00C",
-"texelFetch(00j00C",
-"texelFetch(00m00C",
 "texelFetch(00O10C00C",
 "texelFetch(00U10C00C",
 "texelFetch(00a10C00C",
+"texelFetch(00f00C",
+"texelFetch(00j00C",
+"texelFetch(00m00C",
 "texelFetch(00P20C00C",
 "texelFetch(00V20C00C",
 "texelFetch(00b20C00C",
@@ -6328,9 +6322,6 @@ constexpr const char *kMangledNames[] = {
 "imageSize(00y",
 "imageSize(01F",
 "imageSize(01M",
-"imageStore(00p10C30B",
-"imageStore(00z10C30C",
-"imageStore(01G10C30D",
 "imageStore(00t10C30B",
 "imageStore(01A10C30C",
 "imageStore(01H10C30D",
@@ -6343,18 +6334,18 @@ constexpr const char *kMangledNames[] = {
 "imageStore(00w20C30B",
 "imageStore(01D20C30C",
 "imageStore(01K20C30D",
-"imageStore(00x20C30B",
-"imageStore(01E20C30C",
-"imageStore(01L20C30D",
-"imageStore(00y00C30B",
-"imageStore(01F00C30C",
-"imageStore(01M00C30D",
 "imageStore(00p00C30B",
 "imageStore(00z00C30C",
 "imageStore(01G00C30D",
 "imageStore(00q10C30B",
 "imageStore(00r10C30C",
 "imageStore(00s10C30D",
+"imageStore(00y00C30B",
+"imageStore(01F00C30C",
+"imageStore(01M00C30D",
+"imageStore(00x20C30B",
+"imageStore(01E20C30C",
+"imageStore(01L20C30D",
 "imageLoad(00p10C",
 "imageLoad(00z10C",
 "imageLoad(01G10C",
@@ -7710,12 +7701,12 @@ constexpr uint16_t kMangledOffsets[] = {
 796, // texelFetch_00K20C00C
 797, // texelFetch_00T20C00C
 798, // texelFetch_00Z20C00C
-799, // texelFetch_00f00C
-802, // texelFetch_00j00C
-805, // texelFetch_00m00C
-808, // texelFetch_00O10C00C
-810, // texelFetch_00U10C00C
-812, // texelFetch_00a10C00C
+799, // texelFetch_00O10C00C
+801, // texelFetch_00U10C00C
+803, // texelFetch_00a10C00C
+805, // texelFetch_00f00C
+808, // texelFetch_00j00C
+811, // texelFetch_00m00C
 814, // texelFetch_00P20C00C
 816, // texelFetch_00V20C00C
 818, // texelFetch_00b20C00C
@@ -8061,627 +8052,624 @@ constexpr uint16_t kMangledOffsets[] = {
 1244, // imageSize_00y
 1247, // imageSize_01F
 1250, // imageSize_01M
-1253, // imageStore_00p10C30B
-1254, // imageStore_00z10C30C
-1255, // imageStore_01G10C30D
-1256, // imageStore_00t10C30B
-1257, // imageStore_01A10C30C
-1258, // imageStore_01H10C30D
-1259, // imageStore_00u20C30B
-1260, // imageStore_01B20C30C
-1261, // imageStore_01I20C30D
-1262, // imageStore_00v20C30B
-1263, // imageStore_01C20C30C
-1264, // imageStore_01J20C30D
-1265, // imageStore_00w20C30B
-1266, // imageStore_01D20C30C
-1267, // imageStore_01K20C30D
-1268, // imageStore_00x20C30B
-1271, // imageStore_01E20C30C
-1274, // imageStore_01L20C30D
-1277, // imageStore_00y00C30B
-1280, // imageStore_01F00C30C
-1283, // imageStore_01M00C30D
-1286, // imageStore_00p00C30B
-1287, // imageStore_00z00C30C
-1288, // imageStore_01G00C30D
-1289, // imageStore_00q10C30B
-1290, // imageStore_00r10C30C
-1291, // imageStore_00s10C30D
-1292, // imageLoad_00p10C
-1293, // imageLoad_00z10C
-1294, // imageLoad_01G10C
-1295, // imageLoad_00t10C
-1296, // imageLoad_01A10C
-1297, // imageLoad_01H10C
-1298, // imageLoad_00u20C
-1299, // imageLoad_01B20C
-1300, // imageLoad_01I20C
-1301, // imageLoad_00v20C
-1302, // imageLoad_01C20C
-1303, // imageLoad_01J20C
-1304, // imageLoad_00w20C
-1305, // imageLoad_01D20C
-1306, // imageLoad_01K20C
-1307, // imageLoad_00x20C
-1310, // imageLoad_01E20C
-1313, // imageLoad_01L20C
-1316, // imageLoad_00y00C
-1319, // imageLoad_01F00C
-1322, // imageLoad_01M00C
-1325, // imageAtomicAdd_00p00C00D
-1327, // imageAtomicAdd_00z00C00D
-1329, // imageAtomicAdd_01G00C00D
-1331, // imageAtomicAdd_00q10C00D
-1333, // imageAtomicAdd_00r10C00D
-1335, // imageAtomicAdd_00s10C00D
-1337, // imageAtomicAdd_00t10C00D
-1339, // imageAtomicAdd_01A10C00D
-1341, // imageAtomicAdd_01H10C00D
-1343, // imageAtomicAdd_00u20C00D
-1345, // imageAtomicAdd_01B20C00D
-1347, // imageAtomicAdd_01I20C00D
-1349, // imageAtomicAdd_00w20C00D
-1351, // imageAtomicAdd_01D20C00D
-1353, // imageAtomicAdd_01K20C00D
-1355, // imageAtomicAdd_00y00C00D
-1357, // imageAtomicAdd_01F00C00D
-1359, // imageAtomicAdd_01M00C00D
-1361, // imageAtomicAdd_00v20C00D
-1363, // imageAtomicAdd_01C20C00D
-1365, // imageAtomicAdd_01J20C00D
-1367, // imageAtomicAdd_00x20C00D
-1369, // imageAtomicAdd_01E20C00D
-1371, // imageAtomicAdd_01L20C00D
-1373, // imageAtomicAdd_00p00C00C
-1375, // imageAtomicAdd_00z00C00C
-1377, // imageAtomicAdd_01G00C00C
-1379, // imageAtomicAdd_00q10C00C
-1381, // imageAtomicAdd_00r10C00C
-1383, // imageAtomicAdd_00s10C00C
-1385, // imageAtomicAdd_00t10C00C
-1387, // imageAtomicAdd_01A10C00C
-1389, // imageAtomicAdd_01H10C00C
-1391, // imageAtomicAdd_00u20C00C
-1393, // imageAtomicAdd_01B20C00C
-1395, // imageAtomicAdd_01I20C00C
-1397, // imageAtomicAdd_00w20C00C
-1399, // imageAtomicAdd_01D20C00C
-1401, // imageAtomicAdd_01K20C00C
-1403, // imageAtomicAdd_00y00C00C
-1405, // imageAtomicAdd_01F00C00C
-1407, // imageAtomicAdd_01M00C00C
-1409, // imageAtomicAdd_00v20C00C
-1411, // imageAtomicAdd_01C20C00C
-1413, // imageAtomicAdd_01J20C00C
-1415, // imageAtomicAdd_00x20C00C
-1417, // imageAtomicAdd_01E20C00C
-1419, // imageAtomicAdd_01L20C00C
-1421, // imageAtomicMin_00p00C00D
-1423, // imageAtomicMin_00z00C00D
-1425, // imageAtomicMin_01G00C00D
-1427, // imageAtomicMin_00q10C00D
-1429, // imageAtomicMin_00r10C00D
-1431, // imageAtomicMin_00s10C00D
-1433, // imageAtomicMin_00t10C00D
-1435, // imageAtomicMin_01A10C00D
-1437, // imageAtomicMin_01H10C00D
-1439, // imageAtomicMin_00u20C00D
-1441, // imageAtomicMin_01B20C00D
-1443, // imageAtomicMin_01I20C00D
-1445, // imageAtomicMin_00w20C00D
-1447, // imageAtomicMin_01D20C00D
-1449, // imageAtomicMin_01K20C00D
-1451, // imageAtomicMin_00y00C00D
-1453, // imageAtomicMin_01F00C00D
-1455, // imageAtomicMin_01M00C00D
-1457, // imageAtomicMin_00v20C00D
-1459, // imageAtomicMin_01C20C00D
-1461, // imageAtomicMin_01J20C00D
-1463, // imageAtomicMin_00x20C00D
-1465, // imageAtomicMin_01E20C00D
-1467, // imageAtomicMin_01L20C00D
-1469, // imageAtomicMin_00p00C00C
-1471, // imageAtomicMin_00z00C00C
-1473, // imageAtomicMin_01G00C00C
-1475, // imageAtomicMin_00q10C00C
-1477, // imageAtomicMin_00r10C00C
-1479, // imageAtomicMin_00s10C00C
-1481, // imageAtomicMin_00t10C00C
-1483, // imageAtomicMin_01A10C00C
-1485, // imageAtomicMin_01H10C00C
-1487, // imageAtomicMin_00u20C00C
-1489, // imageAtomicMin_01B20C00C
-1491, // imageAtomicMin_01I20C00C
-1493, // imageAtomicMin_00w20C00C
-1495, // imageAtomicMin_01D20C00C
-1497, // imageAtomicMin_01K20C00C
-1499, // imageAtomicMin_00y00C00C
-1501, // imageAtomicMin_01F00C00C
-1503, // imageAtomicMin_01M00C00C
-1505, // imageAtomicMin_00v20C00C
-1507, // imageAtomicMin_01C20C00C
-1509, // imageAtomicMin_01J20C00C
-1511, // imageAtomicMin_00x20C00C
-1513, // imageAtomicMin_01E20C00C
-1515, // imageAtomicMin_01L20C00C
-1517, // imageAtomicMax_00p00C00D
-1519, // imageAtomicMax_00z00C00D
-1521, // imageAtomicMax_01G00C00D
-1523, // imageAtomicMax_00q10C00D
-1525, // imageAtomicMax_00r10C00D
-1527, // imageAtomicMax_00s10C00D
-1529, // imageAtomicMax_00t10C00D
-1531, // imageAtomicMax_01A10C00D
-1533, // imageAtomicMax_01H10C00D
-1535, // imageAtomicMax_00u20C00D
-1537, // imageAtomicMax_01B20C00D
-1539, // imageAtomicMax_01I20C00D
-1541, // imageAtomicMax_00w20C00D
-1543, // imageAtomicMax_01D20C00D
-1545, // imageAtomicMax_01K20C00D
-1547, // imageAtomicMax_00y00C00D
-1549, // imageAtomicMax_01F00C00D
-1551, // imageAtomicMax_01M00C00D
-1553, // imageAtomicMax_00v20C00D
-1555, // imageAtomicMax_01C20C00D
-1557, // imageAtomicMax_01J20C00D
-1559, // imageAtomicMax_00x20C00D
-1561, // imageAtomicMax_01E20C00D
-1563, // imageAtomicMax_01L20C00D
-1565, // imageAtomicMax_00p00C00C
-1567, // imageAtomicMax_00z00C00C
-1569, // imageAtomicMax_01G00C00C
-1571, // imageAtomicMax_00q10C00C
-1573, // imageAtomicMax_00r10C00C
-1575, // imageAtomicMax_00s10C00C
-1577, // imageAtomicMax_00t10C00C
-1579, // imageAtomicMax_01A10C00C
-1581, // imageAtomicMax_01H10C00C
-1583, // imageAtomicMax_00u20C00C
-1585, // imageAtomicMax_01B20C00C
-1587, // imageAtomicMax_01I20C00C
-1589, // imageAtomicMax_00w20C00C
-1591, // imageAtomicMax_01D20C00C
-1593, // imageAtomicMax_01K20C00C
-1595, // imageAtomicMax_00y00C00C
-1597, // imageAtomicMax_01F00C00C
-1599, // imageAtomicMax_01M00C00C
-1601, // imageAtomicMax_00v20C00C
-1603, // imageAtomicMax_01C20C00C
-1605, // imageAtomicMax_01J20C00C
-1607, // imageAtomicMax_00x20C00C
-1609, // imageAtomicMax_01E20C00C
-1611, // imageAtomicMax_01L20C00C
-1613, // imageAtomicAnd_00p00C00D
-1615, // imageAtomicAnd_00z00C00D
-1617, // imageAtomicAnd_01G00C00D
-1619, // imageAtomicAnd_00q10C00D
-1621, // imageAtomicAnd_00r10C00D
-1623, // imageAtomicAnd_00s10C00D
-1625, // imageAtomicAnd_00t10C00D
-1627, // imageAtomicAnd_01A10C00D
-1629, // imageAtomicAnd_01H10C00D
-1631, // imageAtomicAnd_00u20C00D
-1633, // imageAtomicAnd_01B20C00D
-1635, // imageAtomicAnd_01I20C00D
-1637, // imageAtomicAnd_00w20C00D
-1639, // imageAtomicAnd_01D20C00D
-1641, // imageAtomicAnd_01K20C00D
-1643, // imageAtomicAnd_00y00C00D
-1645, // imageAtomicAnd_01F00C00D
-1647, // imageAtomicAnd_01M00C00D
-1649, // imageAtomicAnd_00v20C00D
-1651, // imageAtomicAnd_01C20C00D
-1653, // imageAtomicAnd_01J20C00D
-1655, // imageAtomicAnd_00x20C00D
-1657, // imageAtomicAnd_01E20C00D
-1659, // imageAtomicAnd_01L20C00D
-1661, // imageAtomicAnd_00p00C00C
-1663, // imageAtomicAnd_00z00C00C
-1665, // imageAtomicAnd_01G00C00C
-1667, // imageAtomicAnd_00q10C00C
-1669, // imageAtomicAnd_00r10C00C
-1671, // imageAtomicAnd_00s10C00C
-1673, // imageAtomicAnd_00t10C00C
-1675, // imageAtomicAnd_01A10C00C
-1677, // imageAtomicAnd_01H10C00C
-1679, // imageAtomicAnd_00u20C00C
-1681, // imageAtomicAnd_01B20C00C
-1683, // imageAtomicAnd_01I20C00C
-1685, // imageAtomicAnd_00w20C00C
-1687, // imageAtomicAnd_01D20C00C
-1689, // imageAtomicAnd_01K20C00C
-1691, // imageAtomicAnd_00y00C00C
-1693, // imageAtomicAnd_01F00C00C
-1695, // imageAtomicAnd_01M00C00C
-1697, // imageAtomicAnd_00v20C00C
-1699, // imageAtomicAnd_01C20C00C
-1701, // imageAtomicAnd_01J20C00C
-1703, // imageAtomicAnd_00x20C00C
-1705, // imageAtomicAnd_01E20C00C
-1707, // imageAtomicAnd_01L20C00C
-1709, // imageAtomicOr_00p00C00D
-1711, // imageAtomicOr_00z00C00D
-1713, // imageAtomicOr_01G00C00D
-1715, // imageAtomicOr_00q10C00D
-1717, // imageAtomicOr_00r10C00D
-1719, // imageAtomicOr_00s10C00D
-1721, // imageAtomicOr_00t10C00D
-1723, // imageAtomicOr_01A10C00D
-1725, // imageAtomicOr_01H10C00D
-1727, // imageAtomicOr_00u20C00D
-1729, // imageAtomicOr_01B20C00D
-1731, // imageAtomicOr_01I20C00D
-1733, // imageAtomicOr_00w20C00D
-1735, // imageAtomicOr_01D20C00D
-1737, // imageAtomicOr_01K20C00D
-1739, // imageAtomicOr_00y00C00D
-1741, // imageAtomicOr_01F00C00D
-1743, // imageAtomicOr_01M00C00D
-1745, // imageAtomicOr_00v20C00D
-1747, // imageAtomicOr_01C20C00D
-1749, // imageAtomicOr_01J20C00D
-1751, // imageAtomicOr_00x20C00D
-1753, // imageAtomicOr_01E20C00D
-1755, // imageAtomicOr_01L20C00D
-1757, // imageAtomicOr_00p00C00C
-1759, // imageAtomicOr_00z00C00C
-1761, // imageAtomicOr_01G00C00C
-1763, // imageAtomicOr_00q10C00C
-1765, // imageAtomicOr_00r10C00C
-1767, // imageAtomicOr_00s10C00C
-1769, // imageAtomicOr_00t10C00C
-1771, // imageAtomicOr_01A10C00C
-1773, // imageAtomicOr_01H10C00C
-1775, // imageAtomicOr_00u20C00C
-1777, // imageAtomicOr_01B20C00C
-1779, // imageAtomicOr_01I20C00C
-1781, // imageAtomicOr_00w20C00C
-1783, // imageAtomicOr_01D20C00C
-1785, // imageAtomicOr_01K20C00C
-1787, // imageAtomicOr_00y00C00C
-1789, // imageAtomicOr_01F00C00C
-1791, // imageAtomicOr_01M00C00C
-1793, // imageAtomicOr_00v20C00C
-1795, // imageAtomicOr_01C20C00C
-1797, // imageAtomicOr_01J20C00C
-1799, // imageAtomicOr_00x20C00C
-1801, // imageAtomicOr_01E20C00C
-1803, // imageAtomicOr_01L20C00C
-1805, // imageAtomicXor_00p00C00D
-1807, // imageAtomicXor_00z00C00D
-1809, // imageAtomicXor_01G00C00D
-1811, // imageAtomicXor_00q10C00D
-1813, // imageAtomicXor_00r10C00D
-1815, // imageAtomicXor_00s10C00D
-1817, // imageAtomicXor_00t10C00D
-1819, // imageAtomicXor_01A10C00D
-1821, // imageAtomicXor_01H10C00D
-1823, // imageAtomicXor_00u20C00D
-1825, // imageAtomicXor_01B20C00D
-1827, // imageAtomicXor_01I20C00D
-1829, // imageAtomicXor_00w20C00D
-1831, // imageAtomicXor_01D20C00D
-1833, // imageAtomicXor_01K20C00D
-1835, // imageAtomicXor_00y00C00D
-1837, // imageAtomicXor_01F00C00D
-1839, // imageAtomicXor_01M00C00D
-1841, // imageAtomicXor_00v20C00D
-1843, // imageAtomicXor_01C20C00D
-1845, // imageAtomicXor_01J20C00D
-1847, // imageAtomicXor_00x20C00D
-1849, // imageAtomicXor_01E20C00D
-1851, // imageAtomicXor_01L20C00D
-1853, // imageAtomicXor_00p00C00C
-1855, // imageAtomicXor_00z00C00C
-1857, // imageAtomicXor_01G00C00C
-1859, // imageAtomicXor_00q10C00C
-1861, // imageAtomicXor_00r10C00C
-1863, // imageAtomicXor_00s10C00C
-1865, // imageAtomicXor_00t10C00C
-1867, // imageAtomicXor_01A10C00C
-1869, // imageAtomicXor_01H10C00C
-1871, // imageAtomicXor_00u20C00C
-1873, // imageAtomicXor_01B20C00C
-1875, // imageAtomicXor_01I20C00C
-1877, // imageAtomicXor_00w20C00C
-1879, // imageAtomicXor_01D20C00C
-1881, // imageAtomicXor_01K20C00C
-1883, // imageAtomicXor_00y00C00C
-1885, // imageAtomicXor_01F00C00C
-1887, // imageAtomicXor_01M00C00C
-1889, // imageAtomicXor_00v20C00C
-1891, // imageAtomicXor_01C20C00C
-1893, // imageAtomicXor_01J20C00C
-1895, // imageAtomicXor_00x20C00C
-1897, // imageAtomicXor_01E20C00C
-1899, // imageAtomicXor_01L20C00C
-1901, // imageAtomicExchange_00p00C00D
-1903, // imageAtomicExchange_00z00C00D
-1905, // imageAtomicExchange_01G00C00D
-1907, // imageAtomicExchange_00q10C00D
-1909, // imageAtomicExchange_00r10C00D
-1911, // imageAtomicExchange_00s10C00D
-1913, // imageAtomicExchange_00t10C00D
-1915, // imageAtomicExchange_01A10C00D
-1917, // imageAtomicExchange_01H10C00D
-1919, // imageAtomicExchange_00u20C00D
-1921, // imageAtomicExchange_01B20C00D
-1923, // imageAtomicExchange_01I20C00D
-1925, // imageAtomicExchange_00w20C00D
-1927, // imageAtomicExchange_01D20C00D
-1929, // imageAtomicExchange_01K20C00D
-1931, // imageAtomicExchange_00y00C00D
-1933, // imageAtomicExchange_01F00C00D
-1935, // imageAtomicExchange_01M00C00D
-1937, // imageAtomicExchange_00v20C00D
-1939, // imageAtomicExchange_01C20C00D
-1941, // imageAtomicExchange_01J20C00D
-1943, // imageAtomicExchange_00x20C00D
-1945, // imageAtomicExchange_01E20C00D
-1947, // imageAtomicExchange_01L20C00D
-1949, // imageAtomicExchange_00p00C00C
-1951, // imageAtomicExchange_00z00C00C
-1953, // imageAtomicExchange_01G00C00C
-1955, // imageAtomicExchange_00q10C00C
-1957, // imageAtomicExchange_00r10C00C
-1959, // imageAtomicExchange_00s10C00C
-1961, // imageAtomicExchange_00t10C00C
-1963, // imageAtomicExchange_01A10C00C
-1965, // imageAtomicExchange_01H10C00C
-1967, // imageAtomicExchange_00u20C00C
-1969, // imageAtomicExchange_01B20C00C
-1971, // imageAtomicExchange_01I20C00C
-1973, // imageAtomicExchange_00w20C00C
-1975, // imageAtomicExchange_01D20C00C
-1977, // imageAtomicExchange_01K20C00C
-1979, // imageAtomicExchange_00y00C00C
-1981, // imageAtomicExchange_01F00C00C
-1983, // imageAtomicExchange_01M00C00C
-1985, // imageAtomicExchange_00v20C00C
-1987, // imageAtomicExchange_01C20C00C
-1989, // imageAtomicExchange_01J20C00C
-1991, // imageAtomicExchange_00x20C00C
-1993, // imageAtomicExchange_01E20C00C
-1995, // imageAtomicExchange_01L20C00C
-1997, // imageAtomicExchange_00p00C00B
-1999, // imageAtomicExchange_00z00C00B
-2001, // imageAtomicExchange_01G00C00B
-2003, // imageAtomicExchange_00q10C00B
-2005, // imageAtomicExchange_00r10C00B
-2007, // imageAtomicExchange_00s10C00B
-2009, // imageAtomicExchange_00t10C00B
-2011, // imageAtomicExchange_01A10C00B
-2013, // imageAtomicExchange_01H10C00B
-2015, // imageAtomicExchange_00u20C00B
-2017, // imageAtomicExchange_01B20C00B
-2019, // imageAtomicExchange_01I20C00B
-2021, // imageAtomicExchange_00w20C00B
-2023, // imageAtomicExchange_01D20C00B
-2025, // imageAtomicExchange_01K20C00B
-2027, // imageAtomicExchange_00y00C00B
-2029, // imageAtomicExchange_01F00C00B
-2031, // imageAtomicExchange_01M00C00B
-2033, // imageAtomicExchange_00v20C00B
-2035, // imageAtomicExchange_01C20C00B
-2037, // imageAtomicExchange_01J20C00B
-2039, // imageAtomicExchange_00x20C00B
-2041, // imageAtomicExchange_01E20C00B
-2043, // imageAtomicExchange_01L20C00B
-2045, // imageAtomicCompSwap_00p00C00D00D
-2047, // imageAtomicCompSwap_00z00C00D00D
-2049, // imageAtomicCompSwap_01G00C00D00D
-2051, // imageAtomicCompSwap_00q10C00D00D
-2053, // imageAtomicCompSwap_00r10C00D00D
-2055, // imageAtomicCompSwap_00s10C00D00D
-2057, // imageAtomicCompSwap_00t10C00D00D
-2059, // imageAtomicCompSwap_01A10C00D00D
-2061, // imageAtomicCompSwap_01H10C00D00D
-2063, // imageAtomicCompSwap_00u20C00D00D
-2065, // imageAtomicCompSwap_01B20C00D00D
-2067, // imageAtomicCompSwap_01I20C00D00D
-2069, // imageAtomicCompSwap_00w20C00D00D
-2071, // imageAtomicCompSwap_01D20C00D00D
-2073, // imageAtomicCompSwap_01K20C00D00D
-2075, // imageAtomicCompSwap_00y00C00D00D
-2077, // imageAtomicCompSwap_01F00C00D00D
-2079, // imageAtomicCompSwap_01M00C00D00D
-2081, // imageAtomicCompSwap_00v20C00D00D
-2083, // imageAtomicCompSwap_01C20C00D00D
-2085, // imageAtomicCompSwap_01J20C00D00D
-2087, // imageAtomicCompSwap_00x20C00D00D
-2089, // imageAtomicCompSwap_01E20C00D00D
-2091, // imageAtomicCompSwap_01L20C00D00D
-2093, // imageAtomicCompSwap_00p00C00C00C
-2095, // imageAtomicCompSwap_00z00C00C00C
-2097, // imageAtomicCompSwap_01G00C00C00C
-2099, // imageAtomicCompSwap_00q10C00C00C
-2101, // imageAtomicCompSwap_00r10C00C00C
-2103, // imageAtomicCompSwap_00s10C00C00C
-2105, // imageAtomicCompSwap_00t10C00C00C
-2107, // imageAtomicCompSwap_01A10C00C00C
-2109, // imageAtomicCompSwap_01H10C00C00C
-2111, // imageAtomicCompSwap_00u20C00C00C
-2113, // imageAtomicCompSwap_01B20C00C00C
-2115, // imageAtomicCompSwap_01I20C00C00C
-2117, // imageAtomicCompSwap_00w20C00C00C
-2119, // imageAtomicCompSwap_01D20C00C00C
-2121, // imageAtomicCompSwap_01K20C00C00C
-2123, // imageAtomicCompSwap_00y00C00C00C
-2125, // imageAtomicCompSwap_01F00C00C00C
-2127, // imageAtomicCompSwap_01M00C00C00C
-2129, // imageAtomicCompSwap_00v20C00C00C
-2131, // imageAtomicCompSwap_01C20C00C00C
-2133, // imageAtomicCompSwap_01J20C00C00C
-2135, // imageAtomicCompSwap_00x20C00C00C
-2137, // imageAtomicCompSwap_01E20C00C00C
-2139, // imageAtomicCompSwap_01L20C00C00C
-2141, // pixelLocalLoadANGLE_01N
-2142, // pixelLocalLoadANGLE_01O
-2143, // pixelLocalLoadANGLE_01P
-2144, // pixelLocalStoreANGLE_01N30B
-2145, // pixelLocalStoreANGLE_01O30C
-2146, // pixelLocalStoreANGLE_01P30D
-2147, // beginInvocationInterlockNV_
-2148, // endInvocationInterlockNV_
-2149, // beginFragmentShaderOrderingINTEL_
-2150, // beginInvocationInterlockARB_
-2151, // endInvocationInterlockARB_
-2152, // memoryBarrier_
-2153, // memoryBarrierAtomicCounter_
-2154, // memoryBarrierBuffer_
-2155, // memoryBarrierImage_
-2156, // barrier_
-2160, // memoryBarrierShared_
-2161, // groupMemoryBarrier_
-2162, // EmitVertex_
-2165, // EndPrimitive_
-2168, // subpassLoad_01Q
-2169, // subpassLoad_01R
-2170, // subpassLoad_01S
-2171, // numSamples_
-2172, // samplePosition_00D
-2173, // interpolateAtCenter_00B
-2174, // interpolateAtCenter_10B
-2175, // interpolateAtCenter_20B
-2176, // interpolateAtCenter_30B
-2177, // loopForwardProgress_
-2178, // saturate_00B
-2179, // saturate_10B
-2180, // saturate_20B
-2181, // saturate_30B
-2182, // gl_DepthRangeParameters
-2183, // gl_DepthRange
-2184, // gl_NumSamples
-2186, // gl_MaxVertexAttribs
-2187, // gl_MaxVertexUniformVectors
-2188, // gl_MaxVertexTextureImageUnits
-2189, // gl_MaxCombinedTextureImageUnits
-2190, // gl_MaxTextureImageUnits
-2191, // gl_MaxFragmentUniformVectors
-2192, // gl_MaxVaryingVectors
-2193, // gl_MaxDrawBuffers
-2194, // gl_MaxDualSourceDrawBuffersEXT
-2195, // gl_MaxVertexOutputVectors
-2196, // gl_MaxFragmentInputVectors
-2197, // gl_MinProgramTexelOffset
-2198, // gl_MaxProgramTexelOffset
-2199, // gl_MaxImageUnits
-2200, // gl_MaxVertexImageUniforms
-2201, // gl_MaxFragmentImageUniforms
-2202, // gl_MaxComputeImageUniforms
-2203, // gl_MaxCombinedImageUniforms
-2204, // gl_MaxCombinedShaderOutputResources
-2205, // gl_MaxComputeWorkGroupCount
-2206, // gl_MaxComputeWorkGroupSize
-2207, // gl_MaxComputeUniformComponents
-2208, // gl_MaxComputeTextureImageUnits
-2209, // gl_MaxComputeAtomicCounters
-2210, // gl_MaxComputeAtomicCounterBuffers
-2211, // gl_MaxVertexAtomicCounters
-2212, // gl_MaxFragmentAtomicCounters
-2213, // gl_MaxCombinedAtomicCounters
-2214, // gl_MaxAtomicCounterBindings
-2215, // gl_MaxVertexAtomicCounterBuffers
-2216, // gl_MaxFragmentAtomicCounterBuffers
-2217, // gl_MaxCombinedAtomicCounterBuffers
-2218, // gl_MaxAtomicCounterBufferSize
-2219, // gl_ShadingRateFlag2VerticalPixelsEXT
-2220, // gl_ShadingRateFlag4VerticalPixelsEXT
-2221, // gl_ShadingRateFlag2HorizontalPixelsEXT
-2222, // gl_ShadingRateFlag4HorizontalPixelsEXT
-2223, // gl_MaxGeometryInputComponents
-2226, // gl_MaxGeometryOutputComponents
-2229, // gl_MaxGeometryImageUniforms
-2232, // gl_MaxGeometryTextureImageUnits
-2235, // gl_MaxGeometryOutputVertices
-2238, // gl_MaxGeometryTotalOutputComponents
-2241, // gl_MaxGeometryUniformComponents
-2244, // gl_MaxGeometryAtomicCounters
-2247, // gl_MaxGeometryAtomicCounterBuffers
-2250, // gl_MaxTessControlInputComponents
-2253, // gl_MaxTessControlOutputComponents
-2256, // gl_MaxTessControlTextureImageUnits
-2259, // gl_MaxTessControlUniformComponents
-2262, // gl_MaxTessControlTotalOutputComponents
-2265, // gl_MaxTessControlImageUniforms
-2268, // gl_MaxTessControlAtomicCounters
-2271, // gl_MaxTessControlAtomicCounterBuffers
-2274, // gl_MaxTessPatchComponents
-2277, // gl_MaxPatchVertices
-2280, // gl_MaxTessGenLevel
-2283, // gl_MaxTessEvaluationInputComponents
-2286, // gl_MaxTessEvaluationOutputComponents
-2289, // gl_MaxTessEvaluationTextureImageUnits
-2292, // gl_MaxTessEvaluationUniformComponents
-2295, // gl_MaxTessEvaluationImageUniforms
-2298, // gl_MaxTessEvaluationAtomicCounters
-2301, // gl_MaxTessEvaluationAtomicCounterBuffers
-2304, // gl_MaxSamples
-2306, // gl_MaxClipDistances
-2309, // gl_MaxCullDistances
-2311, // gl_MaxCombinedClipAndCullDistances
-2313, // gl_FragCoord
-2315, // gl_FrontFacing
-2316, // gl_PointCoord
-2317, // gl_FragColor
-2318, // gl_FragData
-2319, // gl_FragDepth
-2320, // gl_HelperInvocation
-2321, // gl_SecondaryFragColorEXT
-2322, // gl_SecondaryFragDataEXT
-2323, // gl_FragDepthEXT
-2324, // gl_LastFragData
-2326, // gl_LastFragColorARM
-2327, // gl_LastFragDepthARM
-2328, // gl_LastFragStencilARM
-2329, // gl_PrimitiveID
-2341, // gl_Layer
-2348, // gl_ShadingRateEXT
-2349, // gl_SampleID
-2351, // gl_SamplePosition
-2353, // gl_SampleMaskIn
-2355, // gl_SampleMask
-2357, // gl_Position
-2364, // gl_PointSize
-2366, // gl_InstanceID
-2367, // gl_InstanceIndex
-2368, // gl_VertexID
-2369, // gl_VertexIndex
-2370, // gl_ViewportIndex
-2371, // gl_DrawID
-2372, // gl_BaseVertex
-2373, // gl_BaseInstance
-2374, // gl_ClipDistance
-2377, // gl_PrimitiveShadingRateEXT
-2379, // gl_NumWorkGroups
-2380, // gl_WorkGroupSize
-2381, // gl_WorkGroupID
-2382, // gl_LocalInvocationID
-2383, // gl_GlobalInvocationID
-2384, // gl_LocalInvocationIndex
-2385, // gl_PrimitiveIDIn
-2388, // gl_InvocationID
-2394, // gl_PerVertex
-2403, // gl_in
-2412, // gl_PatchVerticesIn
-2418, // gl_TessLevelOuter
-2424, // gl_TessLevelInner
-2430, // gl_out
-2433, // gl_BoundingBox
-2436, // gl_BoundingBoxEXT
-2439, // gl_BoundingBoxOES
-2442, // gl_TessCoord
-2443, // gl_ViewID_OVR
-2444, // gl_CullDistance
+1253, // imageStore_00t10C30B
+1254, // imageStore_01A10C30C
+1255, // imageStore_01H10C30D
+1256, // imageStore_00u20C30B
+1257, // imageStore_01B20C30C
+1258, // imageStore_01I20C30D
+1259, // imageStore_00v20C30B
+1260, // imageStore_01C20C30C
+1261, // imageStore_01J20C30D
+1262, // imageStore_00w20C30B
+1263, // imageStore_01D20C30C
+1264, // imageStore_01K20C30D
+1265, // imageStore_00p00C30B
+1266, // imageStore_00z00C30C
+1267, // imageStore_01G00C30D
+1268, // imageStore_00q10C30B
+1269, // imageStore_00r10C30C
+1270, // imageStore_00s10C30D
+1271, // imageStore_00y00C30B
+1274, // imageStore_01F00C30C
+1277, // imageStore_01M00C30D
+1280, // imageStore_00x20C30B
+1283, // imageStore_01E20C30C
+1286, // imageStore_01L20C30D
+1289, // imageLoad_00p10C
+1290, // imageLoad_00z10C
+1291, // imageLoad_01G10C
+1292, // imageLoad_00t10C
+1293, // imageLoad_01A10C
+1294, // imageLoad_01H10C
+1295, // imageLoad_00u20C
+1296, // imageLoad_01B20C
+1297, // imageLoad_01I20C
+1298, // imageLoad_00v20C
+1299, // imageLoad_01C20C
+1300, // imageLoad_01J20C
+1301, // imageLoad_00w20C
+1302, // imageLoad_01D20C
+1303, // imageLoad_01K20C
+1304, // imageLoad_00x20C
+1307, // imageLoad_01E20C
+1310, // imageLoad_01L20C
+1313, // imageLoad_00y00C
+1316, // imageLoad_01F00C
+1319, // imageLoad_01M00C
+1322, // imageAtomicAdd_00p00C00D
+1324, // imageAtomicAdd_00z00C00D
+1326, // imageAtomicAdd_01G00C00D
+1328, // imageAtomicAdd_00q10C00D
+1330, // imageAtomicAdd_00r10C00D
+1332, // imageAtomicAdd_00s10C00D
+1334, // imageAtomicAdd_00t10C00D
+1336, // imageAtomicAdd_01A10C00D
+1338, // imageAtomicAdd_01H10C00D
+1340, // imageAtomicAdd_00u20C00D
+1342, // imageAtomicAdd_01B20C00D
+1344, // imageAtomicAdd_01I20C00D
+1346, // imageAtomicAdd_00w20C00D
+1348, // imageAtomicAdd_01D20C00D
+1350, // imageAtomicAdd_01K20C00D
+1352, // imageAtomicAdd_00y00C00D
+1354, // imageAtomicAdd_01F00C00D
+1356, // imageAtomicAdd_01M00C00D
+1358, // imageAtomicAdd_00v20C00D
+1360, // imageAtomicAdd_01C20C00D
+1362, // imageAtomicAdd_01J20C00D
+1364, // imageAtomicAdd_00x20C00D
+1366, // imageAtomicAdd_01E20C00D
+1368, // imageAtomicAdd_01L20C00D
+1370, // imageAtomicAdd_00p00C00C
+1372, // imageAtomicAdd_00z00C00C
+1374, // imageAtomicAdd_01G00C00C
+1376, // imageAtomicAdd_00q10C00C
+1378, // imageAtomicAdd_00r10C00C
+1380, // imageAtomicAdd_00s10C00C
+1382, // imageAtomicAdd_00t10C00C
+1384, // imageAtomicAdd_01A10C00C
+1386, // imageAtomicAdd_01H10C00C
+1388, // imageAtomicAdd_00u20C00C
+1390, // imageAtomicAdd_01B20C00C
+1392, // imageAtomicAdd_01I20C00C
+1394, // imageAtomicAdd_00w20C00C
+1396, // imageAtomicAdd_01D20C00C
+1398, // imageAtomicAdd_01K20C00C
+1400, // imageAtomicAdd_00y00C00C
+1402, // imageAtomicAdd_01F00C00C
+1404, // imageAtomicAdd_01M00C00C
+1406, // imageAtomicAdd_00v20C00C
+1408, // imageAtomicAdd_01C20C00C
+1410, // imageAtomicAdd_01J20C00C
+1412, // imageAtomicAdd_00x20C00C
+1414, // imageAtomicAdd_01E20C00C
+1416, // imageAtomicAdd_01L20C00C
+1418, // imageAtomicMin_00p00C00D
+1420, // imageAtomicMin_00z00C00D
+1422, // imageAtomicMin_01G00C00D
+1424, // imageAtomicMin_00q10C00D
+1426, // imageAtomicMin_00r10C00D
+1428, // imageAtomicMin_00s10C00D
+1430, // imageAtomicMin_00t10C00D
+1432, // imageAtomicMin_01A10C00D
+1434, // imageAtomicMin_01H10C00D
+1436, // imageAtomicMin_00u20C00D
+1438, // imageAtomicMin_01B20C00D
+1440, // imageAtomicMin_01I20C00D
+1442, // imageAtomicMin_00w20C00D
+1444, // imageAtomicMin_01D20C00D
+1446, // imageAtomicMin_01K20C00D
+1448, // imageAtomicMin_00y00C00D
+1450, // imageAtomicMin_01F00C00D
+1452, // imageAtomicMin_01M00C00D
+1454, // imageAtomicMin_00v20C00D
+1456, // imageAtomicMin_01C20C00D
+1458, // imageAtomicMin_01J20C00D
+1460, // imageAtomicMin_00x20C00D
+1462, // imageAtomicMin_01E20C00D
+1464, // imageAtomicMin_01L20C00D
+1466, // imageAtomicMin_00p00C00C
+1468, // imageAtomicMin_00z00C00C
+1470, // imageAtomicMin_01G00C00C
+1472, // imageAtomicMin_00q10C00C
+1474, // imageAtomicMin_00r10C00C
+1476, // imageAtomicMin_00s10C00C
+1478, // imageAtomicMin_00t10C00C
+1480, // imageAtomicMin_01A10C00C
+1482, // imageAtomicMin_01H10C00C
+1484, // imageAtomicMin_00u20C00C
+1486, // imageAtomicMin_01B20C00C
+1488, // imageAtomicMin_01I20C00C
+1490, // imageAtomicMin_00w20C00C
+1492, // imageAtomicMin_01D20C00C
+1494, // imageAtomicMin_01K20C00C
+1496, // imageAtomicMin_00y00C00C
+1498, // imageAtomicMin_01F00C00C
+1500, // imageAtomicMin_01M00C00C
+1502, // imageAtomicMin_00v20C00C
+1504, // imageAtomicMin_01C20C00C
+1506, // imageAtomicMin_01J20C00C
+1508, // imageAtomicMin_00x20C00C
+1510, // imageAtomicMin_01E20C00C
+1512, // imageAtomicMin_01L20C00C
+1514, // imageAtomicMax_00p00C00D
+1516, // imageAtomicMax_00z00C00D
+1518, // imageAtomicMax_01G00C00D
+1520, // imageAtomicMax_00q10C00D
+1522, // imageAtomicMax_00r10C00D
+1524, // imageAtomicMax_00s10C00D
+1526, // imageAtomicMax_00t10C00D
+1528, // imageAtomicMax_01A10C00D
+1530, // imageAtomicMax_01H10C00D
+1532, // imageAtomicMax_00u20C00D
+1534, // imageAtomicMax_01B20C00D
+1536, // imageAtomicMax_01I20C00D
+1538, // imageAtomicMax_00w20C00D
+1540, // imageAtomicMax_01D20C00D
+1542, // imageAtomicMax_01K20C00D
+1544, // imageAtomicMax_00y00C00D
+1546, // imageAtomicMax_01F00C00D
+1548, // imageAtomicMax_01M00C00D
+1550, // imageAtomicMax_00v20C00D
+1552, // imageAtomicMax_01C20C00D
+1554, // imageAtomicMax_01J20C00D
+1556, // imageAtomicMax_00x20C00D
+1558, // imageAtomicMax_01E20C00D
+1560, // imageAtomicMax_01L20C00D
+1562, // imageAtomicMax_00p00C00C
+1564, // imageAtomicMax_00z00C00C
+1566, // imageAtomicMax_01G00C00C
+1568, // imageAtomicMax_00q10C00C
+1570, // imageAtomicMax_00r10C00C
+1572, // imageAtomicMax_00s10C00C
+1574, // imageAtomicMax_00t10C00C
+1576, // imageAtomicMax_01A10C00C
+1578, // imageAtomicMax_01H10C00C
+1580, // imageAtomicMax_00u20C00C
+1582, // imageAtomicMax_01B20C00C
+1584, // imageAtomicMax_01I20C00C
+1586, // imageAtomicMax_00w20C00C
+1588, // imageAtomicMax_01D20C00C
+1590, // imageAtomicMax_01K20C00C
+1592, // imageAtomicMax_00y00C00C
+1594, // imageAtomicMax_01F00C00C
+1596, // imageAtomicMax_01M00C00C
+1598, // imageAtomicMax_00v20C00C
+1600, // imageAtomicMax_01C20C00C
+1602, // imageAtomicMax_01J20C00C
+1604, // imageAtomicMax_00x20C00C
+1606, // imageAtomicMax_01E20C00C
+1608, // imageAtomicMax_01L20C00C
+1610, // imageAtomicAnd_00p00C00D
+1612, // imageAtomicAnd_00z00C00D
+1614, // imageAtomicAnd_01G00C00D
+1616, // imageAtomicAnd_00q10C00D
+1618, // imageAtomicAnd_00r10C00D
+1620, // imageAtomicAnd_00s10C00D
+1622, // imageAtomicAnd_00t10C00D
+1624, // imageAtomicAnd_01A10C00D
+1626, // imageAtomicAnd_01H10C00D
+1628, // imageAtomicAnd_00u20C00D
+1630, // imageAtomicAnd_01B20C00D
+1632, // imageAtomicAnd_01I20C00D
+1634, // imageAtomicAnd_00w20C00D
+1636, // imageAtomicAnd_01D20C00D
+1638, // imageAtomicAnd_01K20C00D
+1640, // imageAtomicAnd_00y00C00D
+1642, // imageAtomicAnd_01F00C00D
+1644, // imageAtomicAnd_01M00C00D
+1646, // imageAtomicAnd_00v20C00D
+1648, // imageAtomicAnd_01C20C00D
+1650, // imageAtomicAnd_01J20C00D
+1652, // imageAtomicAnd_00x20C00D
+1654, // imageAtomicAnd_01E20C00D
+1656, // imageAtomicAnd_01L20C00D
+1658, // imageAtomicAnd_00p00C00C
+1660, // imageAtomicAnd_00z00C00C
+1662, // imageAtomicAnd_01G00C00C
+1664, // imageAtomicAnd_00q10C00C
+1666, // imageAtomicAnd_00r10C00C
+1668, // imageAtomicAnd_00s10C00C
+1670, // imageAtomicAnd_00t10C00C
+1672, // imageAtomicAnd_01A10C00C
+1674, // imageAtomicAnd_01H10C00C
+1676, // imageAtomicAnd_00u20C00C
+1678, // imageAtomicAnd_01B20C00C
+1680, // imageAtomicAnd_01I20C00C
+1682, // imageAtomicAnd_00w20C00C
+1684, // imageAtomicAnd_01D20C00C
+1686, // imageAtomicAnd_01K20C00C
+1688, // imageAtomicAnd_00y00C00C
+1690, // imageAtomicAnd_01F00C00C
+1692, // imageAtomicAnd_01M00C00C
+1694, // imageAtomicAnd_00v20C00C
+1696, // imageAtomicAnd_01C20C00C
+1698, // imageAtomicAnd_01J20C00C
+1700, // imageAtomicAnd_00x20C00C
+1702, // imageAtomicAnd_01E20C00C
+1704, // imageAtomicAnd_01L20C00C
+1706, // imageAtomicOr_00p00C00D
+1708, // imageAtomicOr_00z00C00D
+1710, // imageAtomicOr_01G00C00D
+1712, // imageAtomicOr_00q10C00D
+1714, // imageAtomicOr_00r10C00D
+1716, // imageAtomicOr_00s10C00D
+1718, // imageAtomicOr_00t10C00D
+1720, // imageAtomicOr_01A10C00D
+1722, // imageAtomicOr_01H10C00D
+1724, // imageAtomicOr_00u20C00D
+1726, // imageAtomicOr_01B20C00D
+1728, // imageAtomicOr_01I20C00D
+1730, // imageAtomicOr_00w20C00D
+1732, // imageAtomicOr_01D20C00D
+1734, // imageAtomicOr_01K20C00D
+1736, // imageAtomicOr_00y00C00D
+1738, // imageAtomicOr_01F00C00D
+1740, // imageAtomicOr_01M00C00D
+1742, // imageAtomicOr_00v20C00D
+1744, // imageAtomicOr_01C20C00D
+1746, // imageAtomicOr_01J20C00D
+1748, // imageAtomicOr_00x20C00D
+1750, // imageAtomicOr_01E20C00D
+1752, // imageAtomicOr_01L20C00D
+1754, // imageAtomicOr_00p00C00C
+1756, // imageAtomicOr_00z00C00C
+1758, // imageAtomicOr_01G00C00C
+1760, // imageAtomicOr_00q10C00C
+1762, // imageAtomicOr_00r10C00C
+1764, // imageAtomicOr_00s10C00C
+1766, // imageAtomicOr_00t10C00C
+1768, // imageAtomicOr_01A10C00C
+1770, // imageAtomicOr_01H10C00C
+1772, // imageAtomicOr_00u20C00C
+1774, // imageAtomicOr_01B20C00C
+1776, // imageAtomicOr_01I20C00C
+1778, // imageAtomicOr_00w20C00C
+1780, // imageAtomicOr_01D20C00C
+1782, // imageAtomicOr_01K20C00C
+1784, // imageAtomicOr_00y00C00C
+1786, // imageAtomicOr_01F00C00C
+1788, // imageAtomicOr_01M00C00C
+1790, // imageAtomicOr_00v20C00C
+1792, // imageAtomicOr_01C20C00C
+1794, // imageAtomicOr_01J20C00C
+1796, // imageAtomicOr_00x20C00C
+1798, // imageAtomicOr_01E20C00C
+1800, // imageAtomicOr_01L20C00C
+1802, // imageAtomicXor_00p00C00D
+1804, // imageAtomicXor_00z00C00D
+1806, // imageAtomicXor_01G00C00D
+1808, // imageAtomicXor_00q10C00D
+1810, // imageAtomicXor_00r10C00D
+1812, // imageAtomicXor_00s10C00D
+1814, // imageAtomicXor_00t10C00D
+1816, // imageAtomicXor_01A10C00D
+1818, // imageAtomicXor_01H10C00D
+1820, // imageAtomicXor_00u20C00D
+1822, // imageAtomicXor_01B20C00D
+1824, // imageAtomicXor_01I20C00D
+1826, // imageAtomicXor_00w20C00D
+1828, // imageAtomicXor_01D20C00D
+1830, // imageAtomicXor_01K20C00D
+1832, // imageAtomicXor_00y00C00D
+1834, // imageAtomicXor_01F00C00D
+1836, // imageAtomicXor_01M00C00D
+1838, // imageAtomicXor_00v20C00D
+1840, // imageAtomicXor_01C20C00D
+1842, // imageAtomicXor_01J20C00D
+1844, // imageAtomicXor_00x20C00D
+1846, // imageAtomicXor_01E20C00D
+1848, // imageAtomicXor_01L20C00D
+1850, // imageAtomicXor_00p00C00C
+1852, // imageAtomicXor_00z00C00C
+1854, // imageAtomicXor_01G00C00C
+1856, // imageAtomicXor_00q10C00C
+1858, // imageAtomicXor_00r10C00C
+1860, // imageAtomicXor_00s10C00C
+1862, // imageAtomicXor_00t10C00C
+1864, // imageAtomicXor_01A10C00C
+1866, // imageAtomicXor_01H10C00C
+1868, // imageAtomicXor_00u20C00C
+1870, // imageAtomicXor_01B20C00C
+1872, // imageAtomicXor_01I20C00C
+1874, // imageAtomicXor_00w20C00C
+1876, // imageAtomicXor_01D20C00C
+1878, // imageAtomicXor_01K20C00C
+1880, // imageAtomicXor_00y00C00C
+1882, // imageAtomicXor_01F00C00C
+1884, // imageAtomicXor_01M00C00C
+1886, // imageAtomicXor_00v20C00C
+1888, // imageAtomicXor_01C20C00C
+1890, // imageAtomicXor_01J20C00C
+1892, // imageAtomicXor_00x20C00C
+1894, // imageAtomicXor_01E20C00C
+1896, // imageAtomicXor_01L20C00C
+1898, // imageAtomicExchange_00p00C00D
+1900, // imageAtomicExchange_00z00C00D
+1902, // imageAtomicExchange_01G00C00D
+1904, // imageAtomicExchange_00q10C00D
+1906, // imageAtomicExchange_00r10C00D
+1908, // imageAtomicExchange_00s10C00D
+1910, // imageAtomicExchange_00t10C00D
+1912, // imageAtomicExchange_01A10C00D
+1914, // imageAtomicExchange_01H10C00D
+1916, // imageAtomicExchange_00u20C00D
+1918, // imageAtomicExchange_01B20C00D
+1920, // imageAtomicExchange_01I20C00D
+1922, // imageAtomicExchange_00w20C00D
+1924, // imageAtomicExchange_01D20C00D
+1926, // imageAtomicExchange_01K20C00D
+1928, // imageAtomicExchange_00y00C00D
+1930, // imageAtomicExchange_01F00C00D
+1932, // imageAtomicExchange_01M00C00D
+1934, // imageAtomicExchange_00v20C00D
+1936, // imageAtomicExchange_01C20C00D
+1938, // imageAtomicExchange_01J20C00D
+1940, // imageAtomicExchange_00x20C00D
+1942, // imageAtomicExchange_01E20C00D
+1944, // imageAtomicExchange_01L20C00D
+1946, // imageAtomicExchange_00p00C00C
+1948, // imageAtomicExchange_00z00C00C
+1950, // imageAtomicExchange_01G00C00C
+1952, // imageAtomicExchange_00q10C00C
+1954, // imageAtomicExchange_00r10C00C
+1956, // imageAtomicExchange_00s10C00C
+1958, // imageAtomicExchange_00t10C00C
+1960, // imageAtomicExchange_01A10C00C
+1962, // imageAtomicExchange_01H10C00C
+1964, // imageAtomicExchange_00u20C00C
+1966, // imageAtomicExchange_01B20C00C
+1968, // imageAtomicExchange_01I20C00C
+1970, // imageAtomicExchange_00w20C00C
+1972, // imageAtomicExchange_01D20C00C
+1974, // imageAtomicExchange_01K20C00C
+1976, // imageAtomicExchange_00y00C00C
+1978, // imageAtomicExchange_01F00C00C
+1980, // imageAtomicExchange_01M00C00C
+1982, // imageAtomicExchange_00v20C00C
+1984, // imageAtomicExchange_01C20C00C
+1986, // imageAtomicExchange_01J20C00C
+1988, // imageAtomicExchange_00x20C00C
+1990, // imageAtomicExchange_01E20C00C
+1992, // imageAtomicExchange_01L20C00C
+1994, // imageAtomicExchange_00p00C00B
+1996, // imageAtomicExchange_00z00C00B
+1998, // imageAtomicExchange_01G00C00B
+2000, // imageAtomicExchange_00q10C00B
+2002, // imageAtomicExchange_00r10C00B
+2004, // imageAtomicExchange_00s10C00B
+2006, // imageAtomicExchange_00t10C00B
+2008, // imageAtomicExchange_01A10C00B
+2010, // imageAtomicExchange_01H10C00B
+2012, // imageAtomicExchange_00u20C00B
+2014, // imageAtomicExchange_01B20C00B
+2016, // imageAtomicExchange_01I20C00B
+2018, // imageAtomicExchange_00w20C00B
+2020, // imageAtomicExchange_01D20C00B
+2022, // imageAtomicExchange_01K20C00B
+2024, // imageAtomicExchange_00y00C00B
+2026, // imageAtomicExchange_01F00C00B
+2028, // imageAtomicExchange_01M00C00B
+2030, // imageAtomicExchange_00v20C00B
+2032, // imageAtomicExchange_01C20C00B
+2034, // imageAtomicExchange_01J20C00B
+2036, // imageAtomicExchange_00x20C00B
+2038, // imageAtomicExchange_01E20C00B
+2040, // imageAtomicExchange_01L20C00B
+2042, // imageAtomicCompSwap_00p00C00D00D
+2044, // imageAtomicCompSwap_00z00C00D00D
+2046, // imageAtomicCompSwap_01G00C00D00D
+2048, // imageAtomicCompSwap_00q10C00D00D
+2050, // imageAtomicCompSwap_00r10C00D00D
+2052, // imageAtomicCompSwap_00s10C00D00D
+2054, // imageAtomicCompSwap_00t10C00D00D
+2056, // imageAtomicCompSwap_01A10C00D00D
+2058, // imageAtomicCompSwap_01H10C00D00D
+2060, // imageAtomicCompSwap_00u20C00D00D
+2062, // imageAtomicCompSwap_01B20C00D00D
+2064, // imageAtomicCompSwap_01I20C00D00D
+2066, // imageAtomicCompSwap_00w20C00D00D
+2068, // imageAtomicCompSwap_01D20C00D00D
+2070, // imageAtomicCompSwap_01K20C00D00D
+2072, // imageAtomicCompSwap_00y00C00D00D
+2074, // imageAtomicCompSwap_01F00C00D00D
+2076, // imageAtomicCompSwap_01M00C00D00D
+2078, // imageAtomicCompSwap_00v20C00D00D
+2080, // imageAtomicCompSwap_01C20C00D00D
+2082, // imageAtomicCompSwap_01J20C00D00D
+2084, // imageAtomicCompSwap_00x20C00D00D
+2086, // imageAtomicCompSwap_01E20C00D00D
+2088, // imageAtomicCompSwap_01L20C00D00D
+2090, // imageAtomicCompSwap_00p00C00C00C
+2092, // imageAtomicCompSwap_00z00C00C00C
+2094, // imageAtomicCompSwap_01G00C00C00C
+2096, // imageAtomicCompSwap_00q10C00C00C
+2098, // imageAtomicCompSwap_00r10C00C00C
+2100, // imageAtomicCompSwap_00s10C00C00C
+2102, // imageAtomicCompSwap_00t10C00C00C
+2104, // imageAtomicCompSwap_01A10C00C00C
+2106, // imageAtomicCompSwap_01H10C00C00C
+2108, // imageAtomicCompSwap_00u20C00C00C
+2110, // imageAtomicCompSwap_01B20C00C00C
+2112, // imageAtomicCompSwap_01I20C00C00C
+2114, // imageAtomicCompSwap_00w20C00C00C
+2116, // imageAtomicCompSwap_01D20C00C00C
+2118, // imageAtomicCompSwap_01K20C00C00C
+2120, // imageAtomicCompSwap_00y00C00C00C
+2122, // imageAtomicCompSwap_01F00C00C00C
+2124, // imageAtomicCompSwap_01M00C00C00C
+2126, // imageAtomicCompSwap_00v20C00C00C
+2128, // imageAtomicCompSwap_01C20C00C00C
+2130, // imageAtomicCompSwap_01J20C00C00C
+2132, // imageAtomicCompSwap_00x20C00C00C
+2134, // imageAtomicCompSwap_01E20C00C00C
+2136, // imageAtomicCompSwap_01L20C00C00C
+2138, // pixelLocalLoadANGLE_01N
+2139, // pixelLocalLoadANGLE_01O
+2140, // pixelLocalLoadANGLE_01P
+2141, // pixelLocalStoreANGLE_01N30B
+2142, // pixelLocalStoreANGLE_01O30C
+2143, // pixelLocalStoreANGLE_01P30D
+2144, // beginInvocationInterlockNV_
+2145, // endInvocationInterlockNV_
+2146, // beginFragmentShaderOrderingINTEL_
+2147, // beginInvocationInterlockARB_
+2148, // endInvocationInterlockARB_
+2149, // memoryBarrier_
+2150, // memoryBarrierAtomicCounter_
+2151, // memoryBarrierBuffer_
+2152, // memoryBarrierImage_
+2153, // barrier_
+2157, // memoryBarrierShared_
+2158, // groupMemoryBarrier_
+2159, // EmitVertex_
+2162, // EndPrimitive_
+2165, // subpassLoad_01Q
+2166, // subpassLoad_01R
+2167, // subpassLoad_01S
+2168, // numSamples_
+2169, // samplePosition_00D
+2170, // interpolateAtCenter_00B
+2171, // interpolateAtCenter_10B
+2172, // interpolateAtCenter_20B
+2173, // interpolateAtCenter_30B
+2174, // loopForwardProgress_
+2175, // saturate_00B
+2176, // saturate_10B
+2177, // saturate_20B
+2178, // saturate_30B
+2179, // gl_DepthRangeParameters
+2180, // gl_DepthRange
+2181, // gl_NumSamples
+2183, // gl_MaxVertexAttribs
+2184, // gl_MaxVertexUniformVectors
+2185, // gl_MaxVertexTextureImageUnits
+2186, // gl_MaxCombinedTextureImageUnits
+2187, // gl_MaxTextureImageUnits
+2188, // gl_MaxFragmentUniformVectors
+2189, // gl_MaxVaryingVectors
+2190, // gl_MaxDrawBuffers
+2191, // gl_MaxDualSourceDrawBuffersEXT
+2192, // gl_MaxVertexOutputVectors
+2193, // gl_MaxFragmentInputVectors
+2194, // gl_MinProgramTexelOffset
+2195, // gl_MaxProgramTexelOffset
+2196, // gl_MaxImageUnits
+2197, // gl_MaxVertexImageUniforms
+2198, // gl_MaxFragmentImageUniforms
+2199, // gl_MaxComputeImageUniforms
+2200, // gl_MaxCombinedImageUniforms
+2201, // gl_MaxCombinedShaderOutputResources
+2202, // gl_MaxComputeWorkGroupCount
+2203, // gl_MaxComputeWorkGroupSize
+2204, // gl_MaxComputeUniformComponents
+2205, // gl_MaxComputeTextureImageUnits
+2206, // gl_MaxComputeAtomicCounters
+2207, // gl_MaxComputeAtomicCounterBuffers
+2208, // gl_MaxVertexAtomicCounters
+2209, // gl_MaxFragmentAtomicCounters
+2210, // gl_MaxCombinedAtomicCounters
+2211, // gl_MaxAtomicCounterBindings
+2212, // gl_MaxVertexAtomicCounterBuffers
+2213, // gl_MaxFragmentAtomicCounterBuffers
+2214, // gl_MaxCombinedAtomicCounterBuffers
+2215, // gl_MaxAtomicCounterBufferSize
+2216, // gl_ShadingRateFlag2VerticalPixelsEXT
+2217, // gl_ShadingRateFlag4VerticalPixelsEXT
+2218, // gl_ShadingRateFlag2HorizontalPixelsEXT
+2219, // gl_ShadingRateFlag4HorizontalPixelsEXT
+2220, // gl_MaxGeometryInputComponents
+2223, // gl_MaxGeometryOutputComponents
+2226, // gl_MaxGeometryImageUniforms
+2229, // gl_MaxGeometryTextureImageUnits
+2232, // gl_MaxGeometryOutputVertices
+2235, // gl_MaxGeometryTotalOutputComponents
+2238, // gl_MaxGeometryUniformComponents
+2241, // gl_MaxGeometryAtomicCounters
+2244, // gl_MaxGeometryAtomicCounterBuffers
+2247, // gl_MaxTessControlInputComponents
+2250, // gl_MaxTessControlOutputComponents
+2253, // gl_MaxTessControlTextureImageUnits
+2256, // gl_MaxTessControlUniformComponents
+2259, // gl_MaxTessControlTotalOutputComponents
+2262, // gl_MaxTessControlImageUniforms
+2265, // gl_MaxTessControlAtomicCounters
+2268, // gl_MaxTessControlAtomicCounterBuffers
+2271, // gl_MaxTessPatchComponents
+2274, // gl_MaxPatchVertices
+2277, // gl_MaxTessGenLevel
+2280, // gl_MaxTessEvaluationInputComponents
+2283, // gl_MaxTessEvaluationOutputComponents
+2286, // gl_MaxTessEvaluationTextureImageUnits
+2289, // gl_MaxTessEvaluationUniformComponents
+2292, // gl_MaxTessEvaluationImageUniforms
+2295, // gl_MaxTessEvaluationAtomicCounters
+2298, // gl_MaxTessEvaluationAtomicCounterBuffers
+2301, // gl_MaxSamples
+2303, // gl_MaxClipDistances
+2306, // gl_MaxCullDistances
+2308, // gl_MaxCombinedClipAndCullDistances
+2310, // gl_FragCoord
+2312, // gl_FrontFacing
+2313, // gl_PointCoord
+2314, // gl_FragColor
+2315, // gl_FragData
+2316, // gl_FragDepth
+2317, // gl_HelperInvocation
+2318, // gl_SecondaryFragColorEXT
+2319, // gl_SecondaryFragDataEXT
+2320, // gl_FragDepthEXT
+2321, // gl_LastFragData
+2323, // gl_LastFragColorARM
+2324, // gl_LastFragDepthARM
+2325, // gl_LastFragStencilARM
+2326, // gl_PrimitiveID
+2338, // gl_Layer
+2345, // gl_ShadingRateEXT
+2346, // gl_SampleID
+2348, // gl_SamplePosition
+2350, // gl_SampleMaskIn
+2352, // gl_SampleMask
+2354, // gl_Position
+2361, // gl_PointSize
+2363, // gl_InstanceID
+2364, // gl_InstanceIndex
+2365, // gl_VertexID
+2366, // gl_VertexIndex
+2367, // gl_ViewportIndex
+2368, // gl_DrawID
+2369, // gl_BaseVertex
+2370, // gl_BaseInstance
+2371, // gl_ClipDistance
+2374, // gl_PrimitiveShadingRateEXT
+2376, // gl_NumWorkGroups
+2377, // gl_WorkGroupSize
+2378, // gl_WorkGroupID
+2379, // gl_LocalInvocationID
+2380, // gl_GlobalInvocationID
+2381, // gl_LocalInvocationIndex
+2382, // gl_PrimitiveIDIn
+2385, // gl_InvocationID
+2391, // gl_PerVertex
+2400, // gl_in
+2409, // gl_PatchVerticesIn
+2415, // gl_TessLevelOuter
+2421, // gl_TessLevelInner
+2427, // gl_out
+2430, // gl_BoundingBox
+2433, // gl_BoundingBoxEXT
+2436, // gl_BoundingBoxOES
+2439, // gl_TessCoord
+2440, // gl_ViewID_OVR
+2441, // gl_CullDistance
 };
 
 using Ext = TExtension;
 
 // Flat array of all unmangled name identifiers.
 constexpr UnmangledEntry unmangled[] = {
-{"radians", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"degrees", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"sin", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"cos", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"tan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"asin", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"acos", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"atan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"sinh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"cosh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"tanh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"asinh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"acosh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"atanh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"pow", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"exp", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"log", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"exp2", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"log2", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"sqrt", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"inversesqrt", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"abs", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"sign", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"floor", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"trunc", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"round", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"roundEven", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"ceil", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"fract", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"mod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"min", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"max", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"clamp", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"mix", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"step", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"smoothstep", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"modf", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"isnan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"isinf", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"floatBitsToInt", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"floatBitsToUint", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"intBitsToFloat", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"uintBitsToFloat", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"fma", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"frexp", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"ldexp", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"packSnorm2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"packHalf2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"unpackSnorm2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"unpackHalf2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"packUnorm2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"unpackUnorm2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"packUnorm4x8", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"packSnorm4x8", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"unpackUnorm4x8", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"unpackSnorm4x8", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"ftransform", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"length", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"distance", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"dot", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"cross", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"normalize", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"faceforward", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"reflect", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"refract", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"matrixCompMult", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"outerProduct", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"transpose", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"determinant", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"inverse", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"lessThan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"lessThanEqual", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"greaterThan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"greaterThanEqual", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"equal", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"notEqual", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"any", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"all", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"not", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"bitfieldExtract", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"bitfieldInsert", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"bitfieldReverse", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"bitCount", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"findLSB", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"findMSB", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"uaddCarry", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"usubBorrow", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"umulExtended", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"imulExtended", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"texture2D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureCube", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture1D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture1DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture3D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture3DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow1D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow1DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureCubeLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture1DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture1DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow1DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow1DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureQueryLevels", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureSamples", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureQueryLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DProjEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DRect", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DRectProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DGradEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DProjGradEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureCubeGradEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureVideoWEBGL", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture3DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture3DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DLodEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::FRAGMENT}, {"texture2DProjLodEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::FRAGMENT}, {"textureCubeLodEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::FRAGMENT}, {"texture", std::array<TExtension, 1>{{Ext::OES_EGL_image_external_essl3}}, 300, Shader::FRAGMENT}, {"textureProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureLod", std::array<TExtension, 2>{{Ext::OES_texture_cube_map_array,Ext::EXT_texture_cube_map_array}}, 310, Shader::ALL}, {"textureSize", std::array<TExtension, 1>{{Ext::OES_texture_storage_multisample_2d_array}}, 300, Shader::ALL}, {"textureProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"texelFetch", std::array<TExtension, 1>{{Ext::OES_texture_storage_multisample_2d_array}}, 300, Shader::ALL}, {"textureGrad", std::array<TExtension, 2>{{Ext::OES_texture_cube_map_array,Ext::EXT_texture_cube_map_array}}, 310, Shader::ALL}, {"textureProjGrad", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureProjOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureLodOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureProjLodOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"texelFetchOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureGradOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureProjGradOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureGather", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"textureGatherOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"textureGatherOffsets", std::array<TExtension, 2>{{Ext::EXT_gpu_shader5,Ext::OES_gpu_shader5}}, 310, Shader::ALL}, {"textureQueryLOD", std::array<TExtension, 1>{{Ext::EXT_texture_query_lod}}, 310, Shader::FRAGMENT}, {"rgb_2_yuv", std::array<TExtension, 1>{{Ext::EXT_YUV_target}}, 300, Shader::ALL}, {"yuv_2_rgb", std::array<TExtension, 1>{{Ext::EXT_YUV_target}}, 300, Shader::ALL}, {"dFdx", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::FRAGMENT}, {"dFdy", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::FRAGMENT}, {"fwidth", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::FRAGMENT}, {"interpolateAtCentroid", std::array<TExtension, 1>{{Ext::OES_shader_multisample_interpolation}}, 300, Shader::FRAGMENT}, {"interpolateAtSample", std::array<TExtension, 1>{{Ext::OES_shader_multisample_interpolation}}, 300, Shader::FRAGMENT}, {"interpolateAtOffset", std::array<TExtension, 1>{{Ext::OES_shader_multisample_interpolation}}, 300, Shader::FRAGMENT}, {"atomicCounter", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterIncrement", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterDecrement", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterAdd", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterSubtract", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterMin", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterMax", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterAnd", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterOr", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterXor", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterExchange", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterCompSwap", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicAdd", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicMin", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicMax", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicAnd", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicOr", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicXor", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicExchange", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCompSwap", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"imageSize", std::array<TExtension, 2>{{Ext::OES_texture_buffer,Ext::EXT_texture_buffer}}, 310, Shader::ALL}, {"imageStore", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"imageLoad", std::array<TExtension, 2>{{Ext::OES_texture_buffer,Ext::EXT_texture_buffer}}, 310, Shader::ALL}, {"imageAtomicAdd", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicMin", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicMax", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicAnd", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicOr", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicXor", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicExchange", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicCompSwap", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"pixelLocalLoadANGLE", std::array<TExtension, 1>{{Ext::ANGLE_shader_pixel_local_storage}}, 300, Shader::ALL}, {"pixelLocalStoreANGLE", std::array<TExtension, 1>{{Ext::ANGLE_shader_pixel_local_storage}}, 300, Shader::ALL}, {"beginInvocationInterlockNV", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"endInvocationInterlockNV", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"beginFragmentShaderOrderingINTEL", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"beginInvocationInterlockARB", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"endInvocationInterlockARB", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"memoryBarrier", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"memoryBarrierAtomicCounter", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"memoryBarrierBuffer", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"memoryBarrierImage", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"barrier", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 320, Shader::TESS_CONTROL_EXT}, {"memoryBarrierShared", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::COMPUTE}, {"groupMemoryBarrier", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::COMPUTE}, {"EmitVertex", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 320, Shader::GEOMETRY}, {"EndPrimitive", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 320, Shader::GEOMETRY}, {"subpassLoad", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"numSamples", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::FRAGMENT}, {"samplePosition", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::FRAGMENT}, {"interpolateAtCenter", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::FRAGMENT}, {"loopForwardProgress", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"saturate", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}
+{"radians", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"degrees", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"sin", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"cos", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"tan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"asin", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"acos", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"atan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"sinh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"cosh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"tanh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"asinh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"acosh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"atanh", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"pow", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"exp", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"log", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"exp2", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"log2", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"sqrt", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"inversesqrt", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"abs", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"sign", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"floor", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"trunc", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"round", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"roundEven", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"ceil", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"fract", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"mod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"min", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"max", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"clamp", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"mix", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"step", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"smoothstep", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"modf", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"isnan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"isinf", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"floatBitsToInt", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"floatBitsToUint", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"intBitsToFloat", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"uintBitsToFloat", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"fma", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"frexp", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"ldexp", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"packSnorm2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"packHalf2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"unpackSnorm2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"unpackHalf2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"packUnorm2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"unpackUnorm2x16", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"packUnorm4x8", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"packSnorm4x8", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"unpackUnorm4x8", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"unpackSnorm4x8", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"ftransform", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"length", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"distance", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"dot", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"cross", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"normalize", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"faceforward", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"reflect", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"refract", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"matrixCompMult", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"outerProduct", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"transpose", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"determinant", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"inverse", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"lessThan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"lessThanEqual", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"greaterThan", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"greaterThanEqual", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"equal", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"notEqual", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"any", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"all", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"not", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"bitfieldExtract", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"bitfieldInsert", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"bitfieldReverse", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"bitCount", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"findLSB", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"findMSB", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"uaddCarry", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"usubBorrow", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"umulExtended", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"imulExtended", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"texture2D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureCube", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture1D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture1DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture3D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture3DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow1D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow1DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2D", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureCubeLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture1DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture1DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow1DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow1DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureQueryLevels", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureSamples", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureQueryLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"shadow2DProjEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DRect", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DRectProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DGradEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DProjGradEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureCubeGradEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"textureVideoWEBGL", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture3DLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture3DProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::ALL}, {"texture2DLodEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::FRAGMENT}, {"texture2DProjLodEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::FRAGMENT}, {"textureCubeLodEXT", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 0, Shader::FRAGMENT}, {"texture", std::array<TExtension, 1>{{Ext::OES_EGL_image_external_essl3}}, 300, Shader::FRAGMENT}, {"textureProj", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureLod", std::array<TExtension, 2>{{Ext::OES_texture_cube_map_array,Ext::EXT_texture_cube_map_array}}, 310, Shader::ALL}, {"textureSize", std::array<TExtension, 1>{{Ext::OES_texture_storage_multisample_2d_array}}, 300, Shader::ALL}, {"textureProjLod", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"texelFetch", std::array<TExtension, 1>{{Ext::OES_texture_storage_multisample_2d_array}}, 300, Shader::ALL}, {"textureGrad", std::array<TExtension, 2>{{Ext::OES_texture_cube_map_array,Ext::EXT_texture_cube_map_array}}, 310, Shader::ALL}, {"textureProjGrad", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureProjOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureLodOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureProjLodOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"texelFetchOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureGradOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureProjGradOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::ALL}, {"textureGather", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"textureGatherOffset", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"textureGatherOffsets", std::array<TExtension, 2>{{Ext::EXT_gpu_shader5,Ext::OES_gpu_shader5}}, 310, Shader::ALL}, {"textureQueryLOD", std::array<TExtension, 1>{{Ext::EXT_texture_query_lod}}, 310, Shader::FRAGMENT}, {"rgb_2_yuv", std::array<TExtension, 1>{{Ext::EXT_YUV_target}}, 300, Shader::ALL}, {"yuv_2_rgb", std::array<TExtension, 1>{{Ext::EXT_YUV_target}}, 300, Shader::ALL}, {"dFdx", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::FRAGMENT}, {"dFdy", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::FRAGMENT}, {"fwidth", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 300, Shader::FRAGMENT}, {"interpolateAtCentroid", std::array<TExtension, 1>{{Ext::OES_shader_multisample_interpolation}}, 300, Shader::FRAGMENT}, {"interpolateAtSample", std::array<TExtension, 1>{{Ext::OES_shader_multisample_interpolation}}, 300, Shader::FRAGMENT}, {"interpolateAtOffset", std::array<TExtension, 1>{{Ext::OES_shader_multisample_interpolation}}, 300, Shader::FRAGMENT}, {"atomicCounter", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterIncrement", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterDecrement", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterAdd", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterSubtract", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterMin", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterMax", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterAnd", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterOr", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterXor", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterExchange", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCounterCompSwap", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicAdd", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicMin", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicMax", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicAnd", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicOr", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicXor", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicExchange", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"atomicCompSwap", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"imageSize", std::array<TExtension, 2>{{Ext::OES_texture_buffer,Ext::EXT_texture_buffer}}, 310, Shader::ALL}, {"imageStore", std::array<TExtension, 2>{{Ext::OES_texture_buffer,Ext::EXT_texture_buffer}}, 310, Shader::ALL}, {"imageLoad", std::array<TExtension, 2>{{Ext::OES_texture_buffer,Ext::EXT_texture_buffer}}, 310, Shader::ALL}, {"imageAtomicAdd", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicMin", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicMax", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicAnd", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicOr", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicXor", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicExchange", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"imageAtomicCompSwap", std::array<TExtension, 1>{{Ext::OES_shader_image_atomic}}, 310, Shader::ALL}, {"pixelLocalLoadANGLE", std::array<TExtension, 1>{{Ext::ANGLE_shader_pixel_local_storage}}, 300, Shader::ALL}, {"pixelLocalStoreANGLE", std::array<TExtension, 1>{{Ext::ANGLE_shader_pixel_local_storage}}, 300, Shader::ALL}, {"beginInvocationInterlockNV", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"endInvocationInterlockNV", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"beginFragmentShaderOrderingINTEL", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"beginInvocationInterlockARB", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"endInvocationInterlockARB", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"memoryBarrier", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"memoryBarrierAtomicCounter", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"memoryBarrierBuffer", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"memoryBarrierImage", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::ALL}, {"barrier", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 320, Shader::TESS_CONTROL_EXT}, {"memoryBarrierShared", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::COMPUTE}, {"groupMemoryBarrier", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 310, Shader::COMPUTE}, {"EmitVertex", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 320, Shader::GEOMETRY}, {"EndPrimitive", std::array<TExtension, 1>{{Ext::UNDEFINED}}, 320, Shader::GEOMETRY}, {"subpassLoad", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"numSamples", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::FRAGMENT}, {"samplePosition", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::FRAGMENT}, {"interpolateAtCenter", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::FRAGMENT}, {"loopForwardProgress", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}, {"saturate", std::array<TExtension, 1>{{Ext::UNDEFINED}}, kESSLInternalBackendBuiltIns, Shader::ALL}
 };
 
 }
@@ -9414,7 +9402,7 @@ namespace
 {
 uint16_t GetNextRuleIndex(uint32_t nameHash)
 {
-    if (nameHash == 1729 - 1)
+    if (nameHash == 1726 - 1)
         return ArraySize(BuiltInArray::kRules);
     return BuiltInArray::kMangledOffsets[nameHash + 1];
 }
@@ -9427,7 +9415,7 @@ const TSymbol *TSymbolTable::findBuiltIn(const ImmutableString &name,
         return nullptr;
 
     uint32_t nameHash = name.mangledNameHash();
-    if (nameHash >= 1729)
+    if (nameHash >= 1726)
         return nullptr;
 
     const char *actualName = BuiltInArray::kMangledNames[nameHash];
