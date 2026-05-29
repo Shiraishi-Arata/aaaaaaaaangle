@@ -110,6 +110,12 @@ enum TBasicType
     EbtGuardImageBegin,
     EbtImage2D = EbtGuardImageBegin,
     EbtImage3D,
+    EbtImage1D,
+    EbtImage1DArray,
+    EbtIImage1D,
+    EbtIImage1DArray,
+    EbtUImage1D,
+    EbtUImage1DArray,
     EbtImage2DArray,
     EbtImageCube,
     EbtImageCubeArray,
@@ -356,6 +362,8 @@ inline bool IsFloatImage(TBasicType type)
 {
     switch (type)
     {
+        case EbtImage1D:
+        case EbtImage1DArray:
         case EbtImage2D:
         case EbtImage3D:
         case EbtImage2DArray:
@@ -375,6 +383,8 @@ inline bool IsIntegerImage(TBasicType type)
 
     switch (type)
     {
+        case EbtIImage1D:
+        case EbtIImage1DArray:
         case EbtIImage2D:
         case EbtIImage3D:
         case EbtIImage2DArray:
@@ -394,6 +404,8 @@ inline bool IsUnsignedImage(TBasicType type)
 
     switch (type)
     {
+        case EbtUImage1D:
+        case EbtUImage1DArray:
         case EbtUImage2D:
         case EbtUImage3D:
         case EbtUImage2DArray:
@@ -810,6 +822,12 @@ inline bool IsImage2D(TBasicType type)
         case EbtImage3D:
         case EbtIImage3D:
         case EbtUImage3D:
+        case EbtImage1D:
+        case EbtIImage1D:
+        case EbtUImage1D:
+        case EbtImage1DArray:
+        case EbtIImage1DArray:
+        case EbtUImage1DArray:
         case EbtImage2DArray:
         case EbtIImage2DArray:
         case EbtUImage2DArray:
@@ -838,6 +856,12 @@ inline bool IsImage3D(TBasicType type)
         case EbtIImage3D:
         case EbtUImage3D:
             return true;
+        case EbtImage1D:
+        case EbtIImage1D:
+        case EbtUImage1D:
+        case EbtImage1DArray:
+        case EbtIImage1DArray:
+        case EbtUImage1DArray:
         case EbtImage2D:
         case EbtIImage2D:
         case EbtUImage2D:
@@ -869,6 +893,12 @@ inline bool IsImage2DArray(TBasicType type)
         case EbtIImage2DArray:
         case EbtUImage2DArray:
             return true;
+        case EbtImage1D:
+        case EbtIImage1D:
+        case EbtUImage1D:
+        case EbtImage1DArray:
+        case EbtIImage1DArray:
+        case EbtUImage1DArray:
         case EbtImage2D:
         case EbtIImage2D:
         case EbtUImage2D:
@@ -900,6 +930,12 @@ inline bool IsImageCube(TBasicType type)
         case EbtIImageCube:
         case EbtUImageCube:
             return true;
+        case EbtImage1D:
+        case EbtIImage1D:
+        case EbtUImage1D:
+        case EbtImage1DArray:
+        case EbtIImage1DArray:
+        case EbtUImage1DArray:
         case EbtImage2D:
         case EbtIImage2D:
         case EbtUImage2D:
