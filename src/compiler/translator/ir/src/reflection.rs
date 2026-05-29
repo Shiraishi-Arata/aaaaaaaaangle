@@ -868,6 +868,7 @@ fn new_common_shader_variable(
                     ImageInternalFormat::RGBA16UI => gl::RGBA16UI,
                     ImageInternalFormat::RGBA8UI => gl::RGBA8UI,
                     ImageInternalFormat::R32UI => gl::R32UI,
+                    ImageInternalFormat::R11FG11FB10F => gl::R32UI,
                     ImageInternalFormat::RGBA32I => gl::RGBA32I,
                     ImageInternalFormat::RGBA16I => gl::RGBA16I,
                     ImageInternalFormat::RGBA8I => gl::RGBA8I,
