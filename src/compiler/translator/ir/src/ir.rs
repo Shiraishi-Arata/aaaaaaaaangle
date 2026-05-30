@@ -1985,6 +1985,7 @@ pub enum ImageBasicType {
 #[cfg_attr(debug_assertions, derive(Debug))]
 pub enum ImageDimension {
     // Note: D2 is 2D, but works around identifier starting with number
+    D1,
     D2,
     D3,
     Cube,
