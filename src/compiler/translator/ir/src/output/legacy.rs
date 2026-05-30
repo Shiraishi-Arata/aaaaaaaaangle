@@ -370,6 +370,10 @@ pub mod ffi {
             compiler: *mut TCompiler,
             operand: &Expression,
         ) -> *mut TIntermTyped;
+        unsafe fn built_in_ftransform(
+            compiler: *mut TCompiler,
+            operand: &Expression,
+        ) -> *mut TIntermTyped;
         unsafe fn built_in_length(
             compiler: *mut TCompiler,
             operand: &Expression,
@@ -2389,6 +2393,9 @@ impl ast::Target for Generator<'_> {
                 }
                 UnaryOpCode::UnpackSnorm4x8 => {
                     ffi::built_in_unpacksnorm4x8(self.legacy_compiler, &operand)
+                }
+                UnaryOpCode::Ftransform => {
+                    ffi::built_in_ftransform(self.legacy_compiler, &operand)
                 }
                 UnaryOpCode::Length => ffi::built_in_length(self.legacy_compiler, &operand),
                 UnaryOpCode::Normalize => ffi::built_in_normalize(self.legacy_compiler, &operand),
