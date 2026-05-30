@@ -815,6 +815,11 @@ TIntermTyped *built_in_unpacksnorm4x8(TCompiler *compiler, const Expression &ope
     return UnaryBuiltIn(compiler, "unpackSnorm4x8", operand, kNoVersionOverride);
 }
 
+TIntermTyped *built_in_ftransform(TCompiler *compiler, const Expression &operand)
+{
+    return UnaryBuiltIn(compiler, "ftransform", operand, kNoVersionOverride);
+}
+
 TIntermTyped *built_in_length(TCompiler *compiler, const Expression &operand)
 {
     return UnaryBuiltIn(compiler, "length", operand, kNoVersionOverride);
