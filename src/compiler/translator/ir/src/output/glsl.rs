@@ -1062,6 +1062,7 @@ impl ast::Target for Generator {
             UnaryOpCode::PackSnorm4x8 => format!("packSnorm4x8({id})"),
             UnaryOpCode::UnpackUnorm4x8 => format!("unpackUnorm4x8({id})"),
             UnaryOpCode::UnpackSnorm4x8 => format!("unpackSnorm4x8({id})"),
+            UnaryOpCode::Ftransform => format!("ftransform({id})"),
             UnaryOpCode::Length => format!("length({id})"),
             UnaryOpCode::Normalize => format!("normalize({id})"),
             UnaryOpCode::Transpose => format!("transpose({id})"),
