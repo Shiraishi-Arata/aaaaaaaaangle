@@ -2825,27 +2825,34 @@ pub mod ffi {
         Bool,
         AtomicCounter,
         YuvCscStandardEXT,
+        Sampler1D,
         Sampler2D,
         Sampler3D,
         SamplerCube,
+        Sampler1DArray,
         Sampler2DArray,
         SamplerExternalOES,
         SamplerExternal2DY2YEXT,
         Sampler2DRect,
         Sampler2DMS,
         Sampler2DMSArray,
+        ISampler1D,
         ISampler2D,
         ISampler3D,
         ISamplerCube,
+        ISampler1DArray,
         ISampler2DArray,
         ISampler2DMS,
         ISampler2DMSArray,
+        USampler1D,
         USampler2D,
         USampler3D,
         USamplerCube,
+        USampler1DArray,
         USampler2DArray,
         USampler2DMS,
         USampler2DMSArray,
+        Sampler1DShadow,
         Sampler2DShadow,
         SamplerCubeShadow,
         Sampler2DArrayShadow,
@@ -2859,18 +2866,21 @@ pub mod ffi {
         USamplerBuffer,
         USamplerCubeArray,
         SamplerVideoWEBGL,
+        Image1D,
         Image2D,
         Image3D,
         Image2DArray,
         ImageCube,
         ImageCubeArray,
         ImageBuffer,
+        IImage1D,
         IImage2D,
         IImage3D,
         IImage2DArray,
         IImageCube,
         IImageCubeArray,
         IImageBuffer,
+        UImage1D,
         UImage2D,
         UImage3D,
         UImage2DArray,
@@ -3694,8 +3704,10 @@ impl BuilderWrapper {
                 let image_basic_type = if matches!(
                     basic_type,
                     ffi::ASTBasicType::Sampler2D
+                        | ffi::ASTBasicType::Sampler1D
                         | ffi::ASTBasicType::Sampler3D
                         | ffi::ASTBasicType::SamplerCube
+                        | ffi::ASTBasicType::Sampler1DArray
                         | ffi::ASTBasicType::Sampler2DArray
                         | ffi::ASTBasicType::SamplerExternalOES
                         | ffi::ASTBasicType::SamplerExternal2DY2YEXT
@@ -3704,11 +3716,13 @@ impl BuilderWrapper {
                         | ffi::ASTBasicType::Sampler2DMSArray
                         | ffi::ASTBasicType::Sampler2DShadow
                         | ffi::ASTBasicType::SamplerCubeShadow
+                        | ffi::ASTBasicType::Sampler1DArrayShadow
                         | ffi::ASTBasicType::Sampler2DArrayShadow
                         | ffi::ASTBasicType::SamplerBuffer
                         | ffi::ASTBasicType::SamplerCubeArray
                         | ffi::ASTBasicType::SamplerCubeArrayShadow
                         | ffi::ASTBasicType::SamplerVideoWEBGL
+                        | ffi::ASTBasicType::Image1D
                         | ffi::ASTBasicType::Image2D
                         | ffi::ASTBasicType::Image3D
                         | ffi::ASTBasicType::Image2DArray
@@ -3722,6 +3736,7 @@ impl BuilderWrapper {
                 } else if matches!(
                     basic_type,
                     ffi::ASTBasicType::ISampler2D
+                        | ffi::ASTBasicType::ISampler1D
                         | ffi::ASTBasicType::ISampler3D
                         | ffi::ASTBasicType::ISamplerCube
                         | ffi::ASTBasicType::ISampler2DArray
@@ -3730,8 +3745,10 @@ impl BuilderWrapper {
                         | ffi::ASTBasicType::ISampler2DRect
                         | ffi::ASTBasicType::ISamplerBuffer
                         | ffi::ASTBasicType::ISamplerCubeArray
+                        | ffi::ASTBasicType::IImage1D
                         | ffi::ASTBasicType::IImage2D
                         | ffi::ASTBasicType::IImage3D
+                        | ffi::ASTBasicType::IImage1DArray
                         | ffi::ASTBasicType::IImage2DArray
                         | ffi::ASTBasicType::IImageCube
                         | ffi::ASTBasicType::IImageCubeArray
@@ -3744,16 +3761,20 @@ impl BuilderWrapper {
                     debug_assert!(matches!(
                         basic_type,
                         ffi::ASTBasicType::USampler2D
+                            | ffi::ASTBasicType::USampler1D
                             | ffi::ASTBasicType::USampler3D
                             | ffi::ASTBasicType::USamplerCube
+                            | ffi::ASTBasicType::USampler1DArray
                             | ffi::ASTBasicType::USampler2DArray
                             | ffi::ASTBasicType::USampler2DMS
                             | ffi::ASTBasicType::USampler2DMSArray
                             | ffi::ASTBasicType::USampler2DRect
                             | ffi::ASTBasicType::USamplerBuffer
                             | ffi::ASTBasicType::USamplerCubeArray
+                            | ffi::ASTBasicType::UImage1D
                             | ffi::ASTBasicType::UImage2D
                             | ffi::ASTBasicType::UImage3D
+                            | ffi::ASTBasicType::UImage1DArray
                             | ffi::ASTBasicType::UImage2DArray
                             | ffi::ASTBasicType::UImageCube
                             | ffi::ASTBasicType::UImageCubeArray
@@ -3859,21 +3880,26 @@ impl BuilderWrapper {
                 let is_sampled = matches!(
                     basic_type,
                     ffi::ASTBasicType::Sampler2D
+                        | ffi::ASTBasicType::Sampler1D
                         | ffi::ASTBasicType::Sampler3D
                         | ffi::ASTBasicType::SamplerCube
+                        | ffi::ASTBasicType::Sampler1DArray
                         | ffi::ASTBasicType::Sampler2DArray
                         | ffi::ASTBasicType::SamplerExternalOES
                         | ffi::ASTBasicType::SamplerExternal2DY2YEXT
                         | ffi::ASTBasicType::Sampler2DRect
                         | ffi::ASTBasicType::Sampler2DMS
                         | ffi::ASTBasicType::Sampler2DMSArray
+                        | ffi::ASTBasicType::Sampler1DShadow
                         | ffi::ASTBasicType::Sampler2DShadow
                         | ffi::ASTBasicType::SamplerCubeShadow
+                        | ffi::ASTBasicType::Sampler1DArrayShadow
                         | ffi::ASTBasicType::Sampler2DArrayShadow
                         | ffi::ASTBasicType::SamplerBuffer
                         | ffi::ASTBasicType::SamplerCubeArray
                         | ffi::ASTBasicType::SamplerCubeArrayShadow
                         | ffi::ASTBasicType::SamplerVideoWEBGL
+                        | ffi::ASTBasicType::ISampler1D
                         | ffi::ASTBasicType::ISampler2D
                         | ffi::ASTBasicType::ISampler3D
                         | ffi::ASTBasicType::ISamplerCube
@@ -3883,9 +3909,11 @@ impl BuilderWrapper {
                         | ffi::ASTBasicType::ISampler2DRect
                         | ffi::ASTBasicType::ISamplerBuffer
                         | ffi::ASTBasicType::ISamplerCubeArray
+                        | ffi::ASTBasicType::USampler1D
                         | ffi::ASTBasicType::USampler2D
                         | ffi::ASTBasicType::USampler3D
                         | ffi::ASTBasicType::USamplerCube
+                        | ffi::ASTBasicType::USampler1DArray
                         | ffi::ASTBasicType::USampler2DArray
                         | ffi::ASTBasicType::USampler2DMS
                         | ffi::ASTBasicType::USampler2DMSArray
