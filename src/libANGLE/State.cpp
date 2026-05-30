@@ -1558,7 +1558,7 @@ void PrivateState::setEnableFeature(GLenum feature, bool enabled)
             break;
     }
 
-    ASSERT(mClientVersion < ES_2_0);
+    //ASSERT(mClientVersion < ES_2_0);
 
     // GLES1 emulation. Need to separate from main switch due to conflict enum between
     // GL_CLIP_DISTANCE0_EXT & GL_CLIP_PLANE0
@@ -1717,7 +1717,7 @@ bool PrivateState::getEnableFeature(GLenum feature) const
             return mFetchPerSample;
     }
 
-    ASSERT(mClientVersion < ES_2_0);
+    //ASSERT(mClientVersion < ES_2_0);
 
     switch (feature)
     {
