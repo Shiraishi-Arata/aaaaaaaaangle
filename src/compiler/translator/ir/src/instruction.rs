@@ -1754,6 +1754,12 @@ mod const_fold {
     ) -> ConstantId {
         pack4x8_helper(ir_meta, constant_id, result_type_id, f32_to_unorm8)
     }
+    fn built_in_ftransform(
+        ir_meta: &mut IRMeta,
+       _result_type_id: TypeId,
+    ) -> ConstantId {
+       ir_meta.get_constant_vec4(0.0, 0.0, 0.0, 0.0)
+    }
     fn unorm8_to_f32(v: u8) -> f32 {
         v as f32 / 255.
     }
