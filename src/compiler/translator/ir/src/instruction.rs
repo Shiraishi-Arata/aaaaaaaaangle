@@ -3205,6 +3205,7 @@ mod promote {
                     2
                 }
             }
+            ImageDimension::D1 => 3,
             ImageDimension::D3 => 3,
             ImageDimension::Buffer => 1,
         };
