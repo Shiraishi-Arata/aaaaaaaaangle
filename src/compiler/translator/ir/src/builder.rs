@@ -2844,7 +2844,6 @@ pub mod ffi {
         ISampler3D,
         ISamplerCube,
         ISampler1DArray,
-        ISampler1DArray,
         ISampler2DArray,
         ISampler2DMS,
         ISampler2DMSArray,
