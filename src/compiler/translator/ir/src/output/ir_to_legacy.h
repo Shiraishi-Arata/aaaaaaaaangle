@@ -151,6 +151,7 @@ TIntermTyped *built_in_packunorm4x8(TCompiler *compiler, const Expression &opera
 TIntermTyped *built_in_packsnorm4x8(TCompiler *compiler, const Expression &operand);
 TIntermTyped *built_in_unpackunorm4x8(TCompiler *compiler, const Expression &operand);
 TIntermTyped *built_in_unpacksnorm4x8(TCompiler *compiler, const Expression &operand);
+TIntermTyped *built_in_ftransform(TCompiler *compiler, const Expression &operand);
 TIntermTyped *built_in_length(TCompiler *compiler, const Expression &operand);
 TIntermTyped *built_in_normalize(TCompiler *compiler, const Expression &operand);
 TIntermTyped *built_in_transpose(TCompiler *compiler, const Expression &operand);
