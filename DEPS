@@ -1376,7 +1376,7 @@ deps = {
   },
 
   'tools/rust': {
-    'url': Var('chromium_git') + '/chromium/src/tools/rust.git@205485ea587dfd5d97c0de8cab07653de5b36992',
+    'url': Var('chromium_git') + '/chromium/src/tools/rust.git@83956223839a37b5c1aa073bf4a5cc9b3c0f7d81',
     'condition': 'not build_with_chromium',
   },
 
