@@ -30,7 +30,6 @@ jobs:
         with:
           path: |
                 depot_tools
-                .gclient
                 third_party/llvm-build
                 tools/flex-bison
           key: depot-tools-${{ runner.os }}-${{ hashFiles('.gclient') }}
@@ -75,6 +74,7 @@ jobs:
           export PATH=`pwd`/depot_tools:$PATH
           export NDK_CCACHE="ccache"
           echo $PATH
+          sed -i '/expand_directory_allowlist/s/\]/,\n  "//build\/modules\/BUILD.gn"\n]/' .gn
           gn gen out/Android-${{matrix.arch}} --threads=$(nproc)
           gn args out/Android-${{ matrix.arch }} --list --short
           autoninja -C out/Android-${{matrix.arch}} -j $(nproc)
