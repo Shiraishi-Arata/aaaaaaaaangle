@@ -2321,6 +2321,9 @@ impl Builder {
     pub fn built_in_unpacksnorm4x8(&mut self) {
         self.built_in_unary_instruction_from_stack(UnaryOpCode::UnpackSnorm4x8);
     }
+    pub fn built_in_ftransform(&mut self) {
+        self.built_in_unary_instruction_from_stack(UnaryOpCode::Ftransform);
+    }
     pub fn built_in_length(&mut self) {
         self.built_in_unary_instruction_from_stack(UnaryOpCode::Length);
     }
