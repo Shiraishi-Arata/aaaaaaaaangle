@@ -3811,6 +3811,24 @@ impl BuilderWrapper {
                     ImageDimension::D2
                 } else if matches!(
                     basic_type,
+                    ffi::ASTBasicType::Sampler1D
+                        | ffi::ASTBasicType::USampler1D
+                        | ffi::ASTBasicType::USampler1DArray
+                        | ffi::ASTBasicType::UImage1D
+                        | ffi::ASTBasicType::UImage1DArray
+                        | ffi::ASTBasicType::ISampler1D
+                        | ffi::ASTBasicType::ISampler1DArray
+                        | ffi::ASTBasicType::IImage1D
+                        | ffi::ASTBasicType::IImage1DArray
+                        | ffi::ASTBasicType::Sampler1DArray
+                        | ffi::ASTBasicType::Sampler1DShadow
+                        | ffi::ASTBasicType::Sampler1DArrayShadow
+                        | ffi::ASTBasicType::Image1D
+                        | ffi::ASTBasicType::Image1DArray
+                ) {
+                    ImageDimension::D1
+                } else if matches!(
+                    basic_type,
                     ffi::ASTBasicType::Sampler3D
                         | ffi::ASTBasicType::ISampler3D
                         | ffi::ASTBasicType::USampler3D
