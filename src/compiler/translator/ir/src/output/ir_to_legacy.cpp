@@ -1474,6 +1474,9 @@ TIntermTyped *built_in_texture(TCompiler *compiler,
     {
         switch (static_cast<TBasicType>(samplerType))
         {
+            case EbtSampler1D:
+                builtIn = isProj ? "texture1DProj" : "texture1D";
+                break;
             case EbtSampler2D:
             case EbtSamplerExternalOES:
                 builtIn = isProj ? "texture2DProj" : "texture2D";
@@ -1528,6 +1531,9 @@ TIntermTyped *built_in_texturelod(TCompiler *compiler,
     {
         switch (static_cast<TBasicType>(samplerType))
         {
+            case EbtSampler1D:
+                builtIn = isProj ? "texture1DProjLod" : "texture1DLod";
+                break;
             case EbtSampler2D:
                 if (compiler->getShaderType() == GL_FRAGMENT_SHADER)
                 {
