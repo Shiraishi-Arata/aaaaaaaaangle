@@ -1221,6 +1221,29 @@ impl<'options> Generator<'options> {
         image_type: &ImageType,
     ) -> ffi::ASTBasicType {
         match image_type.dimension {
+            ImageDimension::D1 => match image_basic_type {
+                ImageBasicType::Float => {
+                    if image_type.is_sampled {
+                        ffi::ASTBasicType::Sampler1D
+                    } else {
+                        ffi::ASTBasicType::Image1D
+                    }
+                }
+                ImageBasicType::Int => {
+                    if image_type.is_sampled {
+                        ffi::ASTBasicType::ISampler1D
+                    } else {
+                        ffi::ASTBasicType::IImage1D
+                    }
+                }
+                ImageBasicType::Uint => {
+                    if image_type.is_sampled {
+                        ffi::ASTBasicType::USampler1D
+                    } else {
+                        ffi::ASTBasicType::UImage1D
+                    }
+                }
+            },
             ImageDimension::D2 => match image_basic_type {
                 ImageBasicType::Float => {
                     if image_type.is_sampled {
