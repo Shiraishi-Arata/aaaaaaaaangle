@@ -121,6 +121,7 @@ impl Generator {
         };
         let mut base_name = if image_type.is_sampled { "sampler" } else { "image" };
         let suffix = match image_type.dimension {
+            ImageDimension::D1 => "1D",
             ImageDimension::D2 => "2D",
             ImageDimension::D3 => "3D",
             ImageDimension::Cube => "Cube",
