@@ -571,6 +571,7 @@ fn unary_opcode_str(op: UnaryOpCode) -> &'static str {
         UnaryOpCode::PackSnorm4x8 => "PackSnorm4x8",
         UnaryOpCode::UnpackUnorm4x8 => "UnpackUnorm4x8",
         UnaryOpCode::UnpackSnorm4x8 => "UnpackSnorm4x8",
+        UnaryOpCode::Ftransform => "Ftransform",
         UnaryOpCode::Length => "Length",
         UnaryOpCode::Normalize => "Normalize",
         UnaryOpCode::Transpose => "Transpose",
