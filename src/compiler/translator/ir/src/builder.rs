@@ -3408,6 +3408,7 @@ pub mod ffi {
         fn built_in_packsnorm4x8(self: &mut BuilderWrapper);
         fn built_in_unpackunorm4x8(self: &mut BuilderWrapper);
         fn built_in_unpacksnorm4x8(self: &mut BuilderWrapper);
+        fn built_in_ftransform(self: &mut BuilderWrapper);
         fn built_in_length(self: &mut BuilderWrapper);
         fn built_in_distance(self: &mut BuilderWrapper);
         fn built_in_dot(self: &mut BuilderWrapper);
@@ -5277,6 +5278,10 @@ impl BuilderWrapper {
 
     fn built_in_unpacksnorm4x8(&mut self) {
         self.builder.built_in_unpacksnorm4x8();
+    }
+
+    fn built_in_ftransform(&mut self) {
+        self.builder.built_in_ftransform();
     }
 
     fn built_in_length(&mut self) {
