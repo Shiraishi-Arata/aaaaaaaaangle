@@ -514,6 +514,29 @@ fn to_gl_type(
                                 }
                             }
                         },
+                        ImageDimension::D1 => match image_basic_type {
+                          ImageBasicType::Float => {
+                            if image_type.is_sampled {
+                                (gl::SAMPLER_1D, gl::FLOAT)
+                            } else {
+                                (gl::IMAGE_1D, gl::FLOAT)
+                            }
+                          }
+                          ImageBasicType::Int => {
+                            if image_type.is_sampled {
+                                (gl::INT_SAMPLER_1D, gl::INT)
+                            } else {
+                                (gl::INT_IMAGE_1D, gl::INT)
+                            }
+                          }
+                          ImageBasicType::Uint => {
+                            if image_type.is_sampled {
+                                (gl::UNSIGNED_INT_SAMPLER_1D, gl::INT)
+                            } else {
+                                (gl::UNSIGNED_INT_IMAGE_1D, gl::INT)
+                            }
+                          }
+                        },
                         ImageDimension::Cube => match image_basic_type {
                             ImageBasicType::Float => {
                                 if image_type.is_sampled {
