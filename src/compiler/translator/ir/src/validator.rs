@@ -1074,6 +1074,26 @@ impl<'a> Validator<'a> {
         for ir_type in self.ir.meta.all_types() {
             if let Type::Image(basic_type, image_type) = ir_type {
                 let invalid_combo = match image_type.dimension {
+                    ImageDimension::D1 => {
+                        if *basic_type == ImageBasicType::Float
+                            && image_type.is_sampled
+                            && image_type.is_shadow
+                        {
+                            Some("float 1D multisampled shadow sampler")
+                        } else if (*basic_type == ImageBasicType::Int
+                            || *basic_type == ImageBasicType::Uint)
+                            && image_type.is_sampled
+                            && image_type.is_shadow
+                        {
+                            Some("int 1D shadow sampler or uint 1D shadow sampler")
+                        } else if !image_type.is_sampled
+                            && (image_type.is_shadow)
+                        {
+                            Some("1D multisampled storage image or 1D shadow storage image")
+                        } else {
+                            None
+                        }
+                    }
                     ImageDimension::D2 => {
                         if *basic_type == ImageBasicType::Float
                             && image_type.is_sampled
