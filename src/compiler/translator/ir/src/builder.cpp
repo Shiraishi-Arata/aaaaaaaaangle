@@ -1036,6 +1036,9 @@ void Builder::builtIn(TOperator op, size_t argCount)
         case EOpUnpackSnorm4x8:
             mBuilder->built_in_unpacksnorm4x8();
             return;
+        case EOpFtransform:
+            mBuilder->built_in_ftransform();
+            return;
         case EOpLength:
             mBuilder->built_in_length();
             return;
