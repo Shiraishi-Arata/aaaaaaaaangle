@@ -2841,6 +2841,7 @@ pub mod ffi {
         ISampler3D,
         ISamplerCube,
         ISampler1DArray,
+        ISampler1DArray,
         ISampler2DArray,
         ISampler2DMS,
         ISampler2DMSArray,
@@ -3821,8 +3822,6 @@ impl BuilderWrapper {
                         | ffi::ASTBasicType::IImage1D
                         | ffi::ASTBasicType::IImage1DArray
                         | ffi::ASTBasicType::Sampler1DArray
-                        | ffi::ASTBasicType::Sampler1DShadow
-                        | ffi::ASTBasicType::Sampler1DArrayShadow
                         | ffi::ASTBasicType::Image1D
                         | ffi::ASTBasicType::Image1DArray
                 ) {
