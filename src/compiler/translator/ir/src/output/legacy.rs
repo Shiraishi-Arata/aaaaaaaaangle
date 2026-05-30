@@ -2397,9 +2397,6 @@ impl ast::Target for Generator<'_> {
                 UnaryOpCode::Ftransform => {
                     ffi::built_in_ftransform(self.legacy_compiler, &operand)
                 }
-                UnaryOpCode::Ftransform => {
-                    ffi::built_in_ftransform(self.legacy_compiler, &operand)
-                }
                 UnaryOpCode::Length => ffi::built_in_length(self.legacy_compiler, &operand),
                 UnaryOpCode::Normalize => ffi::built_in_normalize(self.legacy_compiler, &operand),
                 UnaryOpCode::Transpose => ffi::built_in_transpose(self.legacy_compiler, &operand),
