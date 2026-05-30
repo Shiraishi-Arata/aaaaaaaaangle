@@ -324,6 +324,7 @@ pub enum UnaryOpCode {
     PackSnorm4x8,
     UnpackUnorm4x8,
     UnpackSnorm4x8,
+    Ftransform,
     Length,
     Normalize,
     Transpose,
