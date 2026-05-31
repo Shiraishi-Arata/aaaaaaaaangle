@@ -40,6 +40,8 @@ const char *getBasicString(TBasicType t)
             return "bool";
         case EbtYuvCscStandardEXT:
             return "yuvCscStandardEXT";
+        case EbtSampler1D:
+            return "sampler1D";
         case EbtSampler2D:
             return "sampler2D";
         case EbtSampler3D:
@@ -52,6 +54,8 @@ const char *getBasicString(TBasicType t)
             return "__samplerExternal2DY2YEXT";
         case EbtSampler2DRect:
             return "sampler2DRect";
+        case EbtSampler1DArray:
+            return "sampler1DArray";
         case EbtSampler2DArray:
             return "sampler2DArray";
         case EbtSampler2DMS:
@@ -62,12 +66,16 @@ const char *getBasicString(TBasicType t)
             return "samplerCubeArray";
         case EbtSamplerBuffer:
             return "samplerBuffer";
+        case EbtISampler1D:
+            return "isampler1D";
         case EbtISampler2D:
             return "isampler2D";
         case EbtISampler3D:
             return "isampler3D";
         case EbtISamplerCube:
             return "isamplerCube";
+        case EbtISampler1DArray:
+            return "isampler1DArray";
         case EbtISampler2DArray:
             return "isampler2DArray";
         case EbtISampler2DMS:
@@ -78,12 +86,16 @@ const char *getBasicString(TBasicType t)
             return "isamplerCubeArray";
         case EbtISamplerBuffer:
             return "isamplerBuffer";
+        case EbtUSampler1D:
+            return "usampler1D";
         case EbtUSampler2D:
             return "usampler2D";
         case EbtUSampler3D:
             return "usampler3D";
         case EbtUSamplerCube:
             return "usamplerCube";
+        case EbtUSampler1DArray:
+            return "usampler1DArray";
         case EbtUSampler2DArray:
             return "usampler2DArray";
         case EbtUSampler2DMS:
@@ -106,10 +118,16 @@ const char *getBasicString(TBasicType t)
             return "structure";
         case EbtInterfaceBlock:
             return "interface block";
+        case EbtImage1D:
+            return "image1D";
         case EbtImage2D:
             return "image2D";
+        case EbtIImage1D:
+            return "iimage1D";
         case EbtIImage2D:
             return "iimage2D";
+        case EbtUImage1D:
+            return "uimage1D";
         case EbtUImage2D:
             return "uimage2D";
         case EbtImage3D:
@@ -118,6 +136,12 @@ const char *getBasicString(TBasicType t)
             return "iimage3D";
         case EbtUImage3D:
             return "uimage3D";
+        case EbtImage1DArray:
+            return "image1DArray";
+        case EbtIImage1DArray:
+            return "iimage1DArray";
+        case EbtUImage1DArray:
+            return "uimage1DArray";
         case EbtImage2DArray:
             return "image2DArray";
         case EbtIImage2DArray:
