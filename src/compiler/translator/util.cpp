@@ -375,6 +375,18 @@ GLenum GLVariableType(const TType &type)
             return GL_SAMPLER_2D_ARRAY_SHADOW;
         case EbtSamplerCubeArrayShadow:
             return GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW;
+        case EbtImage1D:
+            return GL_IMAGE_1D;
+        case EbtIImage1D:
+            return GL_INT_IMAGE_1D;
+        case EbtUImage1D:
+            return GL_UNSIGNED_INT_IMAGE_1D;
+        case EbtImage1DArray:
+            return GL_IMAGE_1D_ARRAY;
+        case EbtIImage1DArray:
+            return GL_INT_IMAGE_1D_ARRAY;
+        case EbtUImage1DArray:
+            return GL_UNSIGNED_INT_IMAGE_1D_ARRAY;
         case EbtImage2D:
             return GL_IMAGE_2D;
         case EbtIImage2D:
