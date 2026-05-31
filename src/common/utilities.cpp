@@ -296,6 +296,20 @@ int VariableRowCount(GLenum type)
         case GL_FLOAT_VEC4:
         case GL_INT_VEC4:
         case GL_UNSIGNED_INT_VEC4:
+        case GL_SAMPLER_1D:
+        case GL_SAMPLER_1D_ARRAY:
+        case GL_INT_SAMPLER_1D:
+        case GL_SAMPLER_1D_SHADOW:
+        case GL_INT_SAMPLER_1D_ARRAY:
+        case GL_UNSIGNED_INT_SAMPLER_1D:
+        case GL_UNSIGNED_INT_SAMPLER_1D_ARRAY:
+        case GL_SAMPLER_1D_ARRAY_SHADOW:
+        case GL_IMAGE_1D:
+        case GL_INT_IMAGE_1D:
+        case GL_UNSIGNED_INT_IMAGE_1D:
+        case GL_IMAGE_1D_ARRAY:
+        case GL_INT_IMAGE_1D_ARRAY:
+        case GL_UNSIGNED_INT_IMAGE_1D_ARRAY:
         case GL_SAMPLER_2D:
         case GL_SAMPLER_3D:
         case GL_SAMPLER_CUBE:
@@ -377,6 +391,20 @@ int VariableColumnCount(GLenum type)
         case GL_FLOAT:
         case GL_INT:
         case GL_UNSIGNED_INT:
+        case GL_SAMPLER_1D:
+        case GL_SAMPLER_1D_ARRAY:
+        case GL_INT_SAMPLER_1D:
+        case GL_SAMPLER_1D_SHADOW:
+        case GL_INT_SAMPLER_1D_ARRAY:
+        case GL_UNSIGNED_INT_SAMPLER_1D:
+        case GL_UNSIGNED_INT_SAMPLER_1D_ARRAY:
+        case GL_SAMPLER_1D_ARRAY_SHADOW:
+        case GL_IMAGE_1D:
+        case GL_INT_IMAGE_1D:
+        case GL_UNSIGNED_INT_IMAGE_1D:
+        case GL_IMAGE_1D_ARRAY:
+        case GL_INT_IMAGE_1D_ARRAY:
+        case GL_UNSIGNED_INT_IMAGE_1D_ARRAY:
         case GL_SAMPLER_2D:
         case GL_SAMPLER_3D:
         case GL_SAMPLER_CUBE:
@@ -464,6 +492,14 @@ bool IsSamplerType(GLenum type)
 {
     switch (type)
     {
+        case GL_SAMPLER_1D:
+        case GL_SAMPLER_1D_ARRAY:
+        case GL_INT_SAMPLER_1D:
+        case GL_SAMPLER_1D_SHADOW:
+        case GL_INT_SAMPLER_1D_ARRAY:
+        case GL_UNSIGNED_INT_SAMPLER_1D:
+        case GL_UNSIGNED_INT_SAMPLER_1D_ARRAY:
+        case GL_SAMPLER_1D_ARRAY_SHADOW:
         case GL_SAMPLER_2D:
         case GL_SAMPLER_3D:
         case GL_SAMPLER_CUBE:
@@ -532,6 +568,12 @@ bool IsImageType(GLenum type)
 {
     switch (type)
     {
+        case GL_IMAGE_1D:
+        case GL_INT_IMAGE_1D:
+        case GL_UNSIGNED_INT_IMAGE_1D:
+        case GL_IMAGE_1D_ARRAY:
+        case GL_INT_IMAGE_1D_ARRAY:
+        case GL_UNSIGNED_INT_IMAGE_1D_ARRAY:
         case GL_IMAGE_2D:
         case GL_INT_IMAGE_2D:
         case GL_UNSIGNED_INT_IMAGE_2D:
@@ -555,6 +597,42 @@ bool IsImageType(GLenum type)
     return false;
 }
 
+bool IsImage1DType(GLenum type)
+{
+    switch (type)
+    {
+        case GL_IMAGE_1D:
+        case GL_INT_IMAGE_1D:
+        case GL_UNSIGNED_INT_IMAGE_1D:
+            return true;
+        case GL_IMAGE_1D_ARRAY:
+        case GL_INT_IMAGE_1D_ARRAY:
+        case GL_UNSIGNED_INT_IMAGE_1D_ARRAY:
+        case GL_IMAGE_2D:
+        case GL_INT_IMAGE_2D:
+        case GL_UNSIGNED_INT_IMAGE_2D:
+        case GL_IMAGE_3D:
+        case GL_INT_IMAGE_3D:
+        case GL_UNSIGNED_INT_IMAGE_3D:
+        case GL_IMAGE_2D_ARRAY:
+        case GL_INT_IMAGE_2D_ARRAY:
+        case GL_UNSIGNED_INT_IMAGE_2D_ARRAY:
+        case GL_IMAGE_CUBE_MAP_ARRAY:
+        case GL_INT_IMAGE_CUBE_MAP_ARRAY:
+        case GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY:
+        case GL_IMAGE_CUBE:
+        case GL_INT_IMAGE_CUBE:
+        case GL_UNSIGNED_INT_IMAGE_CUBE:
+        case GL_IMAGE_BUFFER:
+        case GL_INT_IMAGE_BUFFER:
+        case GL_UNSIGNED_INT_IMAGE_BUFFER:
+            return false;
+        default:
+            UNREACHABLE();
+            return false;
+    }
+}
+
 bool IsImage2DType(GLenum type)
 {
     switch (type)
@@ -563,6 +641,12 @@ bool IsImage2DType(GLenum type)
         case GL_INT_IMAGE_2D:
         case GL_UNSIGNED_INT_IMAGE_2D:
             return true;
+        case GL_IMAGE_1D:
+        case GL_INT_IMAGE_1D:
+        case GL_UNSIGNED_INT_IMAGE_1D:
+        case GL_IMAGE_1D_ARRAY:
+        case GL_INT_IMAGE_1D_ARRAY:
+        case GL_UNSIGNED_INT_IMAGE_1D_ARRAY:
         case GL_IMAGE_3D:
         case GL_INT_IMAGE_3D:
         case GL_UNSIGNED_INT_IMAGE_3D:
@@ -851,6 +935,20 @@ int VariableSortOrder(GLenum type)
         case GL_INT:
         case GL_BOOL:
         case GL_UNSIGNED_INT:
+        case GL_SAMPLER_1D:
+        case GL_SAMPLER_1D_ARRAY:
+        case GL_INT_SAMPLER_1D:
+        case GL_SAMPLER_1D_SHADOW:
+        case GL_INT_SAMPLER_1D_ARRAY:
+        case GL_UNSIGNED_INT_SAMPLER_1D:
+        case GL_UNSIGNED_INT_SAMPLER_1D_ARRAY:
+        case GL_SAMPLER_1D_ARRAY_SHADOW:
+        case GL_IMAGE_1D:
+        case GL_INT_IMAGE_1D:
+        case GL_UNSIGNED_INT_IMAGE_1D:
+        case GL_IMAGE_1D_ARRAY:
+        case GL_INT_IMAGE_1D_ARRAY:
+        case GL_UNSIGNED_INT_IMAGE_1D_ARRAY:
         case GL_SAMPLER_2D:
         case GL_SAMPLER_CUBE:
         case GL_SAMPLER_EXTERNAL_OES:
