@@ -10,6 +10,7 @@
 
 #include <array>
 #include "common/utilities.h"
+#include "../libANGLE/renderer/gl/functionsgl_enums.h"
 
 using namespace angle;
 
