@@ -9,6 +9,7 @@
 #include "common/PackedEnums.h"
 
 #include "common/utilities.h"
+#include "../libANGLE/renderer/gl/functionsgl_enums.h"
 
 namespace gl
 {
