@@ -14,6 +14,7 @@
 #include <sstream>
 #include <vector>
 #include "angle_gl.h"
+#include "../../src/libANGLE/renderer/gl/functionsgl_enums.h"
 
 #if defined(ANGLE_ENABLE_VULKAN)
 // SPIR-V tools include for disassembly.
