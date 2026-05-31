@@ -2856,6 +2856,7 @@ pub mod ffi {
         USampler2DMS,
         USampler2DMSArray,
         Sampler1DShadow,
+        Sampler1DArrayShadow,
         Sampler2DShadow,
         SamplerCubeShadow,
         Sampler2DArrayShadow,
