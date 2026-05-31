@@ -1619,7 +1619,8 @@ void PrivateState::setEnableFeature(GLenum feature, bool enabled)
             mGLES1State.setLogicOpEnabled(enabled);
             break;
         default:
-            UNREACHABLE();
+            //UNREACHABLE();
+            break;
     }
 }
 
