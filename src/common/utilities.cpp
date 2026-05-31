@@ -15,6 +15,7 @@
 #include "common/mathutil.h"
 #include "common/platform.h"
 #include "common/string_utils.h"
+#include "../libANGLE/renderer/gl/functionsgl_enums.h"
 
 #include <set>
 
