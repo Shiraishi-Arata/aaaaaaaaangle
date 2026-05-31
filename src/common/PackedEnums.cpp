@@ -125,6 +125,10 @@ TextureType SamplerTypeToTextureType(GLenum samplerType)
 {
     switch (samplerType)
     {
+        case GL_SAMPLER_1D:
+        case GL_INT_SAMPLER_1D:
+        case GL_UNSIGNED_INT_SAMPLER_1D:
+        case GL_SAMPLER_1D_SHADOW: // TODO 
         case GL_SAMPLER_2D:
         case GL_INT_SAMPLER_2D:
         case GL_UNSIGNED_INT_SAMPLER_2D:
@@ -147,6 +151,10 @@ TextureType SamplerTypeToTextureType(GLenum samplerType)
         case GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW:
             return TextureType::CubeMapArray;
 
+        case GL_SAMPLER_1D_ARRAY:
+        case GL_INT_SAMPLER_1D_ARRAY:
+        case GL_UNSIGNED_INT_SAMPLER_1D_ARRAY:
+        case GL_SAMPLER_1D_ARRAY_SHADOW: //TODO
         case GL_SAMPLER_2D_ARRAY:
         case GL_INT_SAMPLER_2D_ARRAY:
         case GL_UNSIGNED_INT_SAMPLER_2D_ARRAY:
@@ -189,6 +197,9 @@ TextureType ImageTypeToTextureType(GLenum imageType)
 {
     switch (imageType)
     {
+        case GL_IMAGE_1D:
+        case GL_INT_IMAGE_1D:
+        case GL_UNSIGNED_INT_IMAGE_1D: // TODO
         case GL_IMAGE_2D:
         case GL_INT_IMAGE_2D:
         case GL_UNSIGNED_INT_IMAGE_2D:
