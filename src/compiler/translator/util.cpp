@@ -13,6 +13,8 @@
 
 #include <limits>
 
+#include "../../libANGLE/renderer/gl/functionsgl_enums.h"
+
 #include "common/span.h"
 #include "common/utilities.h"
 #include "compiler/preprocessor/numeric_lex.h"
