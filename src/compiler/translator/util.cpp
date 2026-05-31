@@ -313,6 +313,27 @@ GLenum GLVariableType(const TType &type)
         case EbtYuvCscStandardEXT:
             return GL_UNSIGNED_INT;
 
+        case EbtSampler1D:
+            return GL_SAMPLER_1D;
+        case EbtSampler1DArray:
+            return GL_SAMPLER_1D_ARRAY;
+        case EbtISampler1D:
+            return GL_INT_SAMPLER_1D;
+        case EbtISampler1DArray:
+            return GL_INT_SAMPLER_1D_ARRAY;
+        case EbtUSampler1D:
+            return GL_UNSIGNED_INT_SAMPLER_1D;
+        case EbtIImage1D:
+            return GL_INT_IMAGE_1D;
+        case EbtUImage1D:
+            return GL_UNSIGNED_INT_IMAGE_1D;
+        case EbtImage1DArray:
+            return GL_IMAGE_1D_ARRAY;
+        case EbtIImage1DArray:
+            return GL_INT_IMAGE_1D_ARRAY;
+        case EbtUImage1DArray:
+            return GL_UNSIGNED_INT_IMAGE_1D_ARRAY;
+
         case EbtSampler2D:
             return GL_SAMPLER_2D;
         case EbtSampler3D:
