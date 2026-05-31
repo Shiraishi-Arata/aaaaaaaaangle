@@ -613,6 +613,9 @@ void PrintVariable(const std::string &prefix, size_t index, const sh::ShaderVari
             typeName = "GL_FLOAT_MAT4x3";
             break;
 
+        case GL_SAMPLER_1D:
+            typeName = "GL_SAMPLER_1D";
+            break;
         case GL_SAMPLER_2D:
             typeName = "GL_SAMPLER_2D";
             break;
@@ -625,17 +628,29 @@ void PrintVariable(const std::string &prefix, size_t index, const sh::ShaderVari
         case GL_SAMPLER_CUBE_SHADOW:
             typeName = "GL_SAMPLER_CUBE_SHADOW";
             break;
+        case GL_SAMPLER_1D_SHADOW:
+            typeName = "GL_SAMPLER_1D_ARRAY_SHADOW";
+            break;
+        case GL_SAMPLER_1D_ARRAY:
+            typeName = "GL_SAMPLER_1D_ARRAY";
+            break;
         case GL_SAMPLER_2D_SHADOW:
             typeName = "GL_SAMPLER_2D_ARRAY_SHADOW";
             break;
         case GL_SAMPLER_2D_ARRAY:
             typeName = "GL_SAMPLER_2D_ARRAY";
             break;
+        case GL_SAMPLER_1D_ARRAY_SHADOW:
+            typeName = "GL_SAMPLER_1D_ARRAY_SHADOW";
+            break;
         case GL_SAMPLER_2D_ARRAY_SHADOW:
             typeName = "GL_SAMPLER_2D_ARRAY_SHADOW";
             break;
         case GL_SAMPLER_2D_MULTISAMPLE:
             typeName = "GL_SAMPLER_2D_MULTISAMPLE";
+            break;
+        case GL_IMAGE_1D:
+            typeName = "GL_IMAGE_1D";
             break;
         case GL_IMAGE_2D:
             typeName = "GL_IMAGE_2D";
@@ -646,10 +661,19 @@ void PrintVariable(const std::string &prefix, size_t index, const sh::ShaderVari
         case GL_IMAGE_CUBE:
             typeName = "GL_IMAGE_CUBE";
             break;
+        case GL_IMAGE_1D_ARRAY:
+            typeName = "GL_IMAGE_1D_ARRAY";
+            break;
         case GL_IMAGE_2D_ARRAY:
             typeName = "GL_IMAGE_2D_ARRAY";
             break;
 
+        case GL_INT_SAMPLER_1D:
+            typeName = "GL_INT_SAMPLER_1D";
+            break;
+        case GL_INT_SAMPLER_1D_ARRAY:
+            typeName = "GL_INT_SAMPLER_1D_ARRAY";
+            break;
         case GL_INT_SAMPLER_2D:
             typeName = "GL_INT_SAMPLER_2D";
             break;
@@ -665,6 +689,12 @@ void PrintVariable(const std::string &prefix, size_t index, const sh::ShaderVari
         case GL_INT_SAMPLER_2D_MULTISAMPLE:
             typeName = "GL_INT_SAMPLER_2D_MULTISAMPLE";
             break;
+        case GL_INT_IMAGE_1D:
+            typeName = "GL_INT_IMAGE_1D";
+            break;
+        case GL_INT_IMAGE_1D_ARRAY:
+            typeName = "GL_INT_IMAGE_1D_ARRAY";
+            break;
         case GL_INT_IMAGE_2D:
             typeName = "GL_INT_IMAGE_2D";
             break;
@@ -678,6 +708,12 @@ void PrintVariable(const std::string &prefix, size_t index, const sh::ShaderVari
             typeName = "GL_INT_IMAGE_2D_ARRAY";
             break;
 
+        case GL_UNSIGNED_INT_SAMPLER_1D:
+            typeName = "GL_UNSIGNED_INT_SAMPLER_1D";
+            break;
+        case GL_UNSIGNED_INT_SAMPLER_1D_ARRAY:
+            typeName = "GL_UNSIGNED_INT_SAMPLER_1D_ARRAY";
+            break;
         case GL_UNSIGNED_INT_SAMPLER_2D:
             typeName = "GL_UNSIGNED_INT_SAMPLER_2D";
             break;
@@ -695,6 +731,12 @@ void PrintVariable(const std::string &prefix, size_t index, const sh::ShaderVari
             break;
         case GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE:
             typeName = "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE";
+            break;
+        case GL_UNSIGNED_INT_IMAGE_1D:
+            typeName = "GL_UNSIGNED_INT_IMAGE_1D";
+            break;
+        case GL_UNSIGNED_INT_IMAGE_1D_ARRAY:
+            typeName = "GL_UNSIGNED_INT_IMAGE_1D_ARRAY";
             break;
         case GL_UNSIGNED_INT_IMAGE_2D:
             typeName = "GL_UNSIGNED_INT_IMAGE_2D";
