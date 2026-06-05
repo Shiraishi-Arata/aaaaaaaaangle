@@ -285,7 +285,6 @@
     void framebufferParameteriMESA(GLenum target, GLenum pname, GLint param);                      \
     void getFramebufferParameterivMESA(GLenum target, GLenum pname, GLint *params);                \
     /* GL_NV_EGL_stream_consumer_external */                                                       \
-    /* GL_NV_depth_buffer_float2 */                                                                \
     /* GL_NV_fence */                                                                              \
     void deleteFencesNV(GLsizei n, const FenceNVID *fencesPacked);                                 \
     void finishFenceNV(FenceNVID fencePacked);                                                     \
@@ -617,11 +616,6 @@
     /* GL_ANGLE_stencil_texturing */                                                               \
     /* GL_ANGLE_texture_compression_dxt3 */                                                        \
     /* GL_ANGLE_texture_compression_dxt5 */                                                        \
-    /* GL_ANGLE_texture_external_update */                                                         \
-    void texImage2DExternal(TextureTarget targetPacked, GLint level, GLint internalformat,         \
-                            GLsizei width, GLsizei height, GLint border, GLenum format,            \
-                            GLenum type);                                                          \
-    void invalidateTexture(TextureType targetPacked);                                              \
     /* GL_ANGLE_texture_multisample */                                                             \
     /* GL_ANGLE_texture_rectangle */                                                               \
     /* GL_ANGLE_vulkan_image */                                                                    \

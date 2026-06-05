@@ -19,68 +19,6 @@
       'swarming_containment_auto',
     ],
     'machines': {
-      'android-arm64-pixel4-perf': {
-        'os_type': 'android',
-        'mixins': [
-          'gpu_pixel_4_stable',
-          'temp_band_below_30C',
-          'timeout_120m',
-        ],
-        'test_suites': {
-          'isolated_scripts': 'isolated_scripts_group_perf_notrace',
-        },
-      },
-      'android-arm64-pixel6-perf': {
-        'os_type': 'android',
-        'mixins': [
-          'gpu_pixel_6_stable',
-          'temp_band_below_30C',
-          'timeout_120m',
-        ],
-        'test_suites': {
-          'isolated_scripts': 'isolated_scripts_group_perf',
-        },
-      },
-      'linux-intel-perf': {
-        'os_type': 'linux',
-        'mixins': [
-          'linux_intel_uhd_630_stable',
-          'timeout_120m',
-        ],
-        'test_suites': {
-          'isolated_scripts': 'isolated_scripts_group_perf',
-        },
-      },
-      'linux-nvidia-perf': {
-        'os_type': 'linux',
-        'mixins': [
-          'linux_nvidia_gtx_1660_stable',
-          'timeout_120m',
-        ],
-        'test_suites': {
-          'isolated_scripts': 'isolated_scripts_group_perf',
-        },
-      },
-      'win10-x64-intel-perf': {
-        'os_type': 'win',
-        'mixins': [
-          'timeout_120m',
-          'win10_intel_uhd_630_stable',
-        ],
-        'test_suites': {
-          'isolated_scripts': 'isolated_scripts_group_perf',
-        },
-      },
-      'win10-x64-nvidia-perf': {
-        'os_type': 'win',
-        'mixins': [
-          'timeout_120m',
-          'win10_nvidia_gtx_1660_stable',
-        ],
-        'test_suites': {
-          'isolated_scripts': 'isolated_scripts_group_perf',
-        },
-      },
       'win10-x64-swiftshader': {
         'os_type': 'win',
         'mixins': [
@@ -141,6 +79,17 @@
           'isolated_scripts': 'isolated_scripts_group_common',
         },
       },
+      'angle-android-arm64-google-pixel4-perf': {
+        'os_type': 'android',
+        'mixins': [
+          'gpu_pixel_4_stable',
+          'temp_band_below_30C',
+          'timeout_120m',
+        ],
+        'test_suites': {
+          'isolated_scripts': 'isolated_scripts_group_perf_notrace',
+        },
+      },
       'angle-android-arm64-google-pixel4-rel': {
         'os_type': 'android',
         'mixins': [
@@ -160,6 +109,17 @@
         'test_suites': {
           'gtest_tests': 'android_vulkan_gtests',
           'isolated_scripts': 'isolated_scripts_group_pixel6',
+        },
+      },
+      'angle-android-arm64-google-pixel6-perf': {
+        'os_type': 'android',
+        'mixins': [
+          'gpu_pixel_6_stable',
+          'temp_band_below_30C',
+          'timeout_120m',
+        ],
+        'test_suites': {
+          'isolated_scripts': 'isolated_scripts_group_perf',
         },
       },
       'angle-android-arm64-google-pixel6-rel': {
@@ -207,6 +167,16 @@
         'test_suites': {
         },
       },
+      'angle-linux-x64-intel-uhd630-perf': {
+        'os_type': 'linux',
+        'mixins': [
+          'linux_intel_uhd_630_stable',
+          'timeout_120m',
+        ],
+        'test_suites': {
+          'isolated_scripts': 'isolated_scripts_group_perf',
+        },
+      },
       'angle-linux-x64-intel-uhd630-rel': {
         'os_type': 'linux',
         'mixins': [
@@ -223,6 +193,16 @@
           'linux_nvidia_gtx_1660_experimental',
         ],
         'test_suites': {
+        },
+      },
+      'angle-linux-x64-nvidia-gtx1660-perf': {
+        'os_type': 'linux',
+        'mixins': [
+          'linux_nvidia_gtx_1660_stable',
+          'timeout_120m',
+        ],
+        'test_suites': {
+          'isolated_scripts': 'isolated_scripts_group_perf',
         },
       },
       'angle-linux-x64-nvidia-gtx1660-rel': {
@@ -331,6 +311,12 @@
           'gtest_tests': 'mac_amd_and_intel_gtests',
         },
       },
+      'angle-win-x64-builder-dbg': {
+        'os_type': 'win',
+        'additional_compile_targets': [
+          'all',
+        ],
+      },
       'angle-win-x64-intel-uhd630-exp-rel': {
         'os_type': 'win',
         'mixins': [
@@ -396,6 +382,18 @@
           'gtest_tests': 'win10_nvidia_gtests',
           'isolated_scripts': 'isolated_scripts_group_common',
         },
+      },
+      'angle-win-x64-trace': {
+        'os_type': 'win',
+        'additional_compile_targets': [
+          'noop_target',
+        ],
+      },
+      'angle-win-x86-builder-dbg': {
+        'os_type': 'win',
+        'additional_compile_targets': [
+          'all',
+        ],
       },
       'angle-win-x86-sws-rel': {
         'os_type': 'win',

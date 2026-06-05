@@ -367,6 +367,8 @@ constexpr const char *kSkippedMessages[] = {
     "VUID-vkCmdEndQuery-None-07007",
     // https://anglebug.com/475549551
     "VUID-VkGraphicsPipelineCreateInfo-renderPass-09652",
+    // https://anglebug.com/512394647
+    "VUID-VkImageCreateInfo-imageCreateMaxMipLevels-02251",
 };
 
 // Validation messages that should be ignored only when VK_EXT_primitive_topology_list_restart is
@@ -5032,7 +5034,10 @@ std::string Renderer::getVersionString(bool includeFullVersion) const
         // The major version for the new QCOM drivers seems to be 512, which results in a major
         // version of 0 and a non-zero variant field when using the VK_API_VERSION_x macros.
         // Therefore, the version string is updated to show the correct major version.
-        else if (mPhysicalDeviceProperties.vendorID == VENDOR_ID_QUALCOMM)
+        else if (mPhysicalDeviceProperties.vendorID == VENDOR_ID_QUALCOMM &&
+                 !IsQualcommOpenSource(mPhysicalDeviceProperties.vendorID,
+                                       mDriverProperties.driverID,
+                                       mPhysicalDeviceProperties.deviceName))
         {
             strstr << (512 | VK_API_VERSION_MAJOR(driverVersion)) << ".";
             strstr << VK_API_VERSION_MINOR(driverVersion) << ".";
@@ -6184,16 +6189,13 @@ void Renderer::initFeatures(const vk::ExtensionNameList &deviceExtensionNames,
     //
     // On Pixel devices, the issues have been fixed since r44, but on others since r44p1.
     //
-    // Regressions have been detected using r46 on older architectures though
+    // Regressions have been detected using r46 on older architectures, which are fixed in r51.
     // http://issuetracker.google.com/336411904
     const bool isARMExtendedDynamicStateBuggy =
         isARMProprietary &&
         (driverVersion < angle::VersionTriple(44, 1, 0) ||
-         (isMaliJobManagerBasedGPU && driverVersion >= angle::VersionTriple(46, 0, 0)));
-
-    // Vertex input binding stride is buggy for Windows/Intel drivers before 100.9684.
-    const bool isVertexInputBindingStrideBuggy =
-        IsWindows() && isIntel && driverVersion < angle::VersionTriple(100, 9684, 0);
+         (isMaliJobManagerBasedGPU && driverVersion >= angle::VersionTriple(46, 0, 0) &&
+          driverVersion < angle::VersionTriple(51, 0, 0)));
 
     // Intel driver has issues with VK_EXT_vertex_input_dynamic_state
     // http://anglebug.com/42265637#comment9
@@ -6222,6 +6224,16 @@ void Renderer::initFeatures(const vk::ExtensionNameList &deviceExtensionNames,
     // VK_EXT_vertex_input_dynamic_state enables dynamic state for the full vertex input state. As
     // such, when available use supportsVertexInputDynamicState instead of
     // useVertexInputBindingStrideDynamicState.
+    //
+    // Vertex input binding stride is buggy for Windows/Intel drivers before 100.9684
+    // (https://anglebug.com/42266992).
+    //
+    // |vkCmdBindVertexBuffers2| applies strides to the wrong index on ARM proprietary drivers prior
+    // to r48, according to the errata:
+    // https://developer.arm.com/documentation/SDEN-3735689/0100/?lang=en
+    const bool isVertexInputBindingStrideBuggy =
+        (IsWindows() && isIntel && driverVersion < angle::VersionTriple(100, 9684, 0)) ||
+        (isARMProprietary && driverVersion < angle::VersionTriple(48, 0, 0));
     ANGLE_FEATURE_CONDITION(&mFeatures, useVertexInputBindingStrideDynamicState,
                             mFeatures.supportsExtendedDynamicState.enabled &&
                                 !mFeatures.supportsVertexInputDynamicState.enabled &&
@@ -6774,10 +6786,10 @@ void Renderer::initFeatures(const vk::ExtensionNameList &deviceExtensionNames,
         &mFeatures, supportsShaderNonSemanticInfo,
         ExtensionFound(VK_KHR_SHADER_NON_SEMANTIC_INFO_EXTENSION_NAME, deviceExtensionNames));
 
-    // Don't expose these 2 extensions on Samsung devices -
-    // 1. ANGLE_rgbx_internal_format
-    // 2. GL_APPLE_clip_distance
-    ANGLE_FEATURE_CONDITION(&mFeatures, supportsAngleRgbxInternalFormat, !isSamsung);
+    // Unconditionally enable GL_ANGLE_rgbx_internal_format extension
+    ANGLE_FEATURE_CONDITION(&mFeatures, supportsAngleRgbxInternalFormat, true);
+
+    // Don't expose GL_APPLE_clip_distance on Samsung devices
     ANGLE_FEATURE_CONDITION(&mFeatures, supportsAppleClipDistance, !isSamsung);
 
     // Force enable sample usage for AHB images for Samsung
@@ -6869,6 +6881,10 @@ void Renderer::initFeatures(const vk::ExtensionNameList &deviceExtensionNames,
         isSamsung && driverVersion < angle::VersionTriple(25, 0, 0);
     ANGLE_FEATURE_CONDITION(&mFeatures, enableMergeClientAttribBuffer,
                             !isSamsungDriverWithVertexAttributePackingBug);
+
+    // Enable this feature to avoid image allocation overhead when repeatedly uploading the same
+    // texture that has already been uploaded, outside a render pass.
+    ANGLE_FEATURE_CONDITION(&mFeatures, avoidImageGhostOutsideRenderPass, true);
 }
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

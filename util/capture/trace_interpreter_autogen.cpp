@@ -3784,13 +3784,6 @@ CallCapture ParseCallCapture(const Token &nameToken,
                 paramTokens, strings);
         return CallCapture(EntryPoint::GLInvalidateSubFramebuffer, std::move(params));
     }
-    if (strcmp(nameToken, "glInvalidateTextureANGLE") == 0)
-    {
-        ParamBuffer params =
-            ParseParameters<std::remove_pointer<PFNGLINVALIDATETEXTUREANGLEPROC>::type>(paramTokens,
-                                                                                        strings);
-        return CallCapture(EntryPoint::GLInvalidateTextureANGLE, std::move(params));
-    }
     if (strcmp(nameToken, "glIsBuffer") == 0)
     {
         ParamBuffer params =
@@ -5445,13 +5438,6 @@ CallCapture ParseCallCapture(const Token &nameToken,
             ParseParameters<std::remove_pointer<PFNGLTEXIMAGE2DPROC>::type>(paramTokens, strings);
         return CallCapture(EntryPoint::GLTexImage2D, std::move(params));
     }
-    if (strcmp(nameToken, "glTexImage2DExternalANGLE") == 0)
-    {
-        ParamBuffer params =
-            ParseParameters<std::remove_pointer<PFNGLTEXIMAGE2DEXTERNALANGLEPROC>::type>(
-                paramTokens, strings);
-        return CallCapture(EntryPoint::GLTexImage2DExternalANGLE, std::move(params));
-    }
     if (strcmp(nameToken, "glTexImage2DRobustANGLE") == 0)
     {
         ParamBuffer params =
@@ -6372,6 +6358,11 @@ CallCapture ParseCallCapture(const Token &nameToken,
             ParseParameters<decltype(UpdateCurrentProgramPerContext)>(paramTokens, strings);
         return CallCapture("UpdateCurrentProgramPerContext", std::move(params));
     }
+    if (strcmp(nameToken, "UpdateEGLImageData") == 0)
+    {
+        ParamBuffer params = ParseParameters<decltype(UpdateEGLImageData)>(paramTokens, strings);
+        return CallCapture("UpdateEGLImageData", std::move(params));
+    }
     if (strcmp(nameToken, "UpdateFenceNVID") == 0)
     {
         ParamBuffer params = ParseParameters<decltype(UpdateFenceNVID)>(paramTokens, strings);
@@ -6745,6 +6736,11 @@ void ReplayCustomFunctionCall(const CallCapture &call, const TraceFunctionMap &c
     if (call.customFunctionName == "UpdateCurrentProgramPerContext")
     {
         DispatchCallCapture(UpdateCurrentProgramPerContext, captures);
+        return;
+    }
+    if (call.customFunctionName == "UpdateEGLImageData")
+    {
+        DispatchCallCapture(UpdateEGLImageData, captures);
         return;
     }
     if (call.customFunctionName == "UpdateFenceNVID")

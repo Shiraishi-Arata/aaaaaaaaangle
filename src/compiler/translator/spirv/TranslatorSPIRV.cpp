@@ -60,6 +60,7 @@ namespace sh
 namespace
 {
 constexpr ImmutableString kFlippedPointCoordName    = ImmutableString("flippedPointCoord");
+constexpr ImmutableString kFlippedSamplePositionName = ImmutableString("flippedSamplePosition");
 constexpr ImmutableString kFlippedFragCoordName     = ImmutableString("flippedFragCoord");
 constexpr ImmutableString kDefaultUniformsBlockName = ImmutableString("defaultUniforms");
 
@@ -625,17 +626,6 @@ bool TranslatorSPIRV::translateImpl(TIntermBlock *root,
                                     PerformanceDiagnostics * /*perfDiagnostics*/,
                                     DriverUniform *driverUniforms)
 {
-    if (!compileOptions.useIR)
-    {
-        if (getShaderType() == GL_VERTEX_SHADER)
-        {
-            if (!ShaderBuiltinsWorkaround(this, root, &getSymbolTable(), compileOptions))
-            {
-                return false;
-            }
-        }
-    }
-
     // Write out default uniforms into a uniform block assigned to a specific set/binding.
     int defaultUniformCount           = 0;
     int aggregateTypesUsedForUniforms = 0;
@@ -743,6 +733,15 @@ bool TranslatorSPIRV::translateImpl(TIntermBlock *root,
     assignSpirvId(
         driverUniforms->getDriverUniformsVariable()->getType().getInterfaceBlock()->uniqueId(),
         vk::spirv::kIdDriverUniformsBlock);
+
+    if (getShaderType() == GL_VERTEX_SHADER)
+    {
+        if (!ShaderBuiltinsWorkaround(this, root, driverUniforms, &getSymbolTable(),
+                                      compileOptions))
+        {
+            return false;
+        }
+    }
 
     if (r32fImageCount > 0 && compileOptions.emulateR32fImageAtomicExchange)
     {
@@ -900,13 +899,13 @@ bool TranslatorSPIRV::translateImpl(TIntermBlock *root,
                         static_cast<const TVariable *>(getSymbolTable().findBuiltIn(
                             ImmutableString("gl_SampleID"), getShaderVersion()));
                     assignSpirvId(sampleID->uniqueId(), vk::spirv::kIdSampleID);
-                    break;
+                    continue;
                 }
 
                 if (inputVarying.name == "gl_PointCoord")
                 {
                     usesPointCoord = true;
-                    break;
+                    continue;
                 }
 
                 if (inputVarying.name == "gl_FragCoord")
@@ -916,7 +915,7 @@ bool TranslatorSPIRV::translateImpl(TIntermBlock *root,
                         static_cast<const TVariable *>(getSymbolTable().findBuiltIn(
                             ImmutableString("gl_FragCoord"), getShaderVersion()));
                     assignSpirvId(fragCoord->uniqueId(), vk::spirv::kIdFragCoord);
-                    break;
+                    continue;
                 }
             }
 
@@ -979,7 +978,7 @@ bool TranslatorSPIRV::translateImpl(TIntermBlock *root,
                         ImmutableString("gl_SamplePosition"), getShaderVersion()));
                 if (!RotateAndFlipBuiltinVariable(this, root, GetMainSequence(root), swapXY, flipXY,
                                                   &getSymbolTable(), samplePositionBuiltin,
-                                                  kFlippedPointCoordName, pivot))
+                                                  kFlippedSamplePositionName, pivot))
                 {
                     return false;
                 }

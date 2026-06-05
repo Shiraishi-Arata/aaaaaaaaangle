@@ -953,10 +953,10 @@ class Context final : public egl::LabeledObject, angle::NonCopyable, public angl
 
     size_t getMemoryUsage() const;
 
-    // Only used by vulkan backend.
     void onSwapChainImageChanged() const { mDefaultFramebuffer->onSwapChainImageChanged(); }
     void onBufferChanged(const Buffer *buffer,
                          const angle::SubjectMessage message,
+                         bool isUsedInTransformFeedback,
                          VertexArrayBufferBindingMask vertexArrayBufferBindingMask) const
     {
         // Notify current vertex array of the buffer changed. Note that other vertex arrays of this
@@ -967,6 +967,10 @@ class Context final : public egl::LabeledObject, angle::NonCopyable, public angl
             ASSERT(mState.mVertexArray != nullptr);
             mState.mVertexArray->onBufferChanged(this, buffer, message,
                                                  vertexArrayBufferBindingMask);
+        }
+        if (isUsedInTransformFeedback && message == angle::SubjectMessage::SubjectChanged)
+        {
+            invalidateTransformFeedbackCapacities(buffer);
         }
     }
 
@@ -1061,6 +1065,7 @@ class Context final : public egl::LabeledObject, angle::NonCopyable, public angl
     void updateActiveAttribsMaskIfNeeded() const;
 
     void endTilingImplicit();
+    void invalidateTransformFeedbackCapacities(const Buffer *buffer) const;
 
     State mState;
     bool mShared;

@@ -10,6 +10,7 @@ load("@chromium-luci//ci.star", "ci")
 load("@chromium-luci//consoles.star", "consoles")
 load("@chromium-luci//gardener_rotations.star", "gardener_rotations")
 load("@chromium-luci//gn_args.star", "gn_args")
+load("@chromium-luci//targets.star", "targets")
 load("//constants.star", "default_experiments", "siso")
 
 ci.defaults.set(
@@ -33,6 +34,13 @@ ci.defaults.set(
         column_keys = ["v.gpu"],
         grouping_keys = ["status", "v.test_suite"],
     ),
+)
+
+targets.builder_defaults.set(
+    mixins = [
+        "chromium-tester-service-account",
+        "swarming_containment_auto",
+    ],
 )
 
 ################################################################################
@@ -153,6 +161,39 @@ angle_linux_parent_builder(
 )
 
 angle_linux_parent_builder(
+    name = "angle-android-arm64-builder-perf",
+    description_html = "Compiles release ANGLE perf test binaries for Android/arm64",
+    schedule = "triggered",
+    builder_spec = builder_config.builder_spec(
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2_android",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.RELEASE,
+            target_arch = builder_config.target_arch.ARM,
+            target_bits = 64,
+            target_platform = builder_config.target_platform.ANDROID,
+        ),
+        perf_isolate_upload = True,
+    ),
+    gn_args = gn_args.config(
+        configs = [
+            "android_clang",
+            "android_static_analysis",
+            "arm64",
+            "component",
+            "dcheck_off",
+            "release",
+        ],
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "perf|android|arm64",
+        short_name = "bld",
+    ),
+)
+
+angle_linux_parent_builder(
     name = "angle-android-arm64-builder-rel",
     description_html = "Compiles release ANGLE test binaries for Android/arm64",
     schedule = "triggered",
@@ -249,6 +290,38 @@ angle_linux_parent_builder(
     console_view_entry = consoles.console_view_entry(
         category = "compile|linux|x64",
         short_name = "dbg",
+    ),
+)
+
+angle_linux_parent_builder(
+    name = "angle-linux-x64-builder-perf",
+    description_html = "Compiles release ANGLE perf test binaries for Linux/x64",
+    schedule = "triggered",
+    builder_spec = builder_config.builder_spec(
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.RELEASE,
+            target_arch = builder_config.target_arch.INTEL,
+            target_bits = 64,
+            target_platform = builder_config.target_platform.LINUX,
+        ),
+        perf_isolate_upload = True,
+    ),
+    gn_args = gn_args.config(
+        configs = [
+            "component",
+            "dcheck_off",
+            "linux_clang",
+            "release",
+            "x64",
+        ],
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "perf|linux|x64",
+        short_name = "bld",
     ),
 )
 
@@ -409,6 +482,37 @@ angle_mac_parent_builder(
 )
 
 angle_win_parent_builder(
+    name = "angle-win-x64-builder-dbg",
+    description_html = "Compiles debug ANGLE test binaries for Win/x64",
+    schedule = "triggered",
+    builder_spec = builder_config.builder_spec(
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.DEBUG,
+            target_arch = builder_config.target_arch.INTEL,
+            target_bits = 64,
+            target_platform = builder_config.target_platform.WIN,
+        ),
+    ),
+    gn_args = gn_args.config(
+        configs = [
+            "component",
+            "debug",
+            "opencl",
+            "win_clang",
+            "x64",
+        ],
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "compile|win|x64",
+        short_name = "dbg",
+    ),
+)
+
+angle_win_parent_builder(
     name = "angle-win-x64-builder-perf",
     description_html = "Compiles release ANGLE perf test binaries for Win/x64",
     schedule = "triggered",
@@ -435,8 +539,8 @@ angle_win_parent_builder(
         ],
     ),
     console_view_entry = consoles.console_view_entry(
-        category = "compile|win|x64",
-        short_name = "prf",
+        category = "perf|win|x64",
+        short_name = "bld",
     ),
 )
 
@@ -469,6 +573,37 @@ angle_win_parent_builder(
     console_view_entry = consoles.console_view_entry(
         category = "compile|win|x64",
         short_name = "rel",
+    ),
+)
+
+angle_win_parent_builder(
+    name = "angle-win-x86-builder-dbg",
+    description_html = "Compiles debug ANGLE test binaries for Win/x86",
+    schedule = "triggered",
+    builder_spec = builder_config.builder_spec(
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.DEBUG,
+            target_arch = builder_config.target_arch.INTEL,
+            target_bits = 32,
+            target_platform = builder_config.target_platform.WIN,
+        ),
+    ),
+    gn_args = gn_args.config(
+        configs = [
+            "component",
+            "debug",
+            "opencl",
+            "win_clang",
+            "x86",
+        ],
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "compile|win|x86",
+        short_name = "dbg",
     ),
 )
 
@@ -506,6 +641,30 @@ angle_win_parent_builder(
 ################################################################################
 # Child Testers                                                                #
 ################################################################################
+
+ci.thin_tester(
+    name = "angle-android-arm64-google-pixel4-perf",
+    description_html = "Perf tests release ANGLE on Android/arm64 on Pixel 4 devices",
+    parent = "angle-android-arm64-builder-perf",
+    builder_spec = builder_config.builder_spec(
+        execution_mode = builder_config.execution_mode.TEST,
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2_android",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.RELEASE,
+            target_arch = builder_config.target_arch.ARM,
+            target_bits = 64,
+            target_platform = builder_config.target_platform.ANDROID,
+        ),
+        run_tests_serially = True,
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "perf|android|arm64",
+        short_name = "p4",
+    ),
+)
 
 ci.thin_tester(
     name = "angle-android-arm64-google-pixel4-rel",
@@ -555,6 +714,30 @@ ci.thin_tester(
         short_name = "p6",
     ),
     list_view = "exp",
+)
+
+ci.thin_tester(
+    name = "angle-android-arm64-google-pixel6-perf",
+    description_html = "Perf tests release ANGLE on Android/arm64 on Pixel 6 devices",
+    parent = "angle-android-arm64-builder-perf",
+    builder_spec = builder_config.builder_spec(
+        execution_mode = builder_config.execution_mode.TEST,
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2_android",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.RELEASE,
+            target_arch = builder_config.target_arch.ARM,
+            target_bits = 64,
+            target_platform = builder_config.target_platform.ANDROID,
+        ),
+        run_tests_serially = True,
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "perf|android|arm64",
+        short_name = "p6",
+    ),
 )
 
 ci.thin_tester(
@@ -647,6 +830,16 @@ ci.thin_tester(
         ),
         run_tests_serially = True,
     ),
+    targets = targets.bundle(
+        targets = [],
+        mixins = [
+            "linux_amd_rx_5500_xt",
+        ],
+    ),
+    targets_settings = targets.settings(
+        browser_config = targets.browser_config.RELEASE,
+        os_type = targets.os_type.LINUX,
+    ),
     console_view_entry = consoles.console_view_entry(
         category = "test|linux|x64|rel",
         short_name = "5500",
@@ -671,12 +864,46 @@ ci.thin_tester(
         ),
         run_tests_serially = True,
     ),
+    targets = targets.bundle(
+        targets = [],
+        mixins = [
+            "linux_intel_uhd_630_experimental",
+        ],
+    ),
+    targets_settings = targets.settings(
+        browser_config = targets.browser_config.RELEASE,
+        os_type = targets.os_type.LINUX,
+    ),
     # Uncomment this entry when this experimental tester is actually in use.
     # console_view_entry = consoles.console_view_entry(
     #     category = "test|linux|x64|rel|exp",
     #     short_name = "630",
     # ),
     list_view = "exp",
+)
+
+ci.thin_tester(
+    name = "angle-linux-x64-intel-uhd630-perf",
+    description_html = "Perf tests release ANGLE on Linux/x64 on Intel UHD 630 GPUs",
+    parent = "angle-linux-x64-builder-perf",
+    builder_spec = builder_config.builder_spec(
+        execution_mode = builder_config.execution_mode.TEST,
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.RELEASE,
+            target_arch = builder_config.target_arch.INTEL,
+            target_bits = 64,
+            target_platform = builder_config.target_platform.LINUX,
+        ),
+        run_tests_serially = True,
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "perf|linux|x64",
+        short_name = "630",
+    ),
 )
 
 ci.thin_tester(
@@ -696,6 +923,30 @@ ci.thin_tester(
             target_platform = builder_config.target_platform.LINUX,
         ),
         run_tests_serially = True,
+    ),
+    targets = targets.bundle(
+        targets = [
+            "linux_real_hardware_common_gtests",
+            "common_isolated_scripts",
+        ],
+        mixins = [
+            "linux_intel_uhd_630_stable",
+        ],
+        per_test_modifications = {
+            "angle_end2end_tests": targets.per_test_modification(
+                replacements = targets.replacements(
+                    args = {
+                        # anglebug.com/408276172 suspecting WebGPU backend flakiness caused by
+                        # multiprocess
+                        "--max-processes": "1",
+                    },
+                ),
+            ),
+        },
+    ),
+    targets_settings = targets.settings(
+        browser_config = targets.browser_config.RELEASE,
+        os_type = targets.os_type.LINUX,
     ),
     console_view_entry = consoles.console_view_entry(
         category = "test|linux|x64|rel",
@@ -721,12 +972,46 @@ ci.thin_tester(
         ),
         run_tests_serially = True,
     ),
+    targets = targets.bundle(
+        targets = [],
+        mixins = [
+            "linux_nvidia_gtx_1660_experimental",
+        ],
+    ),
+    targets_settings = targets.settings(
+        browser_config = targets.browser_config.RELEASE,
+        os_type = targets.os_type.LINUX,
+    ),
     # Uncomment this entry when this experimental tester is actually in use.
     # console_view_entry = consoles.console_view_entry(
     #     category = "test|linux|x64|rel|exp",
     #     short_name = "1660",
     # ),
     list_view = "exp",
+)
+
+ci.thin_tester(
+    name = "angle-linux-x64-nvidia-gtx1660-perf",
+    description_html = "Perf tests release ANGLE on Linux/x64 on NVIDIA GTX 1660 GPUs",
+    parent = "angle-linux-x64-builder-perf",
+    builder_spec = builder_config.builder_spec(
+        execution_mode = builder_config.execution_mode.TEST,
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.RELEASE,
+            target_arch = builder_config.target_arch.INTEL,
+            target_bits = 64,
+            target_platform = builder_config.target_platform.LINUX,
+        ),
+        run_tests_serially = True,
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "perf|linux|x64",
+        short_name = "1660",
+    ),
 )
 
 ci.thin_tester(
@@ -746,6 +1031,25 @@ ci.thin_tester(
             target_platform = builder_config.target_platform.LINUX,
         ),
         run_tests_serially = True,
+    ),
+    targets = targets.bundle(
+        targets = [
+            "linux_real_hardware_common_gtests",
+            "linux_nvidia_only_gtests",
+            "common_isolated_scripts",
+        ],
+        mixins = [
+            "linux_nvidia_gtx_1660_stable",
+        ],
+        per_test_modifications = {
+            "angle_deqp_egl_vulkan_tests": targets.remove(
+                reason = "Occasionally hangs the machine http://anglebug.com/368553850",
+            ),
+        },
+    ),
+    targets_settings = targets.settings(
+        browser_config = targets.browser_config.RELEASE,
+        os_type = targets.os_type.LINUX,
     ),
     console_view_entry = consoles.console_view_entry(
         category = "test|linux|x64|rel",
@@ -796,6 +1100,29 @@ ci.thin_tester(
         ),
         run_tests_serially = True,
     ),
+    targets = targets.bundle(
+        targets = [
+            "swangle_gtests",
+            "swangle_restricted_trace_gold_tests",
+        ],
+        mixins = [
+            "gpu_linux_gce_stable",
+            "timeout_15m",
+        ],
+        per_test_modifications = {
+            "swangle_restricted_trace_gold_tests": targets.mixin(
+                # anglebug.com/505781390 long time to download traces
+                swarming = targets.swarming(
+                    hard_timeout_sec = 1800,
+                    io_timeout_sec = 1800,
+                ),
+            ),
+        },
+    ),
+    targets_settings = targets.settings(
+        browser_config = targets.browser_config.RELEASE,
+        os_type = targets.os_type.LINUX,
+    ),
     console_view_entry = consoles.console_view_entry(
         category = "test|linux|x64|rel",
         short_name = "sws",
@@ -833,7 +1160,7 @@ ci.thin_tester(
     builder_spec = builder_config.builder_spec(
         execution_mode = builder_config.execution_mode.TEST,
         gclient_config = builder_config.gclient_config(
-            config = "angle_v2",
+            config = "angle_v2_nointernal",
         ),
         chromium_config = builder_config.chromium_config(
             config = "angle_v2_clang",
@@ -842,6 +1169,7 @@ ci.thin_tester(
             target_bits = 64,
             target_platform = builder_config.target_platform.MAC,
         ),
+        shallow = True,
         run_tests_serially = True,
     ),
     console_view_entry = consoles.console_view_entry(
@@ -981,7 +1309,7 @@ ci.thin_tester(
     builder_spec = builder_config.builder_spec(
         execution_mode = builder_config.execution_mode.TEST,
         gclient_config = builder_config.gclient_config(
-            config = "angle_v2",
+            config = "angle_v2_nointernal",
         ),
         chromium_config = builder_config.chromium_config(
             config = "angle_v2_clang",
@@ -990,6 +1318,7 @@ ci.thin_tester(
             target_bits = 64,
             target_platform = builder_config.target_platform.WIN,
         ),
+        no_history = True,
         run_tests_serially = True,
     ),
     # Uncomment this entry when this experimental tester is actually in use.
@@ -1019,7 +1348,7 @@ ci.thin_tester(
         run_tests_serially = True,
     ),
     console_view_entry = consoles.console_view_entry(
-        category = "test|win|x64|perf",
+        category = "perf|win|x64",
         short_name = "630",
     ),
 )
@@ -1031,7 +1360,7 @@ ci.thin_tester(
     builder_spec = builder_config.builder_spec(
         execution_mode = builder_config.execution_mode.TEST,
         gclient_config = builder_config.gclient_config(
-            config = "angle_v2",
+            config = "angle_v2_nointernal",
         ),
         chromium_config = builder_config.chromium_config(
             config = "angle_v2_clang",
@@ -1040,6 +1369,7 @@ ci.thin_tester(
             target_bits = 64,
             target_platform = builder_config.target_platform.WIN,
         ),
+        no_history = True,
         run_tests_serially = True,
     ),
     console_view_entry = consoles.console_view_entry(
@@ -1055,7 +1385,7 @@ ci.thin_tester(
     builder_spec = builder_config.builder_spec(
         execution_mode = builder_config.execution_mode.TEST,
         gclient_config = builder_config.gclient_config(
-            config = "angle_v2",
+            config = "angle_v2_nointernal",
         ),
         chromium_config = builder_config.chromium_config(
             config = "angle_v2_clang",
@@ -1064,6 +1394,7 @@ ci.thin_tester(
             target_bits = 64,
             target_platform = builder_config.target_platform.WIN,
         ),
+        no_history = True,
         run_tests_serially = True,
     ),
     console_view_entry = consoles.console_view_entry(
@@ -1079,7 +1410,7 @@ ci.thin_tester(
     builder_spec = builder_config.builder_spec(
         execution_mode = builder_config.execution_mode.TEST,
         gclient_config = builder_config.gclient_config(
-            config = "angle_v2",
+            config = "angle_v2_nointernal",
         ),
         chromium_config = builder_config.chromium_config(
             config = "angle_v2_clang",
@@ -1088,6 +1419,7 @@ ci.thin_tester(
             target_bits = 64,
             target_platform = builder_config.target_platform.WIN,
         ),
+        no_history = True,
         run_tests_serially = True,
     ),
     # Uncomment this entry when this experimental tester is actually in use.
@@ -1117,7 +1449,7 @@ ci.thin_tester(
         run_tests_serially = True,
     ),
     console_view_entry = consoles.console_view_entry(
-        category = "test|win|x64|perf",
+        category = "perf|win|x64",
         short_name = "1660",
     ),
 )
@@ -1129,7 +1461,7 @@ ci.thin_tester(
     builder_spec = builder_config.builder_spec(
         execution_mode = builder_config.execution_mode.TEST,
         gclient_config = builder_config.gclient_config(
-            config = "angle_v2",
+            config = "angle_v2_nointernal",
         ),
         chromium_config = builder_config.chromium_config(
             config = "angle_v2_clang",
@@ -1138,6 +1470,7 @@ ci.thin_tester(
             target_bits = 64,
             target_platform = builder_config.target_platform.WIN,
         ),
+        no_history = True,
         run_tests_serially = True,
     ),
     console_view_entry = consoles.console_view_entry(
@@ -1204,6 +1537,40 @@ angle_linux_parent_builder(
     ),
     console_view_entry = consoles.console_view_entry(
         category = "trace|linux|x64",
+        short_name = "rel",
+    ),
+)
+
+angle_win_parent_builder(
+    name = "angle-win-x64-trace",
+    description_html = "Runs ANGLE GLES trace tests on Windows/x64 with SwiftShader",
+    schedule = "triggered",
+    properties = {
+        "run_trace_tests": True,
+    },
+    builder_spec = builder_config.builder_spec(
+        gclient_config = builder_config.gclient_config(
+            config = "angle_v2_nointernal",
+        ),
+        chromium_config = builder_config.chromium_config(
+            config = "angle_v2_clang",
+            build_config = builder_config.build_config.RELEASE,
+            target_arch = builder_config.target_arch.INTEL,
+            target_bits = 64,
+            target_platform = builder_config.target_platform.WIN,
+        ),
+    ),
+    # These GN args are not actually used since the trace tests do compilation
+    # as part of running, but the recipe may try to "compile" as a side effect
+    # of reusing the Chromium recipe code, so have some valid args.
+    gn_args = gn_args.config(
+        configs = [
+            "win_clang",
+            "x64",
+        ],
+    ),
+    console_view_entry = consoles.console_view_entry(
+        category = "trace|win|x64",
         short_name = "rel",
     ),
 )

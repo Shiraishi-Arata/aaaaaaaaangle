@@ -99,6 +99,10 @@ def angle_win_functional_cq_tester(**kwargs):
     kwargs = apply_win_cq_builder_defaults(kwargs)
     try_.builder(**kwargs)
 
+def angle_linux_presubmit_builder(**kwargs):
+    kwargs = apply_linux_cq_builder_defaults(kwargs)
+    try_.presubmit_builder(**kwargs)
+
 ## Functional testers
 
 angle_linux_functional_cq_tester(
@@ -215,6 +219,15 @@ angle_mac_functional_cq_tester(
 )
 
 angle_win_functional_cq_tester(
+    name = "angle-cq-win-x64-dbg",
+    description_html = "Compiles all debug ANGLE targets for Win/x64. Blocks CL submission.",
+    mirrors = [
+        "ci/angle-win-x64-builder-dbg",
+    ],
+    gn_args = "ci/angle-win-x64-builder-dbg",
+)
+
+angle_win_functional_cq_tester(
     name = "angle-cq-win-x64-rel",
     description_html = "Tests release ANGLE on Win/x64 on multiple hardware configs. Blocks CL submission.",
     mirrors = [
@@ -226,6 +239,15 @@ angle_win_functional_cq_tester(
 )
 
 angle_win_functional_cq_tester(
+    name = "angle-cq-win-x86-dbg",
+    description_html = "Compiles all debug ANGLE targets for Win/x86. Blocks CL submission.",
+    mirrors = [
+        "ci/angle-win-x86-builder-dbg",
+    ],
+    gn_args = "ci/angle-win-x86-builder-dbg",
+)
+
+angle_win_functional_cq_tester(
     name = "angle-cq-win-x86-rel",
     description_html = "Tests release ANGLE on Win/x86 on multiple hardware configs. Blocks CL submission.",
     mirrors = [
@@ -233,6 +255,25 @@ angle_win_functional_cq_tester(
         "ci/angle-win-x86-sws-rel",
     ],
     gn_args = "ci/angle-win-x86-builder-rel",
+)
+
+# Presubmit-only testers
+
+angle_linux_presubmit_builder(
+    name = "presubmit",
+    description_html = "Runs basic presubmit checks on Linux machines",
+    executable = "recipe:run_presubmit",
+    cq_settings = try_.cq_settings(
+        on_default_cq = True,
+    ),
+    properties = {
+        "repo_name": "angle",
+        "runhooks": True,
+    },
+    test_presentation = resultdb.test_presentation(
+        column_keys = ["v.gpu"],
+        grouping_keys = ["status", "v.test_suite"],
+    ),
 )
 
 ################################################################################
@@ -262,6 +303,10 @@ def angle_linux_trace_tester(**kwargs):
     kwargs = apply_trace_tester_defaults(kwargs)
     angle_linux_functional_cq_tester(**kwargs)
 
+def angle_win_trace_tester(**kwargs):
+    kwargs = apply_trace_tester_defaults(kwargs)
+    angle_win_functional_cq_tester(**kwargs)
+
 ## Trace testers
 
 angle_linux_trace_tester(
@@ -274,6 +319,18 @@ angle_linux_trace_tester(
         "run_trace_tests": True,
     },
     gn_args = "ci/angle-linux-x64-trace",
+)
+
+angle_win_trace_tester(
+    name = "angle-cq-win-x64-trace",
+    description_html = "Runs ANGLE GLES trace tests on Windows/x64 with SwiftShader. Blocks CL submission.",
+    mirrors = [
+        "ci/angle-win-x64-trace",
+    ],
+    properties = {
+        "run_trace_tests": True,
+    },
+    gn_args = "ci/angle-win-x64-trace",
 )
 
 ################################################################################
