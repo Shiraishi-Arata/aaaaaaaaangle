@@ -2563,7 +2563,7 @@ const TConstantUnion *TIntermConstantUnion::FoldBinary(TOperator op,
             resultArray = new TConstantUnion[objectSize];
             for (size_t i = 0; i < objectSize; i++)
             {
-                if (leftType.getBasicType() == EbtFloat)
+                if (IsFloatDivision(leftType.getBasicType(), rightType.getBasicType()))
                 {
                     // Float division requested, possibly with implicit conversion
                     ASSERT(op == EOpDiv);
@@ -2860,6 +2860,20 @@ const TConstantUnion *TIntermConstantUnion::FoldBinary(TOperator op,
             return nullptr;
     }
     return resultArray;
+}
+
+bool TIntermConstantUnion::IsFloatDivision(TBasicType t1, TBasicType t2)
+{
+    ImplicitTypeConversion conversion = GetConversion(t1, t2);
+    ASSERT(conversion != ImplicitTypeConversion::Invalid);
+    if (conversion == ImplicitTypeConversion::Same)
+    {
+        if (t1 == EbtFloat)
+            return true;
+        return false;
+    }
+    ASSERT(t1 == EbtFloat || t2 == EbtFloat);
+    return true;
 }
 
 // The fold functions do operations on a constant at GLSL compile time, without generating run-time
