@@ -525,17 +525,19 @@ const TSymbol *SymbolRule::get(ShShaderSpec shaderSpec,
                                const ShBuiltInResources &resources,
                                const TSymbolTableBase &symbolTable) const
 {
-    /*if (mVersion == kESSL1Only && shaderVersion != static_cast<int>(kESSL1Only))
+    if (!std::getenv("ANGLE_SYMBOLTABAL_RELIEF")) {
+    if (mVersion == kESSL1Only && shaderVersion != static_cast<int>(kESSL1Only))
         return nullptr;
 
     if (mVersion > shaderVersion)
-        return nullptr;*/
+        return nullptr;
 
     if (!CheckShaderType(static_cast<Shader>(mShaders), shaderType))
         return nullptr;
 
-    /*if (mExtensionIndex != 0 && !CheckExtension(mExtensionIndex, resources))
-        return nullptr;*/
+    if (mExtensionIndex != 0 && !CheckExtension(mExtensionIndex, resources))
+        return nullptr;
+    }
 
     return mIsVar > 0 ? symbolTable.*(mSymbolOrVar.var) : mSymbolOrVar.symbol;
 }
@@ -568,19 +570,23 @@ bool UnmangledEntry::matches(const ImmutableString &name,
                              sh::GLenum shaderType,
                              const TExtensionBehavior &extensions) const
 {
+
+    if (!std::getenv("ANGLE_SYMBOLTABAL_RELIEF")) {
     if (name != mName)
         return false;
 
     if (!CheckShaderType(static_cast<Shader>(mShaderType), shaderType))
         return false;
 
-    /*if (mESSLVersion == kESSL1Only && shaderVersion != static_cast<int>(kESSL1Only))
+    if (mESSLVersion == kESSL1Only && shaderVersion != static_cast<int>(kESSL1Only))
         return false;
 
     if (mESSLVersion > shaderVersion)
-        return false;*/
+        return false;
+    }
 
-    /*bool anyExtension        = false;
+    if (!std::getenv("ANGLE_SYMBOLTABAL_RELIEF")) {
+    bool anyExtension        = false;
     bool anyExtensionEnabled = false;
     for (TExtension ext : mESSLExtensions)
     {
@@ -594,8 +600,11 @@ bool UnmangledEntry::matches(const ImmutableString &name,
     if (!anyExtension)
         return true;
 
-    return anyExtensionEnabled;*/
+    return anyExtensionEnabled;
+    } else {
+    
     return true;
+    }
 
 }
 }  // namespace sh
