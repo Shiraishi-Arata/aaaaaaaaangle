@@ -84,7 +84,7 @@ Compiler::Compiler(rx::GLImplFactory *implFactory, const State &state, egl::Disp
         extensions.textureStorageMultisample2dArrayOES;
     mResources.OES_texture_3D = extensions.texture3DOES;
     mResources.ANGLE_base_vertex_base_instance_shader_builtin =
-        extensions.baseVertexBaseInstanceShaderBuiltinANGLE;
+        true;
     mResources.ANGLE_multi_draw                 = extensions.multiDrawANGLE;
     mResources.ANGLE_shader_pixel_local_storage = extensions.shaderPixelLocalStorageANGLE;
     mResources.ANGLE_texture_multisample        = extensions.textureMultisampleANGLE;
