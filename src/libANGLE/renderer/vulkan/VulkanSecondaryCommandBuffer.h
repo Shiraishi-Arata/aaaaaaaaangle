@@ -130,11 +130,11 @@ class VulkanSecondaryCommandBuffer : public priv::CommandBuffer
                      int32_t vertexOffset,
                      uint32_t firstInstance);
     void drawIndexed(uint32_t indexCount);
-    void drawIndexedBaseVertex(uint32_t indexCount, int32_t vertexOffset);
+    void drawIndexedBaseVertex(uint32_t indexCount, uint32_t vertexOffset);
     void drawIndexedInstanced(uint32_t indexCount, uint32_t instanceCount);
     void drawIndexedInstancedBaseVertex(uint32_t indexCount,
                                         uint32_t instanceCount,
-                                        int32_t vertexOffset);
+                                        uint32_t vertexOffset);
     void drawIndexedInstancedBaseVertexBaseInstance(uint32_t indexCount,
                                                     uint32_t instanceCount,
                                                     uint32_t firstIndex,
@@ -450,7 +450,7 @@ ANGLE_INLINE void VulkanSecondaryCommandBuffer::drawIndexed(uint32_t indexCount)
 }
 
 ANGLE_INLINE void VulkanSecondaryCommandBuffer::drawIndexedBaseVertex(uint32_t indexCount,
-                                                                      int32_t vertexOffset)
+                                                                      uint32_t vertexOffset)
 {
     onRecordCommand();
     mCommandTracker.onDraw();
@@ -468,7 +468,7 @@ ANGLE_INLINE void VulkanSecondaryCommandBuffer::drawIndexedInstanced(uint32_t in
 ANGLE_INLINE void VulkanSecondaryCommandBuffer::drawIndexedInstancedBaseVertex(
     uint32_t indexCount,
     uint32_t instanceCount,
-    int32_t vertexOffset)
+    uint32_t vertexOffset)
 {
     onRecordCommand();
     mCommandTracker.onDraw();

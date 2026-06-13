@@ -423,7 +423,8 @@ bool ValidateDrawElementsInstancedBase(const Context *context,
                                        DrawElementsType type,
                                        const void *indices,
                                        GLsizei primcount,
-                                       GLuint baseinstance);
+                                       GLuint baseinstance,
+                                       GLint basevertex = 0);
 
 bool ValidateDrawInstancedANGLE(const Context *context, angle::EntryPoint entryPoint);
 
@@ -1049,7 +1050,8 @@ ANGLE_INLINE bool ValidateDrawElementsCommon(const Context *context,
                                              GLsizei count,
                                              DrawElementsType type,
                                              const void *indices,
-                                             GLsizei primcount)
+                                             GLsizei primcount,
+                                             GLint basevertex = 0)
 {
     if (ANGLE_UNLIKELY(!ValidateDrawElementsBase(context, entryPoint, mode, type)))
     {
@@ -1154,8 +1156,6 @@ ANGLE_INLINE bool ValidateDrawElementsCommon(const Context *context,
     if (ANGLE_UNLIKELY(context->isBufferAccessValidationEnabled()) && ANGLE_UNLIKELY(primcount > 0))
     {
         // Use the parameter buffer to retrieve and cache the index range.
-        // TODO: this calculation should take basevertex into account for
-        // glDrawElementsInstancedBaseVertexBaseInstanceEXT.  http://anglebug.com/41481166
         IndexRange indexRange{IndexRange::Undefined()};
         ANGLE_VALIDATION_TRY(vao->getIndexRange(context, type, count, indices,
                                                 context->getState().isPrimitiveRestartEnabled(),
@@ -1164,16 +1164,25 @@ ANGLE_INLINE bool ValidateDrawElementsCommon(const Context *context,
         // No op if there are no real indices in the index data (all are primitive restart).
         if (!indexRange.isEmpty())
         {
+            const GLint64 minVertex = static_cast<GLint64>(indexRange.start()) + basevertex;
+            const GLint64 maxVertex = static_cast<GLint64>(indexRange.end()) + basevertex;
+
             // If we use an index greater than our maximum supported index range, return an error.
             // The ES3 spec does not specify behaviour here, it is undefined, but ANGLE should
             // always return an error if possible here.
-            if (static_cast<GLint64>(indexRange.end()) >= context->getCaps().maxElementIndex)
+            if (maxVertex >= context->getCaps().maxElementIndex)
             {
                 ANGLE_VALIDATION_ERROR(GL_INVALID_OPERATION, err::kExceedsMaxElement);
                 return false;
             }
 
-            if (!ValidateDrawAttribs(context, entryPoint, static_cast<GLint64>(indexRange.end())))
+            if (minVertex < 0)
+            {
+                RecordDrawAttribsError(context, entryPoint);
+                return false;
+            }
+
+            if (!ValidateDrawAttribs(context, entryPoint, maxVertex))
             {
                 return false;
             }
