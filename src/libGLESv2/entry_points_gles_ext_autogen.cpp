@@ -8544,15 +8544,15 @@ void GL_APIENTRY GL_DrawElementsBaseVertexEXT(GLenum mode,
 {
     ASSERT(!egl::Display::GetCurrentThreadUnlockedTailCall()->any());
     Context *context = GetValidGlobalContext();
+    ANGLE_UNSAFE_TODO(
+        EVENT(context, GLDrawElementsBaseVertexEXT,
+              "context = %d, mode = %s, count = %d, type = %s, indices = 0x%016" PRIxPTR
+              ", basevertex = %d",
+              CID(context), GLenumToString(GLESEnum::PrimitiveType, mode), count,
+              GLenumToString(GLESEnum::DrawElementsType, type), (uintptr_t)indices, basevertex));
 
     if (ANGLE_LIKELY(context != nullptr))
     {
-        ANGLE_UNSAFE_TODO(
-            EVENT(context, GLDrawElementsBaseVertexEXT,
-                  "context = %d, mode = %s, count = %d, type = %s, indices = 0x%016" PRIxPTR
-                  ", basevertex = %d",
-                  CID(context), GLenumToString(GLESEnum::PrimitiveType, mode), count,
-                  GLenumToString(GLESEnum::DrawElementsType, type), (uintptr_t)indices, basevertex));
         PrimitiveMode modePacked    = PackParam<PrimitiveMode>(mode);
         DrawElementsType typePacked = PackParam<DrawElementsType>(type);
         SCOPED_SHARE_CONTEXT_LOCK(context);
@@ -16211,15 +16211,15 @@ void GL_APIENTRY GL_DrawElementsBaseVertexOES(GLenum mode,
 {
     ASSERT(!egl::Display::GetCurrentThreadUnlockedTailCall()->any());
     Context *context = GetValidGlobalContext();
+    ANGLE_UNSAFE_TODO(
+        EVENT(context, GLDrawElementsBaseVertexOES,
+              "context = %d, mode = %s, count = %d, type = %s, indices = 0x%016" PRIxPTR
+              ", basevertex = %d",
+              CID(context), GLenumToString(GLESEnum::PrimitiveType, mode), count,
+              GLenumToString(GLESEnum::DrawElementsType, type), (uintptr_t)indices, basevertex));
 
     if (ANGLE_LIKELY(context != nullptr))
     {
-        ANGLE_UNSAFE_TODO(
-            EVENT(context, GLDrawElementsBaseVertexOES,
-                  "context = %d, mode = %s, count = %d, type = %s, indices = 0x%016" PRIxPTR
-                  ", basevertex = %d",
-                  CID(context), GLenumToString(GLESEnum::PrimitiveType, mode), count,
-                  GLenumToString(GLESEnum::DrawElementsType, type), (uintptr_t)indices, basevertex));
         PrimitiveMode modePacked    = PackParam<PrimitiveMode>(mode);
         DrawElementsType typePacked = PackParam<DrawElementsType>(type);
         SCOPED_SHARE_CONTEXT_LOCK(context);
