@@ -3033,19 +3033,8 @@ void Context::drawElementsBaseVertex(PrimitiveMode mode,
     }
 
     ANGLE_CONTEXT_TRY(prepareForDraw(mode));
-
-    // A base vertex of zero is equivalent to a regular indexed draw.  Prefer the
-    // non-base-vertex backend path in that case, as some GLES drivers expose
-    // glDrawElementsBaseVertex but are less robust in that path.
-    if (basevertex == 0)
-    {
-        ANGLE_CONTEXT_TRY(mImplementation->drawElements(this, mode, count, type, indices));
-    }
-    else
-    {
-        ANGLE_CONTEXT_TRY(
-            mImplementation->drawElementsBaseVertex(this, mode, count, type, indices, basevertex));
-    }
+    ANGLE_CONTEXT_TRY(
+        mImplementation->drawElementsBaseVertex(this, mode, count, type, indices, basevertex));
     MarkShaderStorageUsage(this);
 }
 
