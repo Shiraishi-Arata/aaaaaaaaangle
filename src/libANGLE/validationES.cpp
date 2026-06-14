@@ -934,7 +934,8 @@ bool ValidateDrawElementsInstancedBase(const Context *context,
                                        DrawElementsType type,
                                        const void *indices,
                                        GLsizei primcount,
-                                       GLuint baseinstance)
+                                       GLuint baseinstance,
+                                       GLint basevertex)
 {
     if (primcount <= 0)
     {
